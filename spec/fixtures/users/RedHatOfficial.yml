@@ -1,0 +1,81 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/orgs/RedHatOfficial/members?per_page=100
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.25.1
+      Content-Type:
+      - application/json
+      Authorization:
+      - token <GITHUB_API_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Wed, 12 Oct 2022 19:16:58 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding, Accept, X-Requested-With
+      Etag:
+      - W/"ea3d08630d27ec0e20a6ad39d14929bb11c3a1bed461d3781c6c36a8f72b677b"
+      X-Oauth-Scopes:
+      - public_repo
+      X-Accepted-Oauth-Scopes:
+      - ''
+      X-Github-Media-Type:
+      - github.v3; format=json
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4997'
+      X-Ratelimit-Reset:
+      - '1665605780'
+      X-Ratelimit-Used:
+      - '3'
+      X-Ratelimit-Resource:
+      - core
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO,
+        X-GitHub-Request-Id, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Github-Request-Id:
+      - F41C:45D2:5A7AEB:B83CE0:634712AA
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"login":"vcr","id":1998949,"node_id":"MDQ6VXNlcjE5OTg5NDk=","avatar_url":"https://avatars.githubusercontent.com/u/1998949?v=4","gravatar_id":"","url":"https://api.github.com/users/vcr","html_url":"https://github.com/vcr","followers_url":"https://api.github.com/users/vcr/followers","following_url":"https://api.github.com/users/vcr/following{/other_user}","gists_url":"https://api.github.com/users/vcr/gists{/gist_id}","starred_url":"https://api.github.com/users/vcr/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/vcr/subscriptions","organizations_url":"https://api.github.com/users/vcr/orgs","repos_url":"https://api.github.com/users/vcr/repos","events_url":"https://api.github.com/users/vcr/events{/privacy}","received_events_url":"https://api.github.com/users/vcr/received_events","type":"User","site_admin":false},{"login":"dmc5179","id":2169791,"node_id":"MDQ6VXNlcjIxNjk3OTE=","avatar_url":"https://avatars.githubusercontent.com/u/2169791?v=4","gravatar_id":"","url":"https://api.github.com/users/dmc5179","html_url":"https://github.com/dmc5179","followers_url":"https://api.github.com/users/dmc5179/followers","following_url":"https://api.github.com/users/dmc5179/following{/other_user}","gists_url":"https://api.github.com/users/dmc5179/gists{/gist_id}","starred_url":"https://api.github.com/users/dmc5179/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/dmc5179/subscriptions","organizations_url":"https://api.github.com/users/dmc5179/orgs","repos_url":"https://api.github.com/users/dmc5179/repos","events_url":"https://api.github.com/users/dmc5179/events{/privacy}","received_events_url":"https://api.github.com/users/dmc5179/received_events","type":"User","site_admin":false},{"login":"eschabell","id":437001,"node_id":"MDQ6VXNlcjQzNzAwMQ==","avatar_url":"https://avatars.githubusercontent.com/u/437001?v=4","gravatar_id":"","url":"https://api.github.com/users/eschabell","html_url":"https://github.com/eschabell","followers_url":"https://api.github.com/users/eschabell/followers","following_url":"https://api.github.com/users/eschabell/following{/other_user}","gists_url":"https://api.github.com/users/eschabell/gists{/gist_id}","starred_url":"https://api.github.com/users/eschabell/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/eschabell/subscriptions","organizations_url":"https://api.github.com/users/eschabell/orgs","repos_url":"https://api.github.com/users/eschabell/repos","events_url":"https://api.github.com/users/eschabell/events{/privacy}","received_events_url":"https://api.github.com/users/eschabell/received_events","type":"User","site_admin":false},{"login":"Fryguy","id":52120,"node_id":"MDQ6VXNlcjUyMTIw","avatar_url":"https://avatars.githubusercontent.com/u/52120?v=4","gravatar_id":"","url":"https://api.github.com/users/Fryguy","html_url":"https://github.com/Fryguy","followers_url":"https://api.github.com/users/Fryguy/followers","following_url":"https://api.github.com/users/Fryguy/following{/other_user}","gists_url":"https://api.github.com/users/Fryguy/gists{/gist_id}","starred_url":"https://api.github.com/users/Fryguy/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Fryguy/subscriptions","organizations_url":"https://api.github.com/users/Fryguy/orgs","repos_url":"https://api.github.com/users/Fryguy/repos","events_url":"https://api.github.com/users/Fryguy/events{/privacy}","received_events_url":"https://api.github.com/users/Fryguy/received_events","type":"User","site_admin":false},{"login":"starryeyez024","id":456863,"node_id":"MDQ6VXNlcjQ1Njg2Mw==","avatar_url":"https://avatars.githubusercontent.com/u/456863?v=4","gravatar_id":"","url":"https://api.github.com/users/starryeyez024","html_url":"https://github.com/starryeyez024","followers_url":"https://api.github.com/users/starryeyez024/followers","following_url":"https://api.github.com/users/starryeyez024/following{/other_user}","gists_url":"https://api.github.com/users/starryeyez024/gists{/gist_id}","starred_url":"https://api.github.com/users/starryeyez024/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/starryeyez024/subscriptions","organizations_url":"https://api.github.com/users/starryeyez024/orgs","repos_url":"https://api.github.com/users/starryeyez024/repos","events_url":"https://api.github.com/users/starryeyez024/events{/privacy}","received_events_url":"https://api.github.com/users/starryeyez024/received_events","type":"User","site_admin":false},{"login":"suehle","id":2934157,"node_id":"MDQ6VXNlcjI5MzQxNTc=","avatar_url":"https://avatars.githubusercontent.com/u/2934157?v=4","gravatar_id":"","url":"https://api.github.com/users/suehle","html_url":"https://github.com/suehle","followers_url":"https://api.github.com/users/suehle/followers","following_url":"https://api.github.com/users/suehle/following{/other_user}","gists_url":"https://api.github.com/users/suehle/gists{/gist_id}","starred_url":"https://api.github.com/users/suehle/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/suehle/subscriptions","organizations_url":"https://api.github.com/users/suehle/orgs","repos_url":"https://api.github.com/users/suehle/repos","events_url":"https://api.github.com/users/suehle/events{/privacy}","received_events_url":"https://api.github.com/users/suehle/received_events","type":"User","site_admin":false}]'
+  recorded_at: Wed, 12 Oct 2022 19:16:58 GMT
+recorded_with: VCR 6.1.0
