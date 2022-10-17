@@ -12,12 +12,23 @@ describe 'project org' do
     ].join("\n")
   end
 
-  it 'members' do
-    expect(`"#{project}" --no-cache --vcr-cassette-name=users/RedHatOfficial --org RedHatOfficial org members`.strip).to eq [
-      'org: RedHatOfficial',
-      'members: 6',
-      'missing in data/users/members.txt: vcr dmc5179 eschabell Fryguy starryeyez024 suehle',
-      'no longer members:'
-    ].join("\n")
+  context 'without data files' do
+    RENAMED_DATA = File.join(GitHub::Data.data, '.tmp')
+    before do
+      File.rename(GitHub::Data.data, RENAMED_DATA) if File.exist?(GitHub::Data.data)
+    end
+
+    after do
+      File.rename(RENAMED_DATA, GitHub::Data.data) if File.exist?(RENAMED_DATA)
+    end
+
+    it 'members' do
+      expect(`"#{project}" --no-cache --vcr-cassette-name=users/RedHatOfficial --org RedHatOfficial org members`.strip).to eq [
+        'org: RedHatOfficial',
+        'members: 6',
+        'missing in data/users/members.txt: vcr dmc5179 eschabell Fryguy starryeyez024 suehle',
+        'no longer members:'
+      ].join("\n")
+    end
   end
 end
