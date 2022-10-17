@@ -1,0 +1,141 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/search/issues?per_page=1000&q=repo:RedHatOfficial/RedHatOfficial.github.io%20state:merged%20is:pull-request%20archived:false%20is:closed%20merged:2022-09-01..2022-09-30
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.25.1
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Mon, 17 Oct 2022 16:31:37 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+      Vary:
+      - Accept, Accept-Encoding, Accept, X-Requested-With
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO,
+        X-GitHub-Request-Id, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Ratelimit-Limit:
+      - '10'
+      X-Ratelimit-Remaining:
+      - '9'
+      X-Ratelimit-Reset:
+      - '1666024357'
+      X-Ratelimit-Resource:
+      - search
+      X-Ratelimit-Used:
+      - '1'
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '2912'
+      X-Github-Request-Id:
+      - 16DF:593C:11E8E0F:24B7C4C:634D8369
+    body:
+      encoding: UTF-8
+      string: '{"total_count":5,"incomplete_results":false,"items":[{"url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/331","repository_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io","labels_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/331/labels{/name}","comments_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/331/comments","events_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/331/events","html_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/331","id":1374168324,"node_id":"PR_kwDOB4Ykw84_Abo9","number":331,"title":"Add
+        Packit","user":{"login":"jpopelka","id":288686,"node_id":"MDQ6VXNlcjI4ODY4Ng==","avatar_url":"https://avatars.githubusercontent.com/u/288686?v=4","gravatar_id":"","url":"https://api.github.com/users/jpopelka","html_url":"https://github.com/jpopelka","followers_url":"https://api.github.com/users/jpopelka/followers","following_url":"https://api.github.com/users/jpopelka/following{/other_user}","gists_url":"https://api.github.com/users/jpopelka/gists{/gist_id}","starred_url":"https://api.github.com/users/jpopelka/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/jpopelka/subscriptions","organizations_url":"https://api.github.com/users/jpopelka/orgs","repos_url":"https://api.github.com/users/jpopelka/repos","events_url":"https://api.github.com/users/jpopelka/events{/privacy}","received_events_url":"https://api.github.com/users/jpopelka/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"assignees":[],"milestone":null,"comments":1,"created_at":"2022-09-15T08:50:29Z","updated_at":"2022-09-20T15:34:38Z","closed_at":"2022-09-20T12:41:32Z","author_association":"CONTRIBUTOR","active_lock_reason":null,"draft":false,"pull_request":{"url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/pulls/331","html_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/331","diff_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/331.diff","patch_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/331.patch","merged_at":"2022-09-20T12:41:32Z"},"body":"<!---
+        Thank you for opening a pull request. Please be sure to review our [Contribution
+        guidelines](CONTRIBUTING.md) and be sure to adhere to our [Code of conduct](CODE_OF_CONDUCT.md)
+        when interacting with the community. --->\r\n\r\n<!-- tldr; goes here. Give
+        us a really high-level summary of these changes. -->\r\n\r\n### Ready-for-merge
+        Checklist\r\n\r\nCheck off items as they are completed.  Feel free to delete
+        items if they are not applicable.\r\n\r\n- [ ] Expected files: all files in
+        this pull request are related to one request or issue (no stragglers or scope-creep).\r\n-
+        [ ] Browser testing passed.\r\n- [ ] Repository compiles.\r\n- [ ] Documentation
+        (README.md, etc.) updated or added.\r\n- [ ] Approved by designer or writer
+        (if applicable).\r\n","reactions":{"url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/331/reactions","total_count":0,"+1":0,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0},"timeline_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/331/timeline","performed_via_github_app":null,"state_reason":null,"score":1.0},{"url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/330","repository_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io","labels_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/330/labels{/name}","comments_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/330/comments","events_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/330/events","html_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/330","id":1372937287,"node_id":"PR_kwDOB4Ykw84-8VMd","number":330,"title":"Add
+        Medik8s project","user":{"login":"razo7","id":19728420,"node_id":"MDQ6VXNlcjE5NzI4NDIw","avatar_url":"https://avatars.githubusercontent.com/u/19728420?v=4","gravatar_id":"","url":"https://api.github.com/users/razo7","html_url":"https://github.com/razo7","followers_url":"https://api.github.com/users/razo7/followers","following_url":"https://api.github.com/users/razo7/following{/other_user}","gists_url":"https://api.github.com/users/razo7/gists{/gist_id}","starred_url":"https://api.github.com/users/razo7/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/razo7/subscriptions","organizations_url":"https://api.github.com/users/razo7/orgs","repos_url":"https://api.github.com/users/razo7/repos","events_url":"https://api.github.com/users/razo7/events{/privacy}","received_events_url":"https://api.github.com/users/razo7/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"assignees":[],"milestone":null,"comments":1,"created_at":"2022-09-14T12:52:08Z","updated_at":"2022-09-20T12:45:33Z","closed_at":"2022-09-20T12:45:33Z","author_association":"CONTRIBUTOR","active_lock_reason":null,"draft":false,"pull_request":{"url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/pulls/330","html_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/330","diff_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/330.diff","patch_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/330.patch","merged_at":"2022-09-20T12:45:33Z"},"body":"<!---
+        Thank you for opening a pull request. Please be sure to review our [Contribution
+        guidelines](CONTRIBUTING.md) and be sure to adhere to our [Code of conduct](CODE_OF_CONDUCT.md)
+        when interacting with the community. --->\r\n\r\n<!-- tldr; goes here. Give
+        us a really high-level summary of these changes. -->\r\n\r\n### Related issue\r\n\r\n-
+        (#100) Description\r\n\r\n\r\n### Testing instructions\r\n\r\n<!-- Be sure
+        to include detailed instructions on how your update can be tested by another
+        developer. -->\r\n\r\n1. \r\n\r\n\r\n#### Browser requirements (for page updates)\r\n\r\nYour
+        updates should work in the following environments:\r\n\r\n- [ ] Latest 2 versions
+        of Edge\r\n- [ ] Internet Explorer 11 (should be useable, not pixel perfect)\r\n-
+        [ ] Latest 2 versions of Firefox (one on Mac OS, one of Windows OS)\r\n- [
+        ] Firefox 68 (or latest version for Red Hat Enterprise Linux distribution)\r\n-
+        [ ] Latest 2 versions of Chrome (one on Mac OS, one of Windows OS)\r\n- [
+        ] Latest 2 versions of Safari\r\n- [ ] Android mobile device (such as the
+        Galaxy S9)\r\n- [ ] Apple mobile device (such as the iPhone X)\r\n- [ ] Apple
+        tablet device (such as the iPhone Pro)\r\n\r\n\r\n### Ready-for-merge Checklist\r\n\r\nCheck
+        off items as they are completed.  Feel free to delete items if they are not
+        applicable.\r\n\r\n- [ ] Expected files: all files in this pull request are
+        related to one request or issue (no stragglers or scope-creep).\r\n- [ ] Browser
+        testing passed.\r\n- [ ] Repository compiles.\r\n- [ ] Documentation (README.md,
+        etc.) updated or added.\r\n- [ ] Approved by designer or writer (if applicable).\r\n\r\n\r\n###
+        Merging\r\n\r\nPlease **squash** when merging and ensure your commit message
+        uses [conventional commit](https://www.conventionalcommits.org/en/v1.0.0/#summary)
+        formatting.\r\n","reactions":{"url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/330/reactions","total_count":0,"+1":0,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0},"timeline_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/330/timeline","performed_via_github_app":null,"state_reason":null,"score":1.0},{"url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/329","repository_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io","labels_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/329/labels{/name}","comments_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/329/comments","events_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/329/events","html_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/329","id":1371592744,"node_id":"PR_kwDOB4Ykw84-31ky","number":329,"title":"projects:
+        update leapp repo","user":{"login":"SpyTec","id":6598829,"node_id":"MDQ6VXNlcjY1OTg4Mjk=","avatar_url":"https://avatars.githubusercontent.com/u/6598829?v=4","gravatar_id":"","url":"https://api.github.com/users/SpyTec","html_url":"https://github.com/SpyTec","followers_url":"https://api.github.com/users/SpyTec/followers","following_url":"https://api.github.com/users/SpyTec/following{/other_user}","gists_url":"https://api.github.com/users/SpyTec/gists{/gist_id}","starred_url":"https://api.github.com/users/SpyTec/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/SpyTec/subscriptions","organizations_url":"https://api.github.com/users/SpyTec/orgs","repos_url":"https://api.github.com/users/SpyTec/repos","events_url":"https://api.github.com/users/SpyTec/events{/privacy}","received_events_url":"https://api.github.com/users/SpyTec/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"assignees":[],"milestone":null,"comments":0,"created_at":"2022-09-13T14:56:46Z","updated_at":"2022-09-20T13:02:44Z","closed_at":"2022-09-20T12:43:32Z","author_association":"CONTRIBUTOR","active_lock_reason":null,"draft":false,"pull_request":{"url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/pulls/329","html_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/329","diff_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/329.diff","patch_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/329.patch","merged_at":"2022-09-20T12:43:32Z"},"body":"The
+        leapp project moved over to oamg org\r\n","reactions":{"url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/329/reactions","total_count":0,"+1":0,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0},"timeline_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/329/timeline","performed_via_github_app":null,"state_reason":null,"score":1.0},{"url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/328","repository_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io","labels_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/328/labels{/name}","comments_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/328/comments","events_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/328/events","html_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/328","id":1371588679,"node_id":"PR_kwDOB4Ykw84-30uI","number":328,"title":"projects:
+        add convert2rhel","user":{"login":"SpyTec","id":6598829,"node_id":"MDQ6VXNlcjY1OTg4Mjk=","avatar_url":"https://avatars.githubusercontent.com/u/6598829?v=4","gravatar_id":"","url":"https://api.github.com/users/SpyTec","html_url":"https://github.com/SpyTec","followers_url":"https://api.github.com/users/SpyTec/followers","following_url":"https://api.github.com/users/SpyTec/following{/other_user}","gists_url":"https://api.github.com/users/SpyTec/gists{/gist_id}","starred_url":"https://api.github.com/users/SpyTec/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/SpyTec/subscriptions","organizations_url":"https://api.github.com/users/SpyTec/orgs","repos_url":"https://api.github.com/users/SpyTec/repos","events_url":"https://api.github.com/users/SpyTec/events{/privacy}","received_events_url":"https://api.github.com/users/SpyTec/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"assignees":[],"milestone":null,"comments":0,"created_at":"2022-09-13T14:54:04Z","updated_at":"2022-09-20T13:02:55Z","closed_at":"2022-09-20T12:43:04Z","author_association":"CONTRIBUTOR","active_lock_reason":null,"draft":false,"pull_request":{"url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/pulls/328","html_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/328","diff_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/328.diff","patch_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/328.patch","merged_at":"2022-09-20T12:43:04Z"},"body":"We
+        have convert2rhel that''s developed by the RHEL Conversions team. I go by
+        egustavs if you want to look it up","reactions":{"url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/328/reactions","total_count":0,"+1":0,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0},"timeline_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/328/timeline","performed_via_github_app":null,"state_reason":null,"score":1.0},{"url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/326","repository_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io","labels_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/326/labels{/name}","comments_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/326/comments","events_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/326/events","html_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/326","id":1359105362,"node_id":"PR_kwDOB4Ykw84-OZtd","number":326,"title":"Use
+        the newer version, hosted on github.io","user":{"login":"mscherer","id":230335,"node_id":"MDQ6VXNlcjIzMDMzNQ==","avatar_url":"https://avatars.githubusercontent.com/u/230335?v=4","gravatar_id":"","url":"https://api.github.com/users/mscherer","html_url":"https://github.com/mscherer","followers_url":"https://api.github.com/users/mscherer/followers","following_url":"https://api.github.com/users/mscherer/following{/other_user}","gists_url":"https://api.github.com/users/mscherer/gists{/gist_id}","starred_url":"https://api.github.com/users/mscherer/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/mscherer/subscriptions","organizations_url":"https://api.github.com/users/mscherer/orgs","repos_url":"https://api.github.com/users/mscherer/repos","events_url":"https://api.github.com/users/mscherer/events{/privacy}","received_events_url":"https://api.github.com/users/mscherer/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"assignees":[],"milestone":null,"comments":0,"created_at":"2022-09-01T16:22:07Z","updated_at":"2022-09-20T12:42:15Z","closed_at":"2022-09-20T12:42:15Z","author_association":"CONTRIBUTOR","active_lock_reason":null,"draft":false,"pull_request":{"url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/pulls/326","html_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/326","diff_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/326.diff","patch_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/326.patch","merged_at":"2022-09-20T12:42:14Z"},"body":"This
+        permit to avoid using cloudflare, and allow to reuse existing connections
+        to\r\ngithub servers (so avoid new TLS and 3 way handshake that could slowdown\r\nthe
+        website).\r\n\r\n<!--- Thank you for opening a pull request. Please be sure
+        to review our [Contribution guidelines](CONTRIBUTING.md) and be sure to adhere
+        to our [Code of conduct](CODE_OF_CONDUCT.md) when interacting with the community.
+        --->\r\n\r\n<!-- tldr; goes here. Give us a really high-level summary of these
+        changes. -->\r\n\r\n### Related issue\r\n\r\n- \r\n\r\n\r\n### Testing instructions\r\n\r\n<!--
+        Be sure to include detailed instructions on how your update can be tested
+        by another developer. -->\r\n\r\n1. Build and see if the CSS still load\r\n\r\n\r\n####
+        Browser requirements (for page updates)\r\n\r\nYour updates should work in
+        the following environments:\r\n\r\n- [ ] Latest 2 versions of Edge\r\n- [
+        ] Internet Explorer 11 (should be useable, not pixel perfect)\r\n- [ ] Latest
+        2 versions of Firefox (one on Mac OS, one of Windows OS)\r\n- [ ] Firefox
+        68 (or latest version for Red Hat Enterprise Linux distribution)\r\n- [ ]
+        Latest 2 versions of Chrome (one on Mac OS, one of Windows OS)\r\n- [ ] Latest
+        2 versions of Safari\r\n- [ ] Android mobile device (such as the Galaxy S9)\r\n-
+        [ ] Apple mobile device (such as the iPhone X)\r\n- [ ] Apple tablet device
+        (such as the iPhone Pro)\r\n\r\n\r\n### Ready-for-merge Checklist\r\n\r\nCheck
+        off items as they are completed.  Feel free to delete items if they are not
+        applicable.\r\n\r\n- [ ] Expected files: all files in this pull request are
+        related to one request or issue (no stragglers or scope-creep).\r\n- [ ] Browser
+        testing passed.\r\n- [ ] Repository compiles.\r\n- [ ] Documentation (README.md,
+        etc.) updated or added.\r\n- [ ] Approved by designer or writer (if applicable).\r\n\r\n\r\n###
+        Merging\r\n\r\nPlease **squash** when merging and ensure your commit message
+        uses [conventional commit](https://www.conventionalcommits.org/en/v1.0.0/#summary)
+        formatting.\r\n","reactions":{"url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/326/reactions","total_count":0,"+1":0,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0},"timeline_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/326/timeline","performed_via_github_app":null,"state_reason":null,"score":1.0}]}'
+  recorded_at: Mon, 17 Oct 2022 16:31:37 GMT
+recorded_with: VCR 6.1.0

@@ -70,6 +70,10 @@ module GitHub
       start_at = options[:from].is_a?(String) ? Date.parse(options[:from]) : options[:from]
       end_at = options[:to].is_a?(String) ? Date.parse(options[:to]) : options[:to]
       days = options[:page]
+      raise ArgumentError('missing from') unless start_at
+      raise ArgumentError('missing to') unless end_at
+      raise ArgumentError('missing page') unless days
+
       pb = ProgressBar.create(
         total: (((end_at - start_at) / days) + 1),
         title: "Fetching PRs between #{start_at} and #{end_at}"
@@ -95,7 +99,14 @@ module GitHub
     end
 
     def self.query(org, options = {})
-      "org:#{org.name} state:merged is:pull-request archived:false is:closed merged:#{options[:from]}..#{options[:to]}"
+      [
+        options[:repo] ? "repo:#{org.name}/#{options[:repo]}" : "org:#{org.name}",
+        'state:merged',
+        'is:pull-request',
+        'archived:false',
+        'is:closed',
+        "merged:#{options[:from]}..#{options[:to]}"
+      ].compact.join(' ')
     end
   end
 end
