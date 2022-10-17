@@ -88,7 +88,7 @@ module GitHub
             raise "There are 1000+ PRs returned from a single query for #{days} day(s), reduce --page." if data.size >= 1000
 
             data = data.reject do |pr|
-              pr.body&.start_with?('Backport ') || pr.title&.downcase&.include?('[backport]')
+              GitHub::Data.backports.any? { |b| pr.title&.downcase&.include?(b) }
             end
             all_contributions.concat(data)
             current_date = next_date

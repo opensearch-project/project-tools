@@ -13,7 +13,7 @@ describe 'project org' do
   end
 
   context 'without data files' do
-    RENAMED_DATA = File.join(GitHub::Data.data, '.tmp')
+    RENAMED_DATA = GitHub::Data.data.chomp('/') + '.tmp'
     before do
       File.rename(GitHub::Data.data, RENAMED_DATA) if File.exist?(GitHub::Data.data)
     end

@@ -3,13 +3,14 @@
 module GitHub
   module Data
     class << self
-      DATA = File.expand_path('../../data/', __dir__)
-      USERS_DATA = File.expand_path('users/', DATA)
+      DATA = File.expand_path('../../data', __dir__)
+      USERS_DATA = File.expand_path('users', DATA)
       MEMBERS = File.expand_path('members.txt', USERS_DATA)
       CONTRACTORS = File.expand_path('contractors.txt', USERS_DATA)
       EXTERNAL = File.expand_path('external.txt', USERS_DATA)
       BOTS = File.expand_path('bots.txt', USERS_DATA)
       COMPANIES = File.expand_path('companies.txt', USERS_DATA)
+      BACKPORTS = File.expand_path('prs/backports.txt', DATA)
 
       def load_list(path)
         if File.exist?(path)
@@ -22,6 +23,10 @@ module GitHub
 
       def data
         DATA
+      end
+
+      def backports
+        @backports ||= load_list(BACKPORTS)
       end
 
       def members
