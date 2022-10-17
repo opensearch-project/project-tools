@@ -28,11 +28,9 @@ command 'pr', 'prs' do |g|
         end
       else
         puts "Between #{options[:from]} and #{options[:to]}, #{prs.all_external_percent}% of contributions (#{prs.all_external.size}/#{prs.size}) were made by #{prs.contributors.all_external.size} external contributors (#{prs.contributors.all_external.size}/#{prs.contributors.humans.uniq.size})."
-        if prs[:external]&.size&.< 25
-          puts ''
-          prs[:external]&.each do |pr|
-            puts pr
-          end
+        puts ''
+        prs[:external]&.each do |pr|
+          puts pr
         end
       end
     end
