@@ -3,6 +3,7 @@
 module GitHub
   class Issues < Array
     extend GitHub::RateLimited
+    extend GitHub::Progress
 
     attr_reader :org
 
@@ -40,24 +41,24 @@ module GitHub
       start_at = options[:from].is_a?(String) ? Date.parse(options[:from]) : options[:from]
       end_at = options[:to].is_a?(String) ? Date.parse(options[:to]) : options[:to]
       days = options[:page]
-      pb = ProgressBar.create(
+      progress(
         total: (((end_at - start_at) / days) + 1),
         title: "Fetching issues between #{start_at} and #{end_at}"
-      )
-      current_date = start_at
-      while current_date < end_at
-        rate_limited do
-          next_date = [current_date + days, end_at].min
-          response = $github.search_issues(query(org, options.merge(from: current_date, to: next_date)), per_page: 1000)
-          data = response.items
-          raise "There are 1000+ issues returned from a single query for #{days} day(s), reduce --page." if data.size >= 1000
+      ) do |pb|
+        current_date = start_at
+        while current_date < end_at
+          rate_limited do
+            next_date = [current_date + days, end_at].min
+            response = $github.search_issues(query(org, options.merge(from: current_date, to: next_date)), per_page: 1000)
+            data = response.items
+            raise "There are 1000+ issues returned from a single query for #{days} day(s), reduce --page." if data.size >= 1000
 
-          issues.concat(data)
-          current_date = next_date
+            issues.concat(data)
+            current_date = next_date
+          end
+          pb.increment
         end
-        pb.increment
       end
-      pb.finish
       GitHub::Issue.wrap(issues)
     end
 
