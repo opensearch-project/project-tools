@@ -9,6 +9,7 @@
     - [Sorted List of Repos](#sorted-list-of-repos)
     - [Contributor Stats](#contributor-stats)
     - [Contributor Lists](#contributor-lists)
+    - [Pull Requests](#pull-requests)
     - [Pull Request Stats](#pull-request-stats)
     - [Issues](#issues)
     - [Member Bios](#member-bios)
@@ -106,6 +107,20 @@ sbcd90
 ...
 ```
 
+Specify org and repo.
+
+```
+./bin/project --org aws contributors list --repo aws-cli
+```
+
+#### Pull Requests
+
+Show a list of pull requests.
+
+```
+./bin/project --org aws prs list --repo aws-cli
+```
+
 #### Pull Request Stats
 
 Shows bucketed contributions.
@@ -125,10 +140,16 @@ By default returns stats for the last full week. Specify `from` and `to` for dif
 
 If the tool sees a new contributor, it will direct you to add aliases into [data/members.txt](data/members.txt), [data/contractors.txt](data/contractors.txt), or [data/external.txt](data/external.txt). Otherwise, it will output PRs and stats made by external contributors. The easiest way to lookup whether an account belongs to the org is with `./bin/project org members`. Commit and PR your changes to the data lists.
 
-Get the status since the beginning of year.
+Get the stats since the beginning of year.
 
 ```
 ./bin/project prs stats --from=2022-01-01
+```
+
+Get the stats for a given repo.
+
+```
+./bin/project --org aws prs stats --repo aws-cli
 ```
 
 #### Issues

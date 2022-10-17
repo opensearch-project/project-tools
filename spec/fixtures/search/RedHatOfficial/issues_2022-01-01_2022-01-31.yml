@@ -1,0 +1,528 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/search/issues?per_page=1000&q=org:RedHatOfficial%20state:merged%20is:pull-request%20archived:false%20is:closed%20merged:2022-01-01..2022-01-08
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.25.1
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Mon, 17 Oct 2022 15:52:26 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+      Vary:
+      - Accept, Accept-Encoding, Accept, X-Requested-With
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO,
+        X-GitHub-Request-Id, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Ratelimit-Limit:
+      - '10'
+      X-Ratelimit-Remaining:
+      - '9'
+      X-Ratelimit-Reset:
+      - '1666022006'
+      X-Ratelimit-Resource:
+      - search
+      X-Ratelimit-Used:
+      - '1'
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '847'
+      X-Github-Request-Id:
+      - C5C2:6655:15AA106:2C59E43:634D7A3A
+    body:
+      encoding: UTF-8
+      string: '{"total_count":1,"incomplete_results":false,"items":[{"url":"https://api.github.com/repos/RedHatOfficial/GoCourse/issues/110","repository_url":"https://api.github.com/repos/RedHatOfficial/GoCourse","labels_url":"https://api.github.com/repos/RedHatOfficial/GoCourse/issues/110/labels{/name}","comments_url":"https://api.github.com/repos/RedHatOfficial/GoCourse/issues/110/comments","events_url":"https://api.github.com/repos/RedHatOfficial/GoCourse/issues/110/events","html_url":"https://github.com/RedHatOfficial/GoCourse/pull/110","id":1084113201,"node_id":"PR_kwDOCu9Sx84wC7ab","number":110,"title":"fix
+        typo in README","user":{"login":"KushalBeniwal","id":55043173,"node_id":"MDQ6VXNlcjU1MDQzMTcz","avatar_url":"https://avatars.githubusercontent.com/u/55043173?v=4","gravatar_id":"","url":"https://api.github.com/users/KushalBeniwal","html_url":"https://github.com/KushalBeniwal","followers_url":"https://api.github.com/users/KushalBeniwal/followers","following_url":"https://api.github.com/users/KushalBeniwal/following{/other_user}","gists_url":"https://api.github.com/users/KushalBeniwal/gists{/gist_id}","starred_url":"https://api.github.com/users/KushalBeniwal/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/KushalBeniwal/subscriptions","organizations_url":"https://api.github.com/users/KushalBeniwal/orgs","repos_url":"https://api.github.com/users/KushalBeniwal/repos","events_url":"https://api.github.com/users/KushalBeniwal/events{/privacy}","received_events_url":"https://api.github.com/users/KushalBeniwal/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"assignees":[],"milestone":null,"comments":0,"created_at":"2021-12-19T14:40:51Z","updated_at":"2022-01-03T10:22:53Z","closed_at":"2022-01-03T10:22:53Z","author_association":"CONTRIBUTOR","active_lock_reason":null,"draft":false,"pull_request":{"url":"https://api.github.com/repos/RedHatOfficial/GoCourse/pulls/110","html_url":"https://github.com/RedHatOfficial/GoCourse/pull/110","diff_url":"https://github.com/RedHatOfficial/GoCourse/pull/110.diff","patch_url":"https://github.com/RedHatOfficial/GoCourse/pull/110.patch","merged_at":"2022-01-03T10:22:53Z"},"body":null,"reactions":{"url":"https://api.github.com/repos/RedHatOfficial/GoCourse/issues/110/reactions","total_count":0,"+1":0,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0},"timeline_url":"https://api.github.com/repos/RedHatOfficial/GoCourse/issues/110/timeline","performed_via_github_app":null,"state_reason":null,"score":1.0}]}'
+  recorded_at: Mon, 17 Oct 2022 15:52:26 GMT
+- request:
+    method: get
+    uri: https://api.github.com/search/issues?per_page=1000&q=org:RedHatOfficial%20state:merged%20is:pull-request%20archived:false%20is:closed%20merged:2022-01-08..2022-01-15
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.25.1
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Mon, 17 Oct 2022 15:52:26 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+      Vary:
+      - Accept, Accept-Encoding, Accept, X-Requested-With
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO,
+        X-GitHub-Request-Id, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Ratelimit-Limit:
+      - '10'
+      X-Ratelimit-Remaining:
+      - '8'
+      X-Ratelimit-Reset:
+      - '1666022006'
+      X-Ratelimit-Resource:
+      - search
+      X-Ratelimit-Used:
+      - '2'
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '72'
+      X-Github-Request-Id:
+      - C5C3:4E73:13FE745:290371C:634D7A3A
+    body:
+      encoding: UTF-8
+      string: '{"total_count":0,"incomplete_results":false,"items":[]}'
+  recorded_at: Mon, 17 Oct 2022 15:52:26 GMT
+- request:
+    method: get
+    uri: https://api.github.com/search/issues?per_page=1000&q=org:RedHatOfficial%20state:merged%20is:pull-request%20archived:false%20is:closed%20merged:2022-01-15..2022-01-22
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.25.1
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Mon, 17 Oct 2022 15:52:26 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+      Vary:
+      - Accept, Accept-Encoding, Accept, X-Requested-With
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO,
+        X-GitHub-Request-Id, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Ratelimit-Limit:
+      - '10'
+      X-Ratelimit-Remaining:
+      - '7'
+      X-Ratelimit-Reset:
+      - '1666022006'
+      X-Ratelimit-Resource:
+      - search
+      X-Ratelimit-Used:
+      - '3'
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '72'
+      X-Github-Request-Id:
+      - C5C4:6655:15AA193:2C59F6C:634D7A3A
+    body:
+      encoding: UTF-8
+      string: '{"total_count":0,"incomplete_results":false,"items":[]}'
+  recorded_at: Mon, 17 Oct 2022 15:52:26 GMT
+- request:
+    method: get
+    uri: https://api.github.com/search/issues?per_page=1000&q=org:RedHatOfficial%20state:merged%20is:pull-request%20archived:false%20is:closed%20merged:2022-01-22..2022-01-29
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.25.1
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Mon, 17 Oct 2022 15:52:26 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+      Vary:
+      - Accept, Accept-Encoding, Accept, X-Requested-With
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO,
+        X-GitHub-Request-Id, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Ratelimit-Limit:
+      - '10'
+      X-Ratelimit-Remaining:
+      - '6'
+      X-Ratelimit-Reset:
+      - '1666022006'
+      X-Ratelimit-Resource:
+      - search
+      X-Ratelimit-Used:
+      - '4'
+      Accept-Ranges:
+      - bytes
+      Transfer-Encoding:
+      - chunked
+      X-Github-Request-Id:
+      - C5C5:2904:13542C3:27B63E9:634D7A3A
+    body:
+      encoding: UTF-8
+      string: '{"total_count":2,"incomplete_results":false,"items":[{"url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/300","repository_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io","labels_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/300/labels{/name}","comments_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/300/comments","events_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/300/events","html_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/300","id":1104295436,"node_id":"PR_kwDOB4Ykw84xEbxE","number":300,"title":"Bump
+        shelljs from 0.8.1 to 0.8.5","user":{"login":"dependabot[bot]","id":49699333,"node_id":"MDM6Qm90NDk2OTkzMzM=","avatar_url":"https://avatars.githubusercontent.com/in/29110?v=4","gravatar_id":"","url":"https://api.github.com/users/dependabot%5Bbot%5D","html_url":"https://github.com/apps/dependabot","followers_url":"https://api.github.com/users/dependabot%5Bbot%5D/followers","following_url":"https://api.github.com/users/dependabot%5Bbot%5D/following{/other_user}","gists_url":"https://api.github.com/users/dependabot%5Bbot%5D/gists{/gist_id}","starred_url":"https://api.github.com/users/dependabot%5Bbot%5D/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/dependabot%5Bbot%5D/subscriptions","organizations_url":"https://api.github.com/users/dependabot%5Bbot%5D/orgs","repos_url":"https://api.github.com/users/dependabot%5Bbot%5D/repos","events_url":"https://api.github.com/users/dependabot%5Bbot%5D/events{/privacy}","received_events_url":"https://api.github.com/users/dependabot%5Bbot%5D/received_events","type":"Bot","site_admin":false},"labels":[{"id":1653823909,"node_id":"MDU6TGFiZWwxNjUzODIzOTA5","url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/labels/dependencies","name":"dependencies","color":"0366d6","default":false,"description":"Pull
+        requests that update a dependency file"}],"state":"closed","locked":false,"assignee":null,"assignees":[],"milestone":null,"comments":0,"created_at":"2022-01-15T02:35:04Z","updated_at":"2022-01-26T13:44:58Z","closed_at":"2022-01-26T13:44:57Z","author_association":"CONTRIBUTOR","active_lock_reason":null,"draft":false,"pull_request":{"url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/pulls/300","html_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/300","diff_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/300.diff","patch_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/300.patch","merged_at":"2022-01-26T13:44:57Z"},"body":"Bumps
+        [shelljs](https://github.com/shelljs/shelljs) from 0.8.1 to 0.8.5.\n<details>\n<summary>Release
+        notes</summary>\n<p><em>Sourced from <a href=\"https://github.com/shelljs/shelljs/releases\">shelljs''s
+        releases</a>.</em></p>\n<blockquote>\n<h2>v0.8.5</h2>\n<p>This was a small
+        security fix for <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/1058\">#1058</a>.</p>\n<h2>v0.8.4</h2>\n<p>Small
+        patch release to fix a circular dependency warning in node v14. See <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/973\">#973</a>.</p>\n<h2>v0.8.3</h2>\n<p><strong>Closed
+        issues:</strong></p>\n<ul>\n<li>Shelljs print stderr to console even if exec-only
+        &quot;silent&quot; is true <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/905\">#905</a></li>\n<li>refactor:
+        remove common.state.tempDir <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/902\">#902</a></li>\n<li>Can''t
+        suppress stdout for echo <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/899\">#899</a></li>\n<li>exec()
+        doesn''t apply the arguments correctly <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/895\">#895</a></li>\n<li>shell.exec(''npm
+        pack'') painfully slow <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/885\">#885</a></li>\n<li>shelljs.exec
+        cannot find app.asar/node_modules/shelljs/src/exec-child.js <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/881\">#881</a></li>\n<li>test
+        infra: mocks and skipOnWin conflict <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/862\">#862</a></li>\n<li>Support
+        for shell function completion on IDE <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/859\">#859</a></li>\n<li>echo
+        command shows options in stdout <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/855\">#855</a></li>\n<li>silent
+        does not always work <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/851\">#851</a></li>\n<li>Appveyor
+        installs the latest npm, instead of the latest compatible npm <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/844\">#844</a></li>\n<li>Force
+        symbolic link (ln -sf) does not overwrite/recreate existing destination <a
+        href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/830\">#830</a></li>\n<li>inconsistent
+        result when trying to echo to a file <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/798\">#798</a></li>\n<li>Prevent
+        require()ing executable-only files <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/789\">#789</a></li>\n<li>Cannot
+        set property to of [object String] which has only a getter <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/752\">#752</a></li>\n<li>which()
+        should check executability before returning a value <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/657\">#657</a></li>\n<li>Bad
+        encoding experience <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/456\">#456</a></li>\n<li>phpcs
+        very slow <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/440\">#440</a></li>\n<li>Error
+        shown when triggering a sigint during shelljs.exec if process.on sigint is
+        defined <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/254\">#254</a></li>\n<li><code>.to\\(file\\)</code>
+        does not mute STDIO output <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/146\">#146</a></li>\n<li>Escaping
+        shell arguments to exec() <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/143\">#143</a></li>\n<li>Allow
+        multiple string arguments for exec() <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/103\">#103</a></li>\n<li>cp
+        does not recursively copy from readonly location  <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/98\">#98</a></li>\n<li>Handling
+        permissions errors on file I/O <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/64\">#64</a></li>\n</ul>\n<p><strong>Merged
+        pull requests:</strong></p>\n<ul>\n<li>Add test case for sed on empty file
+        <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/pull/904\">#904</a>
+        (<a href=\"https://github.com/wyardley\">wyardley</a>)</li>\n<li>refactor:
+        don''t expose tempdir in common.state <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/pull/903\">#903</a>
+        (<a href=\"https://github.com/nfischer\">nfischer</a>)</li>\n<li>chore(ci):
+        fix codecov on travis <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/pull/897\">#897</a>
+        (<a href=\"https://github.com/nfischer\">nfischer</a>)</li>\n<li>chore(npm):
+        add ci-or-install script <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/pull/896\">#896</a>
+        (<a href=\"https://github.com/nfischer\">nfischer</a>)</li>\n<li>Fix silent
+        exec <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/pull/892\">#892</a>
+        (<a href=\"https://github.com/nfischer\">nfischer</a>)</li>\n<li>chore(appveyor):
+        run entire test matrix <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/pull/886\">#886</a>
+        (<a href=\"https://github.com/nfischer\">nfischer</a>)</li>\n<li>docs: remove
+        gitter badge <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/pull/880\">#880</a>
+        (<a href=\"https://github.com/nfischer\">nfischer</a>)</li>\n<li>grep includes
+        the i flag <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/pull/876\">#876</a>
+        (<a href=\"https://github.com/ppsleep\">ppsleep</a>)</li>\n<li>Fix(which):
+        match only executable files (<a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/657\">#657</a>)
+        <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/pull/874\">#874</a>
+        (<a href=\"https://github.com/termosa\">termosa</a>)</li>\n<li>chore: rename
+        some tests <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/pull/871\">#871</a>
+        (<a href=\"https://github.com/nfischer\">nfischer</a>)</li>\n<li>Fix cp from
+        readonly source <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/pull/870\">#870</a>
+        (<a href=\"https://github.com/nfischer\">nfischer</a>)</li>\n<li>chore: bump
+        dev dependencies and add package-lock <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/pull/864\">#864</a>
+        (<a href=\"https://github.com/nfischer\">nfischer</a>)</li>\n<li>fix(mocks):
+        fix conflict between mocks and skip <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/pull/863\">#863</a>
+        (<a href=\"https://github.com/nfischer\">nfischer</a>)</li>\n<li>chore: output
+        npm version in travis <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/pull/850\">#850</a>
+        (<a href=\"https://github.com/nfischer\">nfischer</a>)</li>\n</ul>\n<!-- raw
+        HTML omitted -->\n</blockquote>\n<p>... (truncated)</p>\n</details>\n<details>\n<summary>Changelog</summary>\n<p><em>Sourced
+        from <a href=\"https://github.com/shelljs/shelljs/blob/master/CHANGELOG.md\">shelljs''s
+        changelog</a>.</em></p>\n<blockquote>\n<h1>Change Log</h1>\n<h2><a href=\"https://github.com/shelljs/shelljs/tree/HEAD\">Unreleased</a></h2>\n<p><a
+        href=\"https://github.com/shelljs/shelljs/compare/v0.8.3...HEAD\">Full Changelog</a></p>\n<p><strong>Closed
+        issues:</strong></p>\n<ul>\n<li>find returns empty array even though directory
+        has files <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/922\">#922</a></li>\n<li>exec()
+        should support node v10 (maxbuffer change) <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/915\">#915</a></li>\n<li>grep
+        exit status and extra newlines <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/900\">#900</a></li>\n<li>Travis
+        CI currently broken <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/893\">#893</a></li>\n<li>Drop
+        node v4 support <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/873\">#873</a></li>\n<li>cp
+        -Ru respects the -R but not the -u <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/808\">#808</a></li>\n</ul>\n<p><strong>Merged
+        pull requests:</strong></p>\n<ul>\n<li>feat(options): initial support for
+        long options <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/pull/926\">#926</a>
+        (<a href=\"https://github.com/nfischer\">nfischer</a>)</li>\n<li>test(touch):
+        add coverage for -d option <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/pull/925\">#925</a>
+        (<a href=\"https://github.com/nfischer\">nfischer</a>)</li>\n<li>chore(node):
+        add v10 and v11 to CI <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/pull/921\">#921</a>
+        (<a href=\"https://github.com/nfischer\">nfischer</a>)</li>\n<li>chore(test):
+        no coverage by default <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/pull/920\">#920</a>
+        (<a href=\"https://github.com/nfischer\">nfischer</a>)</li>\n<li>fix(exec):
+        consistent error message for maxBuffer <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/pull/919\">#919</a>
+        (<a href=\"https://github.com/nfischer\">nfischer</a>)</li>\n<li>chore(node):
+        drop node v4 and v5 <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/pull/917\">#917</a>
+        (<a href=\"https://github.com/nfischer\">nfischer</a>)</li>\n<li>chore: script
+        to bump supported node versions <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/pull/913\">#913</a>
+        (<a href=\"https://github.com/nfischer\">nfischer</a>)</li>\n<li>chore(npm):
+        remove lockfile <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/pull/911\">#911</a>
+        (<a href=\"https://github.com/nfischer\">nfischer</a>)</li>\n<li>ci: change
+        language to node_js and remove obsolete scripts <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/pull/910\">#910</a>
+        (<a href=\"https://github.com/DanielRuf\">DanielRuf</a>)</li>\n<li>chore:
+        remove gitter integration <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/pull/907\">#907</a>
+        (<a href=\"https://github.com/nfischer\">nfischer</a>)</li>\n<li>fix: Exit
+        1 with empty string if no match <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/pull/901\">#901</a>
+        (<a href=\"https://github.com/wyardley\">wyardley</a>)</li>\n<li>feat(cp):
+        support update flag when recursing <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/pull/889\">#889</a>
+        (<a href=\"https://github.com/joshi-sh\">joshi-sh</a>)</li>\n</ul>\n<h2><a
+        href=\"https://github.com/shelljs/shelljs/tree/v0.8.3\">v0.8.3</a> (2018-11-13)</h2>\n<p><a
+        href=\"https://github.com/shelljs/shelljs/compare/v0.8.2...v0.8.3\">Full Changelog</a></p>\n<p><strong>Closed
+        issues:</strong></p>\n<ul>\n<li>Shelljs print stderr to console even if exec-only
+        &quot;silent&quot; is true <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/905\">#905</a></li>\n<li>refactor:
+        remove common.state.tempDir <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/902\">#902</a></li>\n<li>Can''t
+        suppress stdout for echo <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/899\">#899</a></li>\n<li>exec()
+        doesn''t apply the arguments correctly <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/895\">#895</a></li>\n<li>shell.exec(''npm
+        pack'') painfully slow <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/885\">#885</a></li>\n<li>shelljs.exec
+        cannot find app.asar/node_modules/shelljs/src/exec-child.js <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/881\">#881</a></li>\n<li>test
+        infra: mocks and skipOnWin conflict <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/862\">#862</a></li>\n<li>Support
+        for shell function completion on IDE <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/859\">#859</a></li>\n<li>echo
+        command shows options in stdout <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/855\">#855</a></li>\n<li>silent
+        does not always work <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/851\">#851</a></li>\n<li>Appveyor
+        installs the latest npm, instead of the latest compatible npm <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/844\">#844</a></li>\n<li>Force
+        symbolic link (ln -sf) does not overwrite/recreate existing destination <a
+        href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/830\">#830</a></li>\n<li>inconsistent
+        result when trying to echo to a file <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/798\">#798</a></li>\n<li>Prevent
+        require()ing executable-only files <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/789\">#789</a></li>\n<li>Cannot
+        set property to of [object String] which has only a getter <a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/752\">#752</a></li>\n</ul>\n<!--
+        raw HTML omitted -->\n</blockquote>\n<p>... (truncated)</p>\n</details>\n<details>\n<summary>Commits</summary>\n<ul>\n<li><a
+        href=\"https://github.com/shelljs/shelljs/commit/70668a4555c7d49c4f67d53ea063b899be4d6d40\"><code>70668a4</code></a>
+        0.8.5</li>\n<li><a href=\"https://github.com/shelljs/shelljs/commit/d919d22dd6de385edaa9d90313075a77f74b338c\"><code>d919d22</code></a>
+        fix(exec): lockdown file permissions (<a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/1060\">#1060</a>)</li>\n<li><a
+        href=\"https://github.com/shelljs/shelljs/commit/fcf1651be9a3bb8e20ba1fd24b8a91f369829c53\"><code>fcf1651</code></a>
+        0.8.4</li>\n<li><a href=\"https://github.com/shelljs/shelljs/commit/a1111ee793e0292e4eff27b69214b361bd1eb712\"><code>a1111ee</code></a>
+        Silence potentially upcoming circular dependency warning (<a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/973\">#973</a>)</li>\n<li><a
+        href=\"https://github.com/shelljs/shelljs/commit/d4d1317ce62531fbd49085852b8492db3dd39312\"><code>d4d1317</code></a>
+        0.8.3</li>\n<li><a href=\"https://github.com/shelljs/shelljs/commit/db317bf09236b8cabfa6a18b232a02035e9e08f1\"><code>db317bf</code></a>
+        Add test case for sed on empty file (<a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/904\">#904</a>)</li>\n<li><a
+        href=\"https://github.com/shelljs/shelljs/commit/0d5ecb673e65d4041a2ca26956deee7f5b9480f4\"><code>0d5ecb6</code></a>
+        docs(changelog): updated by Nate Fischer [ci skip]</li>\n<li><a href=\"https://github.com/shelljs/shelljs/commit/6b3c7b1e44b5cd308aac3a924165658fac3268d8\"><code>6b3c7b1</code></a>
+        refactor: don''t expose tempdir in common.state (<a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/903\">#903</a>)</li>\n<li><a
+        href=\"https://github.com/shelljs/shelljs/commit/4bd22e77423182219cd43f0c8d38621b1c957986\"><code>4bd22e7</code></a>
+        chore(ci): fix codecov on travis (<a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/897\">#897</a>)</li>\n<li><a
+        href=\"https://github.com/shelljs/shelljs/commit/2b3b781bbc41add8ca17bcd35a6d8f19797285ce\"><code>2b3b781</code></a>
+        fix: silent exec (<a href=\"https://github-redirect.dependabot.com/shelljs/shelljs/issues/892\">#892</a>)</li>\n<li>Additional
+        commits viewable in <a href=\"https://github.com/shelljs/shelljs/compare/v0.8.1...v0.8.5\">compare
+        view</a></li>\n</ul>\n</details>\n<br />\n\n\n[![Dependabot compatibility
+        score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=shelljs&package-manager=npm_and_yarn&previous-version=0.8.1&new-version=0.8.5)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)\n\nDependabot
+        will resolve any conflicts with this PR as long as you don''t alter it yourself.
+        You can also trigger a rebase manually by commenting `@dependabot rebase`.\n\n[//]:
+        # (dependabot-automerge-start)\n[//]: # (dependabot-automerge-end)\n\n---\n\n<details>\n<summary>Dependabot
+        commands and options</summary>\n<br />\n\nYou can trigger Dependabot actions
+        by commenting on this PR:\n- `@dependabot rebase` will rebase this PR\n- `@dependabot
+        recreate` will recreate this PR, overwriting any edits that have been made
+        to it\n- `@dependabot merge` will merge this PR after your CI passes on it\n-
+        `@dependabot squash and merge` will squash and merge this PR after your CI
+        passes on it\n- `@dependabot cancel merge` will cancel a previously requested
+        merge and block automerging\n- `@dependabot reopen` will reopen this PR if
+        it is closed\n- `@dependabot close` will close this PR and stop Dependabot
+        recreating it. You can achieve the same result by closing it manually\n- `@dependabot
+        ignore this major version` will close this PR and stop Dependabot creating
+        any more for this major version (unless you reopen the PR or upgrade to it
+        yourself)\n- `@dependabot ignore this minor version` will close this PR and
+        stop Dependabot creating any more for this minor version (unless you reopen
+        the PR or upgrade to it yourself)\n- `@dependabot ignore this dependency`
+        will close this PR and stop Dependabot creating any more for this dependency
+        (unless you reopen the PR or upgrade to it yourself)\n- `@dependabot use these
+        labels` will set the current labels as the default for future PRs for this
+        repo and language\n- `@dependabot use these reviewers` will set the current
+        reviewers as the default for future PRs for this repo and language\n- `@dependabot
+        use these assignees` will set the current assignees as the default for future
+        PRs for this repo and language\n- `@dependabot use this milestone` will set
+        the current milestone as the default for future PRs for this repo and language\n\nYou
+        can disable automated security fix PRs for this repo from the [Security Alerts
+        page](https://github.com/RedHatOfficial/RedHatOfficial.github.io/network/alerts).\n\n</details>","reactions":{"url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/300/reactions","total_count":0,"+1":0,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0},"timeline_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/300/timeline","performed_via_github_app":null,"state_reason":null,"score":1.0},{"url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/299","repository_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io","labels_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/299/labels{/name}","comments_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/299/comments","events_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/299/events","html_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/299","id":1066258806,"node_id":"PR_kwDOB4Ykw84vI6Zg","number":299,"title":"Add
+        Cryostat, OpenJDK and Node.js projects","user":{"login":"jiekang","id":5430520,"node_id":"MDQ6VXNlcjU0MzA1MjA=","avatar_url":"https://avatars.githubusercontent.com/u/5430520?v=4","gravatar_id":"","url":"https://api.github.com/users/jiekang","html_url":"https://github.com/jiekang","followers_url":"https://api.github.com/users/jiekang/followers","following_url":"https://api.github.com/users/jiekang/following{/other_user}","gists_url":"https://api.github.com/users/jiekang/gists{/gist_id}","starred_url":"https://api.github.com/users/jiekang/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/jiekang/subscriptions","organizations_url":"https://api.github.com/users/jiekang/orgs","repos_url":"https://api.github.com/users/jiekang/repos","events_url":"https://api.github.com/users/jiekang/events{/privacy}","received_events_url":"https://api.github.com/users/jiekang/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"assignees":[],"milestone":null,"comments":0,"created_at":"2021-11-29T16:43:41Z","updated_at":"2022-01-26T14:10:52Z","closed_at":"2022-01-26T14:10:52Z","author_association":"CONTRIBUTOR","active_lock_reason":null,"draft":false,"pull_request":{"url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/pulls/299","html_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/299","diff_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/299.diff","patch_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/299.patch","merged_at":"2022-01-26T14:10:52Z"},"body":"Adds
+        Cryostat, OpenJDK and Node.js projects to the list. These projects have RH
+        contributors employed to work on them.","reactions":{"url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/299/reactions","total_count":0,"+1":0,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0},"timeline_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/299/timeline","performed_via_github_app":null,"state_reason":null,"score":1.0}]}'
+  recorded_at: Mon, 17 Oct 2022 15:52:26 GMT
+- request:
+    method: get
+    uri: https://api.github.com/search/issues?per_page=1000&q=org:RedHatOfficial%20state:merged%20is:pull-request%20archived:false%20is:closed%20merged:2022-01-29..2022-01-31
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.25.1
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Mon, 17 Oct 2022 15:52:26 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+      Vary:
+      - Accept, Accept-Encoding, Accept, X-Requested-With
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO,
+        X-GitHub-Request-Id, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Ratelimit-Limit:
+      - '10'
+      X-Ratelimit-Remaining:
+      - '5'
+      X-Ratelimit-Reset:
+      - '1666022005'
+      X-Ratelimit-Resource:
+      - search
+      X-Ratelimit-Used:
+      - '5'
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '72'
+      X-Github-Request-Id:
+      - C5C6:2D21:14CFDC7:2AA9F02:634D7A3A
+    body:
+      encoding: UTF-8
+      string: '{"total_count":0,"incomplete_results":false,"items":[]}'
+  recorded_at: Mon, 17 Oct 2022 15:52:26 GMT
+recorded_with: VCR 6.1.0
