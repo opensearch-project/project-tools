@@ -33,6 +33,27 @@ describe GitHub::PullRequests do
         end
       end
     end
+
+    context 'repos' do
+      context 'mulitple', vcr: { cassette_name: 'search/RedHatOfficial/multiple/issues_2022-06-01_2022-06-30' } do
+        subject do
+          GitHub::PullRequests.new(org, repo: ['GoCourse', 'RedHatOfficial.github.io'], from: from, to: to, page: page)
+        end
+
+        let(:from) { Date.new(2022, 1, 1) }
+        let(:to) { from + 30 }
+        let(:page) { 31 }
+        let(:first) { GitHub::PullRequests.new(org, repo: ['GoCourse'], from: from, to: to, page: page) }
+        let(:second) { GitHub::PullRequests.new(org, repo: ['RedHatOfficial.github.io'], from: from, to: to, page: page) }
+
+        it 'fetches contributors' do
+          expect(first.count).to eq 1
+          expect(second.count).to eq 2
+          expect(subject.count).to eq 3
+          expect(subject.count).to eq first.count + second.count
+        end
+      end
+    end
   end
 
   pending 'members'

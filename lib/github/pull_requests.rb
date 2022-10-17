@@ -100,13 +100,23 @@ module GitHub
 
     def self.query(org, options = {})
       [
-        options[:repo] ? "repo:#{org.name}/#{options[:repo]}" : "org:#{org.name}",
+        query_repos(org, options),
         'state:merged',
         'is:pull-request',
         'archived:false',
         'is:closed',
         "merged:#{options[:from]}..#{options[:to]}"
       ].compact.join(' ')
+    end
+
+    def self.query_repos(org, options = {})
+      if options[:repo]
+        Array(options[:repo]).map do |repo|
+          "repo:#{org.name}/#{repo}"
+        end.join(' ')
+      else
+        "org:#{org.name}"
+      end
     end
   end
 end

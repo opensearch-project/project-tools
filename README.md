@@ -113,6 +113,12 @@ Specify org and repo.
 ./bin/project --org aws contributors list --repo aws-cli
 ```
 
+Specify multiple repos.
+
+```
+./bin/project --org aws contributors list --repo aws-cli --repo deep-learning-containers
+```
+
 #### Pull Requests
 
 Show a list of pull requests.
@@ -150,6 +156,12 @@ Get the stats for a given repo.
 
 ```
 ./bin/project --org aws prs stats --repo aws-cli
+```
+
+Get the stats for multiple repos.
+
+```
+./bin/project --org aws prs stats --repo aws-cli --repo deep-learning-containers
 ```
 
 #### Issues
