@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-
 describe GitHub::Organization do
   subject do
     GitHub::Organization.new('RedHatOfficial')

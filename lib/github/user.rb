@@ -3,6 +3,7 @@
 module GitHub
   class User < SimpleDelegator
     extend GitHub::RateLimited
+    extend GitHub::Progress
     include Comparable
 
     def initialize(username)
@@ -37,15 +38,15 @@ module GitHub
     end
 
     def self.wrap(collection)
-      pb = ProgressBar.create(total: collection.size, title: 'Fetching users ...')
-      result = []
-      rate_limited do
-        collection.each do |obj|
-          result.push(new(obj))
-          pb.increment
+      progress(total: collection.size, title: 'Fetching users ...') do |pb|
+        result = []
+        rate_limited do
+          collection.each do |obj|
+            result.push(new(obj))
+            pb.increment
+          end
         end
       end
-      pb.finish
       result
     end
   end

@@ -2,6 +2,7 @@
   - [Usage](#usage)
     - [Global Options](#global-options)
       - [Tokens](#tokens)
+      - [Quiet](#quiet)
       - [Caching](#caching)
       - [Debug Logging](#debug-logging)
     - [Org Info](#org-info)
@@ -31,13 +32,17 @@ Tools to gather stats on a GitHub organization.
 
 Set `GITHUB_API_TOKEN` to a personal access token (PAT) or with `--token` to avoid running into too many rate-limit requests as authenticated requests get a higher rate limit. See [GitHub rate limiting](https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting) for more information.
 
+##### Quiet
+
+Use `-q` or `--quiet` to remove progress bars.
+
 ##### Caching
 
 The tool will cache data into `.cache` by default for all GitHub API queries to avoid making duplicate requests. To disable caching use `--no-cache`. Run with `--debug` to display cache hits and misses.
 
 ##### Debug Logging
 
-Use `--debug` to get cache logging and full stack traces if a command fails.
+Use `-d` or `--debug` to get cache logging and full stack traces if a command fails.
 
 #### Org Info
 

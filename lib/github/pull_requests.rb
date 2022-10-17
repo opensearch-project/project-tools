@@ -3,6 +3,7 @@
 module GitHub
   class PullRequests < Array
     extend GitHub::RateLimited
+    extend GitHub::Progress
 
     attr_reader :org
 
@@ -74,27 +75,27 @@ module GitHub
       raise ArgumentError('missing to') unless end_at
       raise ArgumentError('missing page') unless days
 
-      pb = ProgressBar.create(
+      progress(
         total: (((end_at - start_at) / days) + 1),
         title: "Fetching PRs between #{start_at} and #{end_at}"
-      )
-      current_date = start_at
-      while current_date < end_at
-        rate_limited do
-          next_date = [current_date + days, end_at].min
-          response = $github.search_issues(query(org, options.merge(from: current_date, to: next_date)), per_page: 1000)
-          data = response.items
-          raise "There are 1000+ PRs returned from a single query for #{days} day(s), reduce --page." if data.size >= 1000
+      ) do |pb|
+        current_date = start_at
+        while current_date < end_at
+          rate_limited do
+            next_date = [current_date + days, end_at].min
+            response = $github.search_issues(query(org, options.merge(from: current_date, to: next_date)), per_page: 1000)
+            data = response.items
+            raise "There are 1000+ PRs returned from a single query for #{days} day(s), reduce --page." if data.size >= 1000
 
-          data = data.reject do |pr|
-            pr.body&.start_with?('Backport ')
+            data = data.reject do |pr|
+              pr.body&.start_with?('Backport ')
+            end
+            all_contributions.concat(data)
+            current_date = next_date
           end
-          all_contributions.concat(data)
-          current_date = next_date
+          pb.increment
         end
-        pb.increment
       end
-      pb.finish
       GitHub::PullRequest.wrap(all_contributions)
     end
 

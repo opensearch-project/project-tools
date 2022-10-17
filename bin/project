@@ -12,12 +12,15 @@ default_command :help
 
 switch %i[d debug], desc: 'Enable debug-level logging.', default_value: false
 switch %i[no-cache], desc: 'Disable local cache (.cache).', default_value: false
+switch %i[q quiet], desc: "Don't show progress bars.", default_value: false
 
-flag [:o, 'org'], desc: 'Name of the GitHub organization.', default_value: 'opensearch-project'
-flag [:t, 'token'], desc: 'Optional GitHub token.', default_value: ENV.fetch('GITHUB_API_TOKEN', nil)
-flag ['vcr-cassette-name'], desc: 'Offline VCR cassette.'
+flag %i[o org], desc: 'Name of the GitHub organization.', default_value: 'opensearch-project'
+flag %i[t token], desc: 'Optional GitHub token.', default_value: ENV.fetch('GITHUB_API_TOKEN', nil)
+flag %i[vcr-cassette-name], desc: 'Offline VCR cassette.'
 
 pre do |global_options, _command, _options, _args|
+  GitHub::Progress.enabled = global_options['quiet'] ? false : true
+
   if global_options['vcr-cassette-name']
     require 'webmock'
     WebMock.enable!
