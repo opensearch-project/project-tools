@@ -33,7 +33,7 @@ describe GitHub::PullRequests do
     end
 
     context 'repos' do
-      context 'mulitple', vcr: { cassette_name: 'search/RedHatOfficial/multiple/issues_2022-06-01_2022-06-30' } do
+      context 'mulitple', vcr: { cassette_name: 'search/RedHatOfficial/multiple/issues_2022-01-01_2022-01-30' } do
         subject do
           GitHub::PullRequests.new(org, repo: ['GoCourse', 'RedHatOfficial.github.io'], from: from, to: to, page: page)
         end
