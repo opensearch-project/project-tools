@@ -3,12 +3,13 @@
 module GitHub
   module Data
     class << self
-      DATA = File.expand_path('../../data/users/', __dir__)
-      MEMBERS = File.expand_path('members.txt', DATA)
-      CONTRACTORS = File.expand_path('contractors.txt', DATA)
-      EXTERNAL = File.expand_path('external.txt', DATA)
-      BOTS = File.expand_path('bots.txt', DATA)
-      COMPANIES = File.expand_path('companies.txt', DATA)
+      DATA = File.expand_path('../../data/', __dir__)
+      USERS_DATA = File.expand_path('users/', DATA)
+      MEMBERS = File.expand_path('members.txt', USERS_DATA)
+      CONTRACTORS = File.expand_path('contractors.txt', USERS_DATA)
+      EXTERNAL = File.expand_path('external.txt', USERS_DATA)
+      BOTS = File.expand_path('bots.txt', USERS_DATA)
+      COMPANIES = File.expand_path('companies.txt', USERS_DATA)
 
       def load_list(path)
         if File.exist?(path)
@@ -17,6 +18,10 @@ module GitHub
           warn "Missing #{path}, ignored. Ask @dblock where to get this data from."
           []
         end
+      end
+
+      def data
+        DATA
       end
 
       def members
