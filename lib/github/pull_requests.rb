@@ -111,7 +111,7 @@ module GitHub
     end
 
     def self.query_repos(org, options = {})
-      if options[:repo]
+      if options[:repo] && Array(options[:repo]).any?
         Array(options[:repo]).map do |repo|
           "repo:#{org.name}/#{repo}"
         end.join(' ')
