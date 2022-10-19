@@ -15,6 +15,7 @@ gem 'rubocop-performance'
 gem 'rubocop-rake'
 gem 'rubocop-rspec'
 gem 'ruby-progressbar'
+gem "simplecov"
 gem 'codecov'
 
 group :test do
