@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/opensearch-project/project-tools/branch/main/graph/badge.svg)](https://codecov.io/gh/opensearch-project/project-tools)
+
 - [OpenSearch Project Tools](#opensearch-project-tools)
   - [Usage](#usage)
     - [Global Options](#global-options)
