@@ -37,7 +37,7 @@ command 'issue', 'issues' do |g|
   g.desc 'Finds labelled for incorrect release.'
   g.command 'released' do |c|
     c.action do |_global_options, options, _args|
-      $org.issues(options).version_labels.each_pair do |label, issues|
+      $org.issues(options).version_labels.sort.each do |label, issues|
         puts "#{label}: #{issues.count}"
         issues.take(5).each do |issue|
           puts " #{issue}"
