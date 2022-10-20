@@ -17,23 +17,23 @@ module GitHub
     end
 
     def members
-      buckets[:members]
+      buckets[:members] || []
     end
 
     def contractors
-      buckets[:contractors]
+      buckets[:contractors] || []
     end
 
     def external
-      buckets[:external]
+      buckets[:external] || []
     end
 
     def unknown
-      buckets[:unknown]
+      buckets[:unknown] || []
     end
 
     def [](bucket)
-      buckets[bucket]
+      buckets[bucket] || []
     end
 
     def all
@@ -49,6 +49,8 @@ module GitHub
     end
 
     def all_external_percent
+      return 0 unless all.any?
+
       ((all_external.size.to_f / all.size) * 100).to_i
     end
 
@@ -68,8 +70,8 @@ module GitHub
 
     def self.fetch(org, options = {})
       all_contributions = []
-      start_at = options[:from].is_a?(String) ? Date.parse(options[:from]) : options[:from]
-      end_at = options[:to].is_a?(String) ? Date.parse(options[:to]) : options[:to]
+      start_at = options[:from].is_a?(String) ? Chronic.parse(options[:from]).to_date : options[:from]
+      end_at = options[:to].is_a?(String) ? Chronic.parse(options[:to]).to_date : options[:to]
       days = options[:page]
       raise ArgumentError('missing from') unless start_at
       raise ArgumentError('missing to') unless end_at

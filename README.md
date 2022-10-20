@@ -94,6 +94,12 @@ By default returns stats for the last full week. Specify `from` and `to` for dif
 ./bin/project contributors stats --from=2022-10-02 --to=2022-10-03
 ```
 
+You can specify relative dates.
+
+```
+./bin/project contributors stats --from="last monday" --to="today"
+```
+
 For large organizations the default paging interval of 7 days may be too big and fail with `error: There are 1000+ PRs returned from a single query for 7 day(s), reduce --page.`. Decrease the page size.
 
 ```
@@ -149,15 +155,15 @@ https://github.com/opensearch-project/opensearch-php/pull/85: Unset port for Sig
 
 By default returns stats for the last full week. Specify `from` and `to` for different dates.
 
-If the tool sees a new contributor, it will direct you to add aliases into [data/members.txt](data/members.txt), [data/contractors.txt](data/contractors.txt), or [data/external.txt](data/external.txt). Otherwise, it will output PRs and stats made by external contributors. The easiest way to lookup whether an account belongs to the org is with `./bin/project org members`. Commit and PR your changes to the data lists.
+If the tool sees a new contributor, it will direct you to add aliases into [data/members.txt](data/members.txt), [data/contractors.txt](data/contractors.txt), or [data/external.txt](data/external.txt) and open a browser page for each user so you can examine their account (specify `--ignore-unknown` to disable this behavior). Otherwise, it will output PRs and stats made by external contributors. The easiest way to lookup whether an account belongs to the org is with `./bin/project org members`. Commit and PR your changes to the data lists.
 
-Get the stats since the beginning of year.
+Get the stats since the beginning of year till today.
 
 ```
-./bin/project prs stats --from=2022-01-01
+./bin/project prs stats --from=2022-01-01 --to=today
 ```
 
-Get the stats for a given repo.
+Get the stats for a given repo for last week.
 
 ```
 ./bin/project --org aws prs stats --repo aws-cli

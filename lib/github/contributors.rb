@@ -13,19 +13,19 @@ module GitHub
     end
 
     def members
-      buckets[:members]
+      buckets[:members] || []
     end
 
     def contractors
-      buckets[:contractors]
+      buckets[:contractors] || []
     end
 
     def external
-      buckets[:external]
+      buckets[:external] || []
     end
 
     def unknown
-      buckets[:unknown]
+      buckets[:unknown] || []
     end
 
     def all
@@ -41,6 +41,8 @@ module GitHub
     end
 
     def all_external_percent
+      return 0 unless all.any?
+
       ((all_external.size.to_f / all.size) * 100).to_i
     end
 
