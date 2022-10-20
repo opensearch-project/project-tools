@@ -193,6 +193,12 @@ autocut: 6
 ...
 ```
 
+Specify org and repo.
+
+```
+./bin/project --org aws issues labels --repo aws-cli
+```
+
 By default returns stats for the last full week. Specify `from` and `to` for different dates.
 
 Find untriaged issues.
