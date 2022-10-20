@@ -11,9 +11,22 @@ describe GitHub::Issues do
         end
 
         it 'fetches labels between two dates' do
-          expect(subject.labels.keys.sort).to eq ['content request', 'enhancement', 'help wanted', 'on hold', 'pending design feedback']
+          expect(subject.labels.keys.sort).to eq ['content request', 'enhancement', 'pending design feedback', 'v1.2.3', 'v3.4.5']
           expect(subject.labels['enhancement'].count).to eq 1
-          expect(subject.labels['on hold'].count).to eq 2
+          expect(subject.labels['v3.4.5'].count).to eq 2
+        end
+
+        it 'returns version' do
+          expect(subject.version_labels.keys).to eq ['v3.4.5', 'v1.2.3']
+        end
+
+        it 'returns repo to versions map' do
+          repo = 'https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io'
+          expect(subject.repos_version_labels.keys).to eq([repo])
+          expect(subject.repos_version_labels[repo].keys).to eq(['v3.4.5', 'v1.2.3'])
+          expect(subject.repos_version_labels[repo]['v3.4.5'].count).to eq 2
+          expect(subject.repos_version_labels[repo]['v3.4.5'].map(&:number)).to eq [171, 174]
+          expect(subject.repos_version_labels[repo]['v3.4.5'].first.repository_url).to eq repo
         end
       end
     end
@@ -25,9 +38,9 @@ describe GitHub::Issues do
         end
 
         it 'fetches issues between two dates' do
-          expect(subject.labels.keys.sort).to eq ['content request', 'enhancement', 'help wanted', 'on hold', 'pending design feedback']
+          expect(subject.labels.keys.sort).to eq ['content request', 'enhancement', 'pending design feedback', 'v1.2.3', 'v3.4.5']
           expect(subject.labels['enhancement'].count).to eq 1
-          expect(subject.labels['on hold'].count).to eq 2
+          expect(subject.labels['v3.4.5'].count).to eq 2
         end
       end
     end
