@@ -159,12 +159,13 @@ RSpec/NamedSubject:
 RSpec/NestedGroups:
   Max: 4
 
-# Offense count: 2
+# Offense count: 3
 # This cop supports unsafe autocorrection (--autocorrect-all).
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: always, always_true, never
 Style/FrozenStringLiteralComment:
   Exclude:
+    - 'spec/support/codecov.rb'
     - 'spec/support/command_line.rb'
     - 'spec/support/github.rb'
 
