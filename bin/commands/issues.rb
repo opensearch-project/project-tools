@@ -21,13 +21,11 @@ command 'issue', 'issues' do |g|
     c.action do |_global_options, options, _args|
       untriaged_issues = $org.issues(options.merge(label: 'untriaged'))
       puts "There are #{untriaged_issues.count} untriaged issues created between #{Chronic.parse(options[:from]).to_date} and #{Chronic.parse(options[:to]).to_date}."
-      puts ''
-      puts 'Repo counts:'
+      puts "\n# By Repo\n"
       untriaged_issues.repos.each_pair do |repo, issues|
         puts "#{repo}: #{issues.count}"
       end
-      puts ''
-      puts 'Oldest issues:'
+      puts "\n# Oldest Issues\n"
       untriaged_issues.sort_by { |i| i.created_at }.take(25).each do |issue|
         puts "#{issue}, created #{DOTIW::Methods.distance_of_time_in_words(issue.created_at, Time.now,
                                                                            highest_measures: 1)} ago"
@@ -38,10 +36,16 @@ command 'issue', 'issues' do |g|
   g.desc 'Finds labelled for incorrect release.'
   g.command 'released' do |c|
     c.action do |_global_options, options, _args|
-      $org.issues(options).version_labels.sort.each do |label, issues|
+      issues = $org.issues(options)
+      puts "# Label Counts\n"
+      issues.version_labels.sort.each do |label, issues|
         puts "#{label}: #{issues.count}"
-        issues.take(5).each do |issue|
-          puts " #{issue}"
+      end
+      puts "\n# By Repo\n"
+      issues.repos_version_labels.sort.each do |repo, version_labels|
+        puts "#{repo.split('/').last}"
+        version_labels.sort.each do |label, issues|
+          puts "  #{label}: #{issues.count}"
         end
       end
     end

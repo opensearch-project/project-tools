@@ -13,8 +13,23 @@ module GitHub
     end
 
     def version_labels
-      labels.select do |label, _issues|
+      @version_labels ||= labels.select do |label, _issues|
         label.match(/v[0-9]\.[0-9]\.[0-9]*/)
+      end
+    end
+
+    # map of repo -> labels
+    def repos_version_labels
+      @repos_version_labels ||= begin
+        all = {}
+        version_labels.each do |label, issues|
+          issues.each do |issue|
+            all[issue.repository_url] ||= {}
+            all[issue.repository_url][label] ||= []
+            all[issue.repository_url][label] << issue
+          end
+        end
+        all
       end
     end
 

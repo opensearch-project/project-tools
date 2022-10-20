@@ -211,6 +211,24 @@ Find old issues labeled for a release.
 
 ```
 ./bin/project issues released --from=2021-01-01 --to=2022-10-01
+
+v1.3.6: 3
+v1.3.7: 1
+v2.0.0: 3
+v2.1.0: 6
+v2.2.0: 31
+v2.3.0: 11
+v2.3.1: 1
+v2.4.0: 193
+
+OpenSearch
+  v2.1.0: 1
+  v2.2.0: 1
+  v2.3.0: 2
+  v2.4.0: 22
+OpenSearch-Dashboards
+  v1.3.0: 1
+  v2.4.0: 38
 ```
 
 #### Member Bios
