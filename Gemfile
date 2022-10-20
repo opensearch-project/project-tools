@@ -3,6 +3,7 @@
 source 'http://rubygems.org'
 
 gem 'activesupport'
+gem 'chronic'
 gem 'dotiw'
 gem 'faraday-http-cache'
 gem 'faraday-retry'

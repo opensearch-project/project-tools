@@ -38,8 +38,8 @@ module GitHub
 
     def self.fetch(org, options = {})
       issues = []
-      start_at = options[:from].is_a?(String) ? Date.parse(options[:from]) : options[:from]
-      end_at = options[:to].is_a?(String) ? Date.parse(options[:to]) : options[:to]
+      start_at = options[:from].is_a?(String) ? Chronic.parse(options[:from]).to_date : options[:from]
+      end_at = options[:to].is_a?(String) ? Chronic.parse(options[:to]).to_date : options[:to]
       days = options[:page]
       progress(
         total: (((end_at - start_at) / days) + 1),

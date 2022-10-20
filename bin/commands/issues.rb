@@ -19,7 +19,7 @@ command 'issue', 'issues' do |g|
   g.command 'untriaged' do |c|
     c.action do |_global_options, options, _args|
       untriaged_issues = $org.issues(options.merge(label: 'untriaged'))
-      puts "There are #{untriaged_issues.count} untriaged issues created between #{options[:from]} and #{options[:to]}."
+      puts "There are #{untriaged_issues.count} untriaged issues created between #{Chronic.parse(options[:from]).to_date} and #{Chronic.parse(options[:to]).to_date}."
       puts ''
       puts 'Repo counts:'
       untriaged_issues.repos.each_pair do |repo, issues|
