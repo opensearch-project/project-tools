@@ -12,6 +12,12 @@ module GitHub
       super(Issues.fetch(org, options))
     end
 
+    def version_labels
+      labels.select do |label, _issues|
+        label.match(/v[0-9]\.[0-9]\.[0-9]*/)
+      end
+    end
+
     def labels
       @labels ||= begin
         all = {}
