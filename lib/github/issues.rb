@@ -70,13 +70,23 @@ module GitHub
 
     def self.query(org, options = {})
       [
-        "org:#{org.name}",
+        query_repos(org, options),
         'is:issue',
         'is:open',
         'archived:false',
         "created:#{options[:from]}..#{options[:to]}",
         options.key?(:label) ? "label:\"#{options[:label]}\"" : nil
       ].compact.join(' ')
+    end
+
+    def self.query_repos(org, options = {})
+      if options[:repo] && Array(options[:repo]).any?
+        Array(options[:repo]).map do |repo|
+          "repo:#{org.name}/#{repo}"
+        end.join(' ')
+      else
+        "org:#{org.name}"
+      end
     end
   end
 end

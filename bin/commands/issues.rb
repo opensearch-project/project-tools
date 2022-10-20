@@ -5,6 +5,7 @@ command 'issue', 'issues' do |g|
   g.flag [:page], desc: 'Size of page in days.', default_value: 7, type: Integer
   g.flag [:from], desc: 'Start at.', default_value: Date.today.beginning_of_week.last_week
   g.flag [:to], desc: 'End at.', default_value: Date.today.beginning_of_week - 1
+  g.flag [:repo], multiple: true, desc: 'Search a specific repo within the org.'
 
   g.desc 'Lists issue stats in the organization.'
   g.command 'labels' do |c|
