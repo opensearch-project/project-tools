@@ -10,7 +10,7 @@ command 'issue', 'issues' do |g|
   g.desc 'Lists issue stats in the organization.'
   g.command 'labels' do |c|
     c.action do |_global_options, options, _args|
-      $org.issues(options).labels.take(25).each do |label, issues|
+      $org.issues(options).labels.sort.each do |label, issues|
         puts "#{label}: #{issues.count}"
       end
     end
