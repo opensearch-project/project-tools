@@ -1,0 +1,370 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/search/issues?per_page=1000&q=repo:aws/aws-cli%20state:merged%20is:pull-request%20archived:false%20is:closed%20merged:2022-10-01..2022-10-08
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.25.1
+      Content-Type:
+      - application/json
+      Authorization:
+      - token <GITHUB_API_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Mon, 24 Oct 2022 17:25:44 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Cache-Control:
+      - no-cache
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding, Accept, X-Requested-With
+      X-Oauth-Scopes:
+      - public_repo
+      X-Accepted-Oauth-Scopes:
+      - ''
+      X-Github-Media-Type:
+      - github.v3; format=json
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '29'
+      X-Ratelimit-Reset:
+      - '1666632404'
+      X-Ratelimit-Used:
+      - '1'
+      X-Ratelimit-Resource:
+      - search
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO,
+        X-GitHub-Request-Id, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Github-Request-Id:
+      - 7BC5:38DE:8AAE321:11C73B4D:6356CA98
+    body:
+      encoding: ASCII-8BIT
+      string: '{"total_count":4,"incomplete_results":false,"items":[{"url":"https://api.github.com/repos/aws/aws-cli/issues/7329","repository_url":"https://api.github.com/repos/aws/aws-cli","labels_url":"https://api.github.com/repos/aws/aws-cli/issues/7329/labels{/name}","comments_url":"https://api.github.com/repos/aws/aws-cli/issues/7329/comments","events_url":"https://api.github.com/repos/aws/aws-cli/issues/7329/events","html_url":"https://github.com/aws/aws-cli/pull/7329","id":1400309388,"node_id":"PR_kwDOAGd3X85AWXh-","number":7329,"title":"[v2]
+        Add support for crytography 38.0.1","user":{"login":"kyleknap","id":4605355,"node_id":"MDQ6VXNlcjQ2MDUzNTU=","avatar_url":"https://avatars.githubusercontent.com/u/4605355?v=4","gravatar_id":"","url":"https://api.github.com/users/kyleknap","html_url":"https://github.com/kyleknap","followers_url":"https://api.github.com/users/kyleknap/followers","following_url":"https://api.github.com/users/kyleknap/following{/other_user}","gists_url":"https://api.github.com/users/kyleknap/gists{/gist_id}","starred_url":"https://api.github.com/users/kyleknap/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/kyleknap/subscriptions","organizations_url":"https://api.github.com/users/kyleknap/orgs","repos_url":"https://api.github.com/users/kyleknap/repos","events_url":"https://api.github.com/users/kyleknap/events{/privacy}","received_events_url":"https://api.github.com/users/kyleknap/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"assignees":[],"milestone":null,"comments":1,"created_at":"2022-10-06T21:15:18Z","updated_at":"2022-10-06T22:51:14Z","closed_at":"2022-10-06T22:51:11Z","author_association":"MEMBER","active_lock_reason":null,"draft":false,"pull_request":{"url":"https://api.github.com/repos/aws/aws-cli/pulls/7329","html_url":"https://github.com/aws/aws-cli/pull/7329","diff_url":"https://github.com/aws/aws-cli/pull/7329.diff","patch_url":"https://github.com/aws/aws-cli/pull/7329.patch","merged_at":"2022-10-06T22:51:11Z"},"body":"Going
+        through the [changelog](https://cryptography.io/en/latest/changelog/), I did
+        not find any breaking changes across the 37.x.x and 38.x.x versions that impact
+        functionality in the CLI. Most of the backwards compatible changes were around
+        the OpenSSL/Python version supported, wheels that are provided, and some methods
+        were removed (but we were already using the correct methods to start).\r\n","reactions":{"url":"https://api.github.com/repos/aws/aws-cli/issues/7329/reactions","total_count":0,"+1":0,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0},"timeline_url":"https://api.github.com/repos/aws/aws-cli/issues/7329/timeline","performed_via_github_app":null,"state_reason":null,"score":1.0},{"url":"https://api.github.com/repos/aws/aws-cli/issues/7326","repository_url":"https://api.github.com/repos/aws/aws-cli","labels_url":"https://api.github.com/repos/aws/aws-cli/issues/7326/labels{/name}","comments_url":"https://api.github.com/repos/aws/aws-cli/issues/7326/comments","events_url":"https://api.github.com/repos/aws/aws-cli/issues/7326/events","html_url":"https://github.com/aws/aws-cli/pull/7326","id":1398244846,"node_id":"PR_kwDOAGd3X85APQIN","number":7326,"title":"[v2]
+        Merge model updates and develop branch to v2 branch","user":{"login":"cli-v2-merge","id":103961903,"node_id":"U_kgDOBjJVLw","avatar_url":"https://avatars.githubusercontent.com/u/103961903?v=4","gravatar_id":"","url":"https://api.github.com/users/cli-v2-merge","html_url":"https://github.com/cli-v2-merge","followers_url":"https://api.github.com/users/cli-v2-merge/followers","following_url":"https://api.github.com/users/cli-v2-merge/following{/other_user}","gists_url":"https://api.github.com/users/cli-v2-merge/gists{/gist_id}","starred_url":"https://api.github.com/users/cli-v2-merge/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/cli-v2-merge/subscriptions","organizations_url":"https://api.github.com/users/cli-v2-merge/orgs","repos_url":"https://api.github.com/users/cli-v2-merge/repos","events_url":"https://api.github.com/users/cli-v2-merge/events{/privacy}","received_events_url":"https://api.github.com/users/cli-v2-merge/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"assignees":[],"milestone":null,"comments":1,"created_at":"2022-10-05T19:10:58Z","updated_at":"2022-10-06T22:54:29Z","closed_at":"2022-10-06T22:54:29Z","author_association":"NONE","active_lock_reason":null,"draft":false,"pull_request":{"url":"https://api.github.com/repos/aws/aws-cli/pulls/7326","html_url":"https://github.com/aws/aws-cli/pull/7326","diff_url":"https://github.com/aws/aws-cli/pull/7326.diff","patch_url":"https://github.com/aws/aws-cli/pull/7326.patch","merged_at":"2022-10-06T22:54:29Z"},"body":"Pulled
+        in changes from 1.25.88\n\nhttps://github.com/boto/botocore/compare/1.27.86..1.27.87","reactions":{"url":"https://api.github.com/repos/aws/aws-cli/issues/7326/reactions","total_count":0,"+1":0,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0},"timeline_url":"https://api.github.com/repos/aws/aws-cli/issues/7326/timeline","performed_via_github_app":null,"state_reason":null,"score":1.0},{"url":"https://api.github.com/repos/aws/aws-cli/issues/7316","repository_url":"https://api.github.com/repos/aws/aws-cli","labels_url":"https://api.github.com/repos/aws/aws-cli/issues/7316/labels{/name}","comments_url":"https://api.github.com/repos/aws/aws-cli/issues/7316/comments","events_url":"https://api.github.com/repos/aws/aws-cli/issues/7316/events","html_url":"https://github.com/aws/aws-cli/pull/7316","id":1393005575,"node_id":"PR_kwDOAGd3X84_-APw","number":7316,"title":"[v2]
+        Use source client for s3 --copy-props subscribers","user":{"login":"kyleknap","id":4605355,"node_id":"MDQ6VXNlcjQ2MDUzNTU=","avatar_url":"https://avatars.githubusercontent.com/u/4605355?v=4","gravatar_id":"","url":"https://api.github.com/users/kyleknap","html_url":"https://github.com/kyleknap","followers_url":"https://api.github.com/users/kyleknap/followers","following_url":"https://api.github.com/users/kyleknap/following{/other_user}","gists_url":"https://api.github.com/users/kyleknap/gists{/gist_id}","starred_url":"https://api.github.com/users/kyleknap/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/kyleknap/subscriptions","organizations_url":"https://api.github.com/users/kyleknap/orgs","repos_url":"https://api.github.com/users/kyleknap/repos","events_url":"https://api.github.com/users/kyleknap/events{/privacy}","received_events_url":"https://api.github.com/users/kyleknap/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"assignees":[],"milestone":null,"comments":1,"created_at":"2022-09-30T20:44:51Z","updated_at":"2022-10-04T20:22:43Z","closed_at":"2022-10-04T20:22:38Z","author_association":"MEMBER","active_lock_reason":null,"draft":false,"pull_request":{"url":"https://api.github.com/repos/aws/aws-cli/pulls/7316","html_url":"https://github.com/aws/aws-cli/pull/7316","diff_url":"https://github.com/aws/aws-cli/pull/7316.diff","patch_url":"https://github.com/aws/aws-cli/pull/7316.patch","merged_at":"2022-10-04T20:22:38Z"},"body":"When
+        retrieving metadata and tags, the subscribers were using the intended transfer
+        client instead of the source client. This lead to failures when calling GetObjectTags
+        and unnecessary region redirect requests for HeadObject when using an opt-in
+        region (e.g. af-south-1) that did not match the region of the source bucket.\r\n\r\n**Before
+        this change:**\r\nIf you tried to copy an an individual file that required
+        multipart copy across opt-in regions, you would get an error when the CLI
+        went to describe the object tags it needs to copy over:\r\n```\r\n$ aws s3
+        cp s3://knapp-us-west-2/some-prefix/10MB-tagged s3://kyleknap-af-south-1/some-prefix/  --source-region
+        us-west-2 --region af-south-1\r\ncopy failed: s3://knapp-us-west-2/some-prefix/10MB-tagged
+        to s3://kyleknap-af-south-1/some-prefix/10MB-tagged An error occurred (IllegalLocationConstraintException)
+        when calling the GetObjectTagging operation: The us-west-2 location constraint
+        is incompatible for the region specific endpoint this request was sent to.\r\n```\r\nIf
+        you did the same transfer recursively, it would succeed but require additional
+        HTTP (3 extra hops) to handle region redirects:\r\n```\r\n$ aws s3 cp s3://knapp-us-west-2/some-prefix/
+        s3://kyleknap-af-south-1/some-prefix/ --recursive --source-region us-west-2
+        --region af-south-1\r\ncopy: s3://knapp-us-west-2/some-prefix/10MB-tagged
+        to s3://kyleknap-af-south-1/some-prefix/10MB-tagged\r\n$ aws history show
+        | grep ''HTTP request sent'' | wc -l\r\n      10\r\n```\r\n**Note:** Region
+        redirects did not save the non-recursive command because the initial head
+        object was sent to the correct region to start and the subsequent API call
+        was a `GetObjectTagging` call which does not support region redirects for
+        opt-in regions.\r\n\r\n**With this change:**\r\nThe non-recursive copy succeeds:\r\n```\r\n$
+        aws s3 cp s3://knapp-us-west-2/some-prefix/10MB-tagged s3://kyleknap-af-south-1/some-prefix/  --source-region
+        us-west-2 --region af-south-1\r\ncopy: s3://knapp-us-west-2/some-prefix/10MB-tagged
+        to s3://kyleknap-af-south-1/some-prefix/10MB-tagged\r\n$ aws s3api get-object-tagging
+        --bucket kyleknap-af-south-1 --key some-prefix/10MB-tagged --region af-south-1\r\n{\r\n    \"TagSet\":
+        [\r\n        {\r\n            \"Key\": \"tag\",\r\n            \"Value\":
+        \"value\"\r\n        }\r\n    ]\r\n}\r\n```\r\nThe expected number of HTTP
+        requests are made for a recursive copy:\r\n```\r\n$ aws s3 cp s3://knapp-us-west-2/some-prefix/
+        s3://kyleknap-af-south-1/some-prefix/ --recursive --source-region us-west-2
+        --region af-south-1\r\n$ aws history show | grep ''HTTP request sent'' | wc
+        -l\r\n       7\r\n```\r\nspecifically the seven calls are:\r\n* 1 ListObjectsV2
+        call\r\n* 1 HeadObject call\r\n* 1 GetObjectTagging call\r\n* 1 CreateMPU
+        call\r\n* 2 UploadPartCopy calls\r\n* 1 CompleteMPU API call\r\n","reactions":{"url":"https://api.github.com/repos/aws/aws-cli/issues/7316/reactions","total_count":0,"+1":0,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0},"timeline_url":"https://api.github.com/repos/aws/aws-cli/issues/7316/timeline","performed_via_github_app":null,"state_reason":null,"score":1.0},{"url":"https://api.github.com/repos/aws/aws-cli/issues/7315","repository_url":"https://api.github.com/repos/aws/aws-cli","labels_url":"https://api.github.com/repos/aws/aws-cli/issues/7315/labels{/name}","comments_url":"https://api.github.com/repos/aws/aws-cli/issues/7315/comments","events_url":"https://api.github.com/repos/aws/aws-cli/issues/7315/events","html_url":"https://github.com/aws/aws-cli/pull/7315","id":1392887276,"node_id":"PR_kwDOAGd3X84_9lYE","number":7315,"title":"[v2]
+        Merge model updates and develop branch to v2 branch","user":{"login":"cli-v2-merge","id":103961903,"node_id":"U_kgDOBjJVLw","avatar_url":"https://avatars.githubusercontent.com/u/103961903?v=4","gravatar_id":"","url":"https://api.github.com/users/cli-v2-merge","html_url":"https://github.com/cli-v2-merge","followers_url":"https://api.github.com/users/cli-v2-merge/followers","following_url":"https://api.github.com/users/cli-v2-merge/following{/other_user}","gists_url":"https://api.github.com/users/cli-v2-merge/gists{/gist_id}","starred_url":"https://api.github.com/users/cli-v2-merge/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/cli-v2-merge/subscriptions","organizations_url":"https://api.github.com/users/cli-v2-merge/orgs","repos_url":"https://api.github.com/users/cli-v2-merge/repos","events_url":"https://api.github.com/users/cli-v2-merge/events{/privacy}","received_events_url":"https://api.github.com/users/cli-v2-merge/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"assignees":[],"milestone":null,"comments":1,"created_at":"2022-09-30T19:19:42Z","updated_at":"2022-10-05T17:37:09Z","closed_at":"2022-10-05T17:36:55Z","author_association":"NONE","active_lock_reason":null,"draft":false,"pull_request":{"url":"https://api.github.com/repos/aws/aws-cli/pulls/7315","html_url":"https://github.com/aws/aws-cli/pull/7315","diff_url":"https://github.com/aws/aws-cli/pull/7315.diff","patch_url":"https://github.com/aws/aws-cli/pull/7315.patch","merged_at":"2022-10-05T17:36:55Z"},"body":"Pulled
+        in changes from 1.25.85\n\nhttps://github.com/boto/botocore/compare/1.27.83..1.27.84","reactions":{"url":"https://api.github.com/repos/aws/aws-cli/issues/7315/reactions","total_count":0,"+1":0,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0},"timeline_url":"https://api.github.com/repos/aws/aws-cli/issues/7315/timeline","performed_via_github_app":null,"state_reason":null,"score":1.0}]}'
+  recorded_at: Mon, 24 Oct 2022 17:25:44 GMT
+- request:
+    method: get
+    uri: https://api.github.com/search/issues?per_page=1000&q=repo:aws/aws-cli%20state:merged%20is:pull-request%20archived:false%20is:closed%20merged:2022-10-08..2022-10-15
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.25.1
+      Content-Type:
+      - application/json
+      Authorization:
+      - token <GITHUB_API_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Mon, 24 Oct 2022 17:25:44 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Cache-Control:
+      - no-cache
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding, Accept, X-Requested-With
+      X-Oauth-Scopes:
+      - public_repo
+      X-Accepted-Oauth-Scopes:
+      - ''
+      X-Github-Media-Type:
+      - github.v3; format=json
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '28'
+      X-Ratelimit-Reset:
+      - '1666632404'
+      X-Ratelimit-Used:
+      - '2'
+      X-Ratelimit-Resource:
+      - search
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO,
+        X-GitHub-Request-Id, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Github-Request-Id:
+      - 78BE:0188:887CDFB:117EBA4A:6356CA98
+    body:
+      encoding: ASCII-8BIT
+      string: '{"total_count":2,"incomplete_results":false,"items":[{"url":"https://api.github.com/repos/aws/aws-cli/issues/7342","repository_url":"https://api.github.com/repos/aws/aws-cli","labels_url":"https://api.github.com/repos/aws/aws-cli/issues/7342/labels{/name}","comments_url":"https://api.github.com/repos/aws/aws-cli/issues/7342/comments","events_url":"https://api.github.com/repos/aws/aws-cli/issues/7342/events","html_url":"https://github.com/aws/aws-cli/pull/7342","id":1408614968,"node_id":"PR_kwDOAGd3X85Ax3Ej","number":7342,"title":"Remove
+        global options from topic tags","user":{"login":"hssyoo","id":106777148,"node_id":"U_kgDOBl1KPA","avatar_url":"https://avatars.githubusercontent.com/u/106777148?v=4","gravatar_id":"","url":"https://api.github.com/users/hssyoo","html_url":"https://github.com/hssyoo","followers_url":"https://api.github.com/users/hssyoo/followers","following_url":"https://api.github.com/users/hssyoo/following{/other_user}","gists_url":"https://api.github.com/users/hssyoo/gists{/gist_id}","starred_url":"https://api.github.com/users/hssyoo/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/hssyoo/subscriptions","organizations_url":"https://api.github.com/users/hssyoo/orgs","repos_url":"https://api.github.com/users/hssyoo/repos","events_url":"https://api.github.com/users/hssyoo/events{/privacy}","received_events_url":"https://api.github.com/users/hssyoo/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"assignees":[],"milestone":null,"comments":1,"created_at":"2022-10-14T01:18:24Z","updated_at":"2022-10-14T16:45:19Z","closed_at":"2022-10-14T16:41:44Z","author_association":"CONTRIBUTOR","active_lock_reason":null,"draft":false,"pull_request":{"url":"https://api.github.com/repos/aws/aws-cli/pulls/7342","html_url":"https://github.com/aws/aws-cli/pull/7342","diff_url":"https://github.com/aws/aws-cli/pull/7342.diff","patch_url":"https://github.com/aws/aws-cli/pull/7342.patch","merged_at":"2022-10-14T16:41:44Z"},"body":"Fixes
+        #7338 \r\n\r\nRemove the global options section from topic tags to avoid sphinx
+        hierarchy rule violations. This removal is okay since the topic tags help
+        commands don''t make use of global options.","reactions":{"url":"https://api.github.com/repos/aws/aws-cli/issues/7342/reactions","total_count":0,"+1":0,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0},"timeline_url":"https://api.github.com/repos/aws/aws-cli/issues/7342/timeline","performed_via_github_app":null,"state_reason":null,"score":1.0},{"url":"https://api.github.com/repos/aws/aws-cli/issues/7331","repository_url":"https://api.github.com/repos/aws/aws-cli","labels_url":"https://api.github.com/repos/aws/aws-cli/issues/7331/labels{/name}","comments_url":"https://api.github.com/repos/aws/aws-cli/issues/7331/comments","events_url":"https://api.github.com/repos/aws/aws-cli/issues/7331/events","html_url":"https://github.com/aws/aws-cli/pull/7331","id":1401572201,"node_id":"PR_kwDOAGd3X85AaksN","number":7331,"title":"[v2]
+        Merge model updates and develop branch to v2 branch","user":{"login":"cli-v2-merge","id":103961903,"node_id":"U_kgDOBjJVLw","avatar_url":"https://avatars.githubusercontent.com/u/103961903?v=4","gravatar_id":"","url":"https://api.github.com/users/cli-v2-merge","html_url":"https://github.com/cli-v2-merge","followers_url":"https://api.github.com/users/cli-v2-merge/followers","following_url":"https://api.github.com/users/cli-v2-merge/following{/other_user}","gists_url":"https://api.github.com/users/cli-v2-merge/gists{/gist_id}","starred_url":"https://api.github.com/users/cli-v2-merge/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/cli-v2-merge/subscriptions","organizations_url":"https://api.github.com/users/cli-v2-merge/orgs","repos_url":"https://api.github.com/users/cli-v2-merge/repos","events_url":"https://api.github.com/users/cli-v2-merge/events{/privacy}","received_events_url":"https://api.github.com/users/cli-v2-merge/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"assignees":[],"milestone":null,"comments":1,"created_at":"2022-10-07T19:11:11Z","updated_at":"2022-10-13T20:01:29Z","closed_at":"2022-10-13T20:01:29Z","author_association":"NONE","active_lock_reason":null,"draft":false,"pull_request":{"url":"https://api.github.com/repos/aws/aws-cli/pulls/7331","html_url":"https://github.com/aws/aws-cli/pull/7331","diff_url":"https://github.com/aws/aws-cli/pull/7331.diff","patch_url":"https://github.com/aws/aws-cli/pull/7331.patch","merged_at":"2022-10-13T20:01:29Z"},"body":"Pulled
+        in changes from 1.25.90\n\nhttps://github.com/boto/botocore/compare/1.27.88..1.27.89","reactions":{"url":"https://api.github.com/repos/aws/aws-cli/issues/7331/reactions","total_count":0,"+1":0,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0},"timeline_url":"https://api.github.com/repos/aws/aws-cli/issues/7331/timeline","performed_via_github_app":null,"state_reason":null,"score":1.0}]}'
+  recorded_at: Mon, 24 Oct 2022 17:25:44 GMT
+- request:
+    method: get
+    uri: https://api.github.com/search/issues?per_page=1000&q=repo:aws/aws-cli%20state:merged%20is:pull-request%20archived:false%20is:closed%20merged:2022-10-15..2022-10-22
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.25.1
+      Content-Type:
+      - application/json
+      Authorization:
+      - token <GITHUB_API_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Mon, 24 Oct 2022 17:25:45 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Cache-Control:
+      - no-cache
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding, Accept, X-Requested-With
+      X-Oauth-Scopes:
+      - public_repo
+      X-Accepted-Oauth-Scopes:
+      - ''
+      X-Github-Media-Type:
+      - github.v3; format=json
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '27'
+      X-Ratelimit-Reset:
+      - '1666632404'
+      X-Ratelimit-Used:
+      - '3'
+      X-Ratelimit-Resource:
+      - search
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO,
+        X-GitHub-Request-Id, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Github-Request-Id:
+      - 2823:88DE:83F80B7:10F3160B:6356CA98
+    body:
+      encoding: ASCII-8BIT
+      string: '{"total_count":5,"incomplete_results":false,"items":[{"url":"https://api.github.com/repos/aws/aws-cli/issues/7352","repository_url":"https://api.github.com/repos/aws/aws-cli","labels_url":"https://api.github.com/repos/aws/aws-cli/issues/7352/labels{/name}","comments_url":"https://api.github.com/repos/aws/aws-cli/issues/7352/comments","events_url":"https://api.github.com/repos/aws/aws-cli/issues/7352/events","html_url":"https://github.com/aws/aws-cli/pull/7352","id":1417279704,"node_id":"PR_kwDOAGd3X85BOw45","number":7352,"title":"Add
+        tests/ directory to the source distribution","user":{"login":"stealthycoin","id":1010634,"node_id":"MDQ6VXNlcjEwMTA2MzQ=","avatar_url":"https://avatars.githubusercontent.com/u/1010634?v=4","gravatar_id":"","url":"https://api.github.com/users/stealthycoin","html_url":"https://github.com/stealthycoin","followers_url":"https://api.github.com/users/stealthycoin/followers","following_url":"https://api.github.com/users/stealthycoin/following{/other_user}","gists_url":"https://api.github.com/users/stealthycoin/gists{/gist_id}","starred_url":"https://api.github.com/users/stealthycoin/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/stealthycoin/subscriptions","organizations_url":"https://api.github.com/users/stealthycoin/orgs","repos_url":"https://api.github.com/users/stealthycoin/repos","events_url":"https://api.github.com/users/stealthycoin/events{/privacy}","received_events_url":"https://api.github.com/users/stealthycoin/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"assignees":[],"milestone":null,"comments":1,"created_at":"2022-10-20T21:01:04Z","updated_at":"2022-10-21T16:37:59Z","closed_at":"2022-10-21T16:37:59Z","author_association":"CONTRIBUTOR","active_lock_reason":null,"draft":false,"pull_request":{"url":"https://api.github.com/repos/aws/aws-cli/pulls/7352","html_url":"https://github.com/aws/aws-cli/pull/7352","diff_url":"https://github.com/aws/aws-cli/pull/7352.diff","patch_url":"https://github.com/aws/aws-cli/pull/7352.patch","merged_at":"2022-10-21T16:37:59Z"},"body":null,"reactions":{"url":"https://api.github.com/repos/aws/aws-cli/issues/7352/reactions","total_count":0,"+1":0,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0},"timeline_url":"https://api.github.com/repos/aws/aws-cli/issues/7352/timeline","performed_via_github_app":null,"state_reason":null,"score":1.0},{"url":"https://api.github.com/repos/aws/aws-cli/issues/7349","repository_url":"https://api.github.com/repos/aws/aws-cli","labels_url":"https://api.github.com/repos/aws/aws-cli/issues/7349/labels{/name}","comments_url":"https://api.github.com/repos/aws/aws-cli/issues/7349/comments","events_url":"https://api.github.com/repos/aws/aws-cli/issues/7349/events","html_url":"https://github.com/aws/aws-cli/pull/7349","id":1415466150,"node_id":"PR_kwDOAGd3X85BIm8d","number":7349,"title":"[v2]
+        Merge model updates and develop branch to v2 branch","user":{"login":"cli-v2-merge","id":103961903,"node_id":"U_kgDOBjJVLw","avatar_url":"https://avatars.githubusercontent.com/u/103961903?v=4","gravatar_id":"","url":"https://api.github.com/users/cli-v2-merge","html_url":"https://github.com/cli-v2-merge","followers_url":"https://api.github.com/users/cli-v2-merge/followers","following_url":"https://api.github.com/users/cli-v2-merge/following{/other_user}","gists_url":"https://api.github.com/users/cli-v2-merge/gists{/gist_id}","starred_url":"https://api.github.com/users/cli-v2-merge/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/cli-v2-merge/subscriptions","organizations_url":"https://api.github.com/users/cli-v2-merge/orgs","repos_url":"https://api.github.com/users/cli-v2-merge/repos","events_url":"https://api.github.com/users/cli-v2-merge/events{/privacy}","received_events_url":"https://api.github.com/users/cli-v2-merge/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"assignees":[],"milestone":null,"comments":1,"created_at":"2022-10-19T19:17:52Z","updated_at":"2022-10-21T19:47:20Z","closed_at":"2022-10-21T19:47:20Z","author_association":"NONE","active_lock_reason":null,"draft":false,"pull_request":{"url":"https://api.github.com/repos/aws/aws-cli/pulls/7349","html_url":"https://github.com/aws/aws-cli/pull/7349","diff_url":"https://github.com/aws/aws-cli/pull/7349.diff","patch_url":"https://github.com/aws/aws-cli/pull/7349.patch","merged_at":"2022-10-21T19:47:20Z"},"body":"Pulled
+        in changes from 1.25.95\r\n\r\nhttps://github.com/boto/botocore/compare/1.27.93..1.27.95","reactions":{"url":"https://api.github.com/repos/aws/aws-cli/issues/7349/reactions","total_count":0,"+1":0,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0},"timeline_url":"https://api.github.com/repos/aws/aws-cli/issues/7349/timeline","performed_via_github_app":null,"state_reason":null,"score":1.0},{"url":"https://api.github.com/repos/aws/aws-cli/issues/7345","repository_url":"https://api.github.com/repos/aws/aws-cli","labels_url":"https://api.github.com/repos/aws/aws-cli/issues/7345/labels{/name}","comments_url":"https://api.github.com/repos/aws/aws-cli/issues/7345/comments","events_url":"https://api.github.com/repos/aws/aws-cli/issues/7345/events","html_url":"https://github.com/aws/aws-cli/pull/7345","id":1411034676,"node_id":"PR_kwDOAGd3X85A5std","number":7345,"title":"Fixed
+        typo","user":{"login":"Salil999","id":8891729,"node_id":"MDQ6VXNlcjg4OTE3Mjk=","avatar_url":"https://avatars.githubusercontent.com/u/8891729?v=4","gravatar_id":"","url":"https://api.github.com/users/Salil999","html_url":"https://github.com/Salil999","followers_url":"https://api.github.com/users/Salil999/followers","following_url":"https://api.github.com/users/Salil999/following{/other_user}","gists_url":"https://api.github.com/users/Salil999/gists{/gist_id}","starred_url":"https://api.github.com/users/Salil999/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Salil999/subscriptions","organizations_url":"https://api.github.com/users/Salil999/orgs","repos_url":"https://api.github.com/users/Salil999/repos","events_url":"https://api.github.com/users/Salil999/events{/privacy}","received_events_url":"https://api.github.com/users/Salil999/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"assignees":[],"milestone":null,"comments":0,"created_at":"2022-10-17T07:14:22Z","updated_at":"2022-10-18T22:19:41Z","closed_at":"2022-10-18T22:19:41Z","author_association":"CONTRIBUTOR","active_lock_reason":null,"draft":false,"pull_request":{"url":"https://api.github.com/repos/aws/aws-cli/pulls/7345","html_url":"https://github.com/aws/aws-cli/pull/7345","diff_url":"https://github.com/aws/aws-cli/pull/7345.diff","patch_url":"https://github.com/aws/aws-cli/pull/7345.patch","merged_at":"2022-10-18T22:19:41Z"},"body":"*Issue
+        #, if available:*\r\n\r\n*Description of changes:*\r\n\r\nFixed a typo in
+        the kinesis `describe-stream` docs\r\n\r\nBy submitting this pull request,
+        I confirm that you can use, modify, copy, and redistribute this contribution,
+        under the terms of your choice.\r\n","reactions":{"url":"https://api.github.com/repos/aws/aws-cli/issues/7345/reactions","total_count":0,"+1":0,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0},"timeline_url":"https://api.github.com/repos/aws/aws-cli/issues/7345/timeline","performed_via_github_app":null,"state_reason":null,"score":1.0},{"url":"https://api.github.com/repos/aws/aws-cli/issues/7344","repository_url":"https://api.github.com/repos/aws/aws-cli","labels_url":"https://api.github.com/repos/aws/aws-cli/issues/7344/labels{/name}","comments_url":"https://api.github.com/repos/aws/aws-cli/issues/7344/comments","events_url":"https://api.github.com/repos/aws/aws-cli/issues/7344/events","html_url":"https://github.com/aws/aws-cli/pull/7344","id":1409750969,"node_id":"PR_kwDOAGd3X85A1o5a","number":7344,"title":"[v2]
+        Merge model updates and develop branch to v2 branch","user":{"login":"cli-v2-merge","id":103961903,"node_id":"U_kgDOBjJVLw","avatar_url":"https://avatars.githubusercontent.com/u/103961903?v=4","gravatar_id":"","url":"https://api.github.com/users/cli-v2-merge","html_url":"https://github.com/cli-v2-merge","followers_url":"https://api.github.com/users/cli-v2-merge/followers","following_url":"https://api.github.com/users/cli-v2-merge/following{/other_user}","gists_url":"https://api.github.com/users/cli-v2-merge/gists{/gist_id}","starred_url":"https://api.github.com/users/cli-v2-merge/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/cli-v2-merge/subscriptions","organizations_url":"https://api.github.com/users/cli-v2-merge/orgs","repos_url":"https://api.github.com/users/cli-v2-merge/repos","events_url":"https://api.github.com/users/cli-v2-merge/events{/privacy}","received_events_url":"https://api.github.com/users/cli-v2-merge/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"assignees":[],"milestone":null,"comments":1,"created_at":"2022-10-14T19:15:02Z","updated_at":"2022-10-19T16:17:34Z","closed_at":"2022-10-19T16:17:34Z","author_association":"NONE","active_lock_reason":null,"draft":false,"pull_request":{"url":"https://api.github.com/repos/aws/aws-cli/pulls/7344","html_url":"https://github.com/aws/aws-cli/pull/7344","diff_url":"https://github.com/aws/aws-cli/pull/7344.diff","patch_url":"https://github.com/aws/aws-cli/pull/7344.patch","merged_at":"2022-10-19T16:17:34Z"},"body":"Pulled
+        in changes from 1.25.92\n\nhttps://github.com/boto/botocore/compare/1.27.90..1.27.91","reactions":{"url":"https://api.github.com/repos/aws/aws-cli/issues/7344/reactions","total_count":0,"+1":0,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0},"timeline_url":"https://api.github.com/repos/aws/aws-cli/issues/7344/timeline","performed_via_github_app":null,"state_reason":null,"score":1.0},{"url":"https://api.github.com/repos/aws/aws-cli/issues/7262","repository_url":"https://api.github.com/repos/aws/aws-cli","labels_url":"https://api.github.com/repos/aws/aws-cli/issues/7262/labels{/name}","comments_url":"https://api.github.com/repos/aws/aws-cli/issues/7262/comments","events_url":"https://api.github.com/repos/aws/aws-cli/issues/7262/events","html_url":"https://github.com/aws/aws-cli/pull/7262","id":1368036657,"node_id":"PR_kwDOAGd3X84-sJmC","number":7262,"title":"Source
+        dist","user":{"login":"stealthycoin","id":1010634,"node_id":"MDQ6VXNlcjEwMTA2MzQ=","avatar_url":"https://avatars.githubusercontent.com/u/1010634?v=4","gravatar_id":"","url":"https://api.github.com/users/stealthycoin","html_url":"https://github.com/stealthycoin","followers_url":"https://api.github.com/users/stealthycoin/followers","following_url":"https://api.github.com/users/stealthycoin/following{/other_user}","gists_url":"https://api.github.com/users/stealthycoin/gists{/gist_id}","starred_url":"https://api.github.com/users/stealthycoin/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/stealthycoin/subscriptions","organizations_url":"https://api.github.com/users/stealthycoin/orgs","repos_url":"https://api.github.com/users/stealthycoin/repos","events_url":"https://api.github.com/users/stealthycoin/events{/privacy}","received_events_url":"https://api.github.com/users/stealthycoin/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"assignees":[],"milestone":null,"comments":1,"created_at":"2022-09-09T16:08:11Z","updated_at":"2022-10-20T20:49:25Z","closed_at":"2022-10-20T20:49:25Z","author_association":"CONTRIBUTOR","active_lock_reason":null,"draft":false,"pull_request":{"url":"https://api.github.com/repos/aws/aws-cli/pulls/7262","html_url":"https://github.com/aws/aws-cli/pull/7262","diff_url":"https://github.com/aws/aws-cli/pull/7262.diff","patch_url":"https://github.com/aws/aws-cli/pull/7262.patch","merged_at":"2022-10-20T20:49:25Z"},"body":null,"reactions":{"url":"https://api.github.com/repos/aws/aws-cli/issues/7262/reactions","total_count":0,"+1":0,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0},"timeline_url":"https://api.github.com/repos/aws/aws-cli/issues/7262/timeline","performed_via_github_app":null,"state_reason":null,"score":1.0}]}'
+  recorded_at: Mon, 24 Oct 2022 17:25:45 GMT
+- request:
+    method: get
+    uri: https://api.github.com/search/issues?per_page=1000&q=repo:aws/aws-cli%20state:merged%20is:pull-request%20archived:false%20is:closed%20merged:2022-10-22..2022-10-24
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.25.1
+      Content-Type:
+      - application/json
+      Authorization:
+      - token <GITHUB_API_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Mon, 24 Oct 2022 17:25:45 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Cache-Control:
+      - no-cache
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding, Accept, X-Requested-With
+      X-Oauth-Scopes:
+      - public_repo
+      X-Accepted-Oauth-Scopes:
+      - ''
+      X-Github-Media-Type:
+      - github.v3; format=json
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '26'
+      X-Ratelimit-Reset:
+      - '1666632404'
+      X-Ratelimit-Used:
+      - '4'
+      X-Ratelimit-Resource:
+      - search
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO,
+        X-GitHub-Request-Id, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Github-Request-Id:
+      - 75A8:0C5B:7D6E832:1022EEE6:6356CA99
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJ0b3RhbF9jb3VudCI6MSwiaW5jb21wbGV0ZV9yZXN1bHRzIjpmYWxzZSwiaXRlbXMiOlt7InVybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3MvYXdzL2F3cy1jbGkvaXNzdWVzLzczNTMiLCJyZXBvc2l0b3J5X3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3MvYXdzL2F3cy1jbGkiLCJsYWJlbHNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS9yZXBvcy9hd3MvYXdzLWNsaS9pc3N1ZXMvNzM1My9sYWJlbHN7L25hbWV9IiwiY29tbWVudHNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS9yZXBvcy9hd3MvYXdzLWNsaS9pc3N1ZXMvNzM1My9jb21tZW50cyIsImV2ZW50c191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3JlcG9zL2F3cy9hd3MtY2xpL2lzc3Vlcy83MzUzL2V2ZW50cyIsImh0bWxfdXJsIjoiaHR0cHM6Ly9naXRodWIuY29tL2F3cy9hd3MtY2xpL3B1bGwvNzM1MyIsImlkIjoxNDE4NjAwNjI0LCJub2RlX2lkIjoiUFJfa3dET0FHZDNYODVCVE9TZiIsIm51bWJlciI6NzM1MywidGl0bGUiOiJBZGQgZmxhZ3MgdG8gdGVzdCBzY3JpcHRzIHRvIGFsbG93IGludGFsbGluZyBhbmQgcnVubmluZyBmcm9tIGFub3RoZXLigKYiLCJ1c2VyIjp7ImxvZ2luIjoic3RlYWx0aHljb2luIiwiaWQiOjEwMTA2MzQsIm5vZGVfaWQiOiJNRFE2VlhObGNqRXdNVEEyTXpRPSIsImF2YXRhcl91cmwiOiJodHRwczovL2F2YXRhcnMuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3UvMTAxMDYzND92PTQiLCJncmF2YXRhcl9pZCI6IiIsInVybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvc3RlYWx0aHljb2luIiwiaHRtbF91cmwiOiJodHRwczovL2dpdGh1Yi5jb20vc3RlYWx0aHljb2luIiwiZm9sbG93ZXJzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvc3RlYWx0aHljb2luL2ZvbGxvd2VycyIsImZvbGxvd2luZ191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL3N0ZWFsdGh5Y29pbi9mb2xsb3dpbmd7L290aGVyX3VzZXJ9IiwiZ2lzdHNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9zdGVhbHRoeWNvaW4vZ2lzdHN7L2dpc3RfaWR9Iiwic3RhcnJlZF91cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL3N0ZWFsdGh5Y29pbi9zdGFycmVkey9vd25lcn17L3JlcG99Iiwic3Vic2NyaXB0aW9uc191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL3N0ZWFsdGh5Y29pbi9zdWJzY3JpcHRpb25zIiwib3JnYW5pemF0aW9uc191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL3N0ZWFsdGh5Y29pbi9vcmdzIiwicmVwb3NfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9zdGVhbHRoeWNvaW4vcmVwb3MiLCJldmVudHNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9zdGVhbHRoeWNvaW4vZXZlbnRzey9wcml2YWN5fSIsInJlY2VpdmVkX2V2ZW50c191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL3N0ZWFsdGh5Y29pbi9yZWNlaXZlZF9ldmVudHMiLCJ0eXBlIjoiVXNlciIsInNpdGVfYWRtaW4iOmZhbHNlfSwibGFiZWxzIjpbXSwic3RhdGUiOiJjbG9zZWQiLCJsb2NrZWQiOmZhbHNlLCJhc3NpZ25lZSI6bnVsbCwiYXNzaWduZWVzIjpbXSwibWlsZXN0b25lIjpudWxsLCJjb21tZW50cyI6MSwiY3JlYXRlZF9hdCI6IjIwMjItMTAtMjFUMTY6NDA6NTRaIiwidXBkYXRlZF9hdCI6IjIwMjItMTAtMjRUMDM6MTM6NDdaIiwiY2xvc2VkX2F0IjoiMjAyMi0xMC0yNFQwMzoxMzo0N1oiLCJhdXRob3JfYXNzb2NpYXRpb24iOiJDT05UUklCVVRPUiIsImFjdGl2ZV9sb2NrX3JlYXNvbiI6bnVsbCwiZHJhZnQiOmZhbHNlLCJwdWxsX3JlcXVlc3QiOnsidXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS9yZXBvcy9hd3MvYXdzLWNsaS9wdWxscy83MzUzIiwiaHRtbF91cmwiOiJodHRwczovL2dpdGh1Yi5jb20vYXdzL2F3cy1jbGkvcHVsbC83MzUzIiwiZGlmZl91cmwiOiJodHRwczovL2dpdGh1Yi5jb20vYXdzL2F3cy1jbGkvcHVsbC83MzUzLmRpZmYiLCJwYXRjaF91cmwiOiJodHRwczovL2dpdGh1Yi5jb20vYXdzL2F3cy1jbGkvcHVsbC83MzUzLnBhdGNoIiwibWVyZ2VkX2F0IjoiMjAyMi0xMC0yNFQwMzoxMzo0N1oifSwiYm9keSI6bnVsbCwicmVhY3Rpb25zIjp7InVybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3MvYXdzL2F3cy1jbGkvaXNzdWVzLzczNTMvcmVhY3Rpb25zIiwidG90YWxfY291bnQiOjAsIisxIjowLCItMSI6MCwibGF1Z2giOjAsImhvb3JheSI6MCwiY29uZnVzZWQiOjAsImhlYXJ0IjowLCJyb2NrZXQiOjAsImV5ZXMiOjB9LCJ0aW1lbGluZV91cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3JlcG9zL2F3cy9hd3MtY2xpL2lzc3Vlcy83MzUzL3RpbWVsaW5lIiwicGVyZm9ybWVkX3ZpYV9naXRodWJfYXBwIjpudWxsLCJzdGF0ZV9yZWFzb24iOm51bGwsInNjb3JlIjoxLjB9XX0=
+  recorded_at: Mon, 24 Oct 2022 17:25:45 GMT
+recorded_with: VCR 6.1.0

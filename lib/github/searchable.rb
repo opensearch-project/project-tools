@@ -47,6 +47,7 @@ module GitHub
         end
       end
       concat(orgs.map { |org| GitHub::SearchableOrg.new(org) }) unless repo_in_org
+      push GitHub::SearchableOrg.new('opensearch-project') if none?
     end
 
     def to_s
