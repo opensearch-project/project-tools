@@ -56,7 +56,7 @@ repos: 78
 You can specify a GitHub org name for all commands, including `org info`.
 
 ```
-./bin/project --org aws org info
+./bin/project org info --org=aws
 ```
 
 #### Org Members
@@ -103,7 +103,7 @@ You can specify relative dates.
 For large organizations the default paging interval of 7 days may be too big and fail with `error: There are 1000+ PRs returned from a single query for 7 day(s), reduce --page.`. Decrease the page size.
 
 ```
-./bin/project --org aws contributors stats --page 3
+./bin/project contributors stats --org=aws --page 3
 ```
 
 #### Contributor Lists
@@ -121,13 +121,13 @@ sbcd90
 Specify org and repo.
 
 ```
-./bin/project --org aws contributors list --repo aws-cli
+./bin/project contributors list --repo=aws-cli --org=aws
 ```
 
 Specify multiple repos.
 
 ```
-./bin/project --org aws contributors list --repo aws-cli --repo deep-learning-containers
+./bin/project contributors list --org=aws --repo=aws-cli --repo=deep-learning-containers
 ```
 
 #### Pull Requests
@@ -135,7 +135,7 @@ Specify multiple repos.
 Show a list of pull requests.
 
 ```
-./bin/project --org aws prs list --repo aws-cli
+./bin/project prs list --org=aws --repo=aws-cli
 ```
 
 #### Pull Request Stats
@@ -166,13 +166,13 @@ Get the stats since the beginning of year till today.
 Get the stats for a given repo for last week.
 
 ```
-./bin/project --org aws prs stats --repo aws-cli
+./bin/project prs stats --org=aws --repo aws-cli
 ```
 
 Get the stats for multiple repos.
 
 ```
-./bin/project --org aws prs stats --repo aws-cli --repo deep-learning-containers
+./bin/project prs stats --org=aws --repo=aws-cli --repo=deep-learning-containers
 ```
 
 #### Issues
@@ -196,7 +196,7 @@ autocut: 6
 Specify org and repo.
 
 ```
-./bin/project --org aws issues labels --repo aws-cli
+./bin/project issues labels --org=aws --repo=aws-cli
 ```
 
 By default returns stats for the last full week. Specify `from` and `to` for different dates.
