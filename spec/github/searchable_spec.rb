@@ -2,6 +2,7 @@
 
 describe GitHub::Searchables do
   {
+    {} => 'org:opensearch-project',
     { org: 'opensearch-project' } => 'org:opensearch-project',
     { org: %w[opensearch-project aws] } => 'org:opensearch-project org:aws',
     { org: %w[opensearch-project aws], repo: 'aws/aws-cli' } => 'repo:aws/aws-cli org:opensearch-project org:aws',
