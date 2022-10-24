@@ -5,11 +5,8 @@ module GitHub
     extend GitHub::RateLimited
     extend GitHub::Progress
 
-    attr_reader :org
-
-    def initialize(org, options = {})
-      @org = org
-      super(PullRequests.fetch(org, options))
+    def initialize(options = {})
+      super(PullRequests.fetch(options))
     end
 
     def contributors
@@ -68,14 +65,14 @@ module GitHub
       end
     end
 
-    def self.fetch(org, options = {})
+    def self.fetch(options = {})
       all_contributions = []
       start_at = options[:from].is_a?(String) ? Chronic.parse(options[:from]).to_date : options[:from]
       end_at = options[:to].is_a?(String) ? Chronic.parse(options[:to]).to_date : options[:to]
       days = options[:page]
-      raise ArgumentError('missing from') unless start_at
-      raise ArgumentError('missing to') unless end_at
-      raise ArgumentError('missing page') unless days
+      raise ArgumentError, 'missing from' unless start_at
+      raise ArgumentError, 'missing to' unless end_at
+      raise ArgumentError, 'missing page' unless days
 
       progress(
         total: (((end_at - start_at) / days) + 1),
@@ -85,7 +82,7 @@ module GitHub
         while current_date < end_at
           rate_limited do
             next_date = [current_date + days, end_at].min
-            response = $github.search_issues(query(org, options.merge(from: current_date, to: next_date)), per_page: 1000)
+            response = $github.search_issues(query(options.merge(from: current_date, to: next_date)), per_page: 1000)
             data = response.items
             raise "There are 1000+ PRs returned from a single query for #{days} day(s), reduce --page." if data.size >= 1000
 
@@ -101,25 +98,16 @@ module GitHub
       GitHub::PullRequest.wrap(all_contributions)
     end
 
-    def self.query(org, options = {})
-      [
-        query_repos(org, options),
-        'state:merged',
-        'is:pull-request',
-        'archived:false',
-        'is:closed',
-        "merged:#{options[:from]}..#{options[:to]}"
-      ].compact.join(' ')
-    end
-
-    def self.query_repos(org, options = {})
-      if options[:repo] && Array(options[:repo]).any?
-        Array(options[:repo]).map do |repo|
-          "repo:#{org.name}/#{repo}"
-        end.join(' ')
-      else
-        "org:#{org.name}"
-      end
+    def self.query(options = {})
+      GitHub::Searchables.new(options).to_a.concat(
+        [
+          'state:merged',
+          'is:pull-request',
+          'archived:false',
+          'is:closed',
+          "merged:#{options[:from]}..#{options[:to]}"
+        ]
+      ).compact.join(' ')
     end
   end
 end
