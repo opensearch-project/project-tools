@@ -5,11 +5,8 @@ module GitHub
     extend GitHub::RateLimited
     extend GitHub::Progress
 
-    attr_reader :org
-
-    def initialize(org, options = {})
-      @org = org
-      super(Issues.fetch(org, options))
+    def initialize(options = {})
+      super(Issues.fetch(options))
     end
 
     def version_labels
@@ -57,7 +54,7 @@ module GitHub
       end
     end
 
-    def self.fetch(org, options = {})
+    def self.fetch(options = {})
       issues = []
       start_at = options[:from].is_a?(String) ? Chronic.parse(options[:from]).to_date : options[:from]
       end_at = options[:to].is_a?(String) ? Chronic.parse(options[:to]).to_date : options[:to]
@@ -70,7 +67,7 @@ module GitHub
         while current_date < end_at
           rate_limited do
             next_date = [current_date + days, end_at].min
-            response = $github.search_issues(query(org, options.merge(from: current_date, to: next_date)), per_page: 1000)
+            response = $github.search_issues(query(options.merge(from: current_date, to: next_date)), per_page: 1000)
             data = response.items
             raise "There are 1000+ issues returned from a single query for #{days} day(s), reduce --page." if data.size >= 1000
 
@@ -83,25 +80,14 @@ module GitHub
       GitHub::Issue.wrap(issues)
     end
 
-    def self.query(org, options = {})
-      [
-        query_repos(org, options),
-        'is:issue',
-        'is:open',
-        'archived:false',
-        "created:#{options[:from]}..#{options[:to]}",
-        options.key?(:label) ? "label:\"#{options[:label]}\"" : nil
-      ].compact.join(' ')
-    end
-
-    def self.query_repos(org, options = {})
-      if options[:repo] && Array(options[:repo]).any?
-        Array(options[:repo]).map do |repo|
-          "repo:#{org.name}/#{repo}"
-        end.join(' ')
-      else
-        "org:#{org.name}"
-      end
+    def self.query(options = {})
+      GitHub::Searchables.new(options).to_a.concat([
+                                                     'is:issue',
+                                                     'is:open',
+                                                     'archived:false',
+                                                     "created:#{options[:from]}..#{options[:to]}",
+                                                     options.key?(:label) ? "label:\"#{options[:label]}\"" : nil
+                                                   ]).compact.join(' ')
     end
   end
 end

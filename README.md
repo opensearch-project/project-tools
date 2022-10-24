@@ -175,6 +175,12 @@ Get the stats for multiple repos.
 ./bin/project prs stats --org=aws --repo=aws-cli --repo=deep-learning-containers
 ```
 
+Get the stats for an entire org and several repos.
+
+```
+./bin/project prs stats --org=opensearch-project --repo=aws/aws-cli --repo=aws/deep-learning-containers
+```
+
 #### Issues
 
 Shows issues bucketed by label.

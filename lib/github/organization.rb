@@ -21,11 +21,11 @@ module GitHub
     end
 
     def pull_requests(options = {})
-      @pull_requests ||= GitHub::PullRequests.new(self, options)
+      @pull_requests ||= GitHub::PullRequests.new({ org: name }.merge(options))
     end
 
     def issues(options = {})
-      @issues ||= GitHub::Issues.new(self, options)
+      @issues ||= GitHub::Issues.new({ org: name }.merge(options))
     end
 
     def info
