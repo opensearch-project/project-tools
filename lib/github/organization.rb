@@ -4,8 +4,8 @@ module GitHub
   class Organization
     attr_reader :name
 
-    def initialize(name)
-      @name = name
+    def initialize(options)
+      @name = options[:org]
     end
 
     def org
@@ -13,11 +13,15 @@ module GitHub
     end
 
     def repos
-      @repos ||= GitHub::Repos.new(self)
+      @repos ||= GitHub::Repos.new({ org: name })
     end
 
     def members
-      @members ||= GitHub::Users.new(self)
+      @members ||= GitHub::Users.new({ org: name })
+    end
+
+    def teams
+      @teams ||= GitHub::Teams.new({ org: name })
     end
 
     def pull_requests(options = {})

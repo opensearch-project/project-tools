@@ -13,6 +13,16 @@ describe 'project org' do
     ].join("\n")
   end
 
+  context 'teams' do
+    it 'returns teams' do
+      expect(`"#{project}" --no-cache --vcr-cassette-name=orgs/teams/opensearch-project org teams --org=opensearch-project`.strip).to eq [
+        'org: opensearch-project',
+        'teams: 2',
+        "project-website\t\t1"
+      ].join("\n")
+    end
+  end
+
   context 'without data files' do
     include_context 'without data files'
 

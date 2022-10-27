@@ -12,7 +12,7 @@ command 'pr', 'prs' do |g|
   g.desc 'List pull requests in the organization.'
   g.command 'list' do |c|
     c.action do |_global_options, options, _args|
-      org = GitHub::Organization.new(options['org'] || 'opensearch-project')
+      org = GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project'))
       org.pull_requests(options).each do |pr|
         puts pr
       end

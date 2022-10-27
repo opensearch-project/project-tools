@@ -1,12 +1,9 @@
 # frozen_string_literal: true
 
 module GitHub
-  class PullRequests < Array
-    extend GitHub::RateLimited
-    extend GitHub::Progress
-
-    def initialize(options = {})
-      super(PullRequests.fetch(options))
+  class PullRequests < Items
+    def initialize(arr_or_options)
+      super arr_or_options, GitHub::PullRequest
     end
 
     def contributors
@@ -65,40 +62,16 @@ module GitHub
       end
     end
 
-    def self.fetch(options = {})
-      all_contributions = []
-      start_at = options[:from].is_a?(String) ? Chronic.parse(options[:from]).to_date : options[:from]
-      end_at = options[:to].is_a?(String) ? Chronic.parse(options[:to]).to_date : options[:to]
-      days = options[:page]
-      raise ArgumentError, 'missing from' unless start_at
-      raise ArgumentError, 'missing to' unless end_at
-      raise ArgumentError, 'missing page' unless days
+    def page(options)
+      data = $github.search_issues(query(options), per_page: 1000).items
+      raise 'There are 1000+ PRs returned from a single query, reduce --page.' if data.size >= 1000
 
-      progress(
-        total: (((end_at - start_at) / days) + 1),
-        title: "Fetching PRs between #{start_at} and #{end_at}"
-      ) do |pb|
-        current_date = start_at
-        while current_date < end_at
-          rate_limited do
-            next_date = [current_date + days, end_at].min
-            response = $github.search_issues(query(options.merge(from: current_date, to: next_date)), per_page: 1000)
-            data = response.items
-            raise "There are 1000+ PRs returned from a single query for #{days} day(s), reduce --page." if data.size >= 1000
-
-            data = data.reject do |pr|
-              GitHub::Data.backports.any? { |b| pr.title&.downcase&.include?(b) }
-            end
-            all_contributions.concat(data)
-            current_date = next_date
-          end
-          pb.increment
-        end
+      data.reject do |pr|
+        GitHub::Data.backports.any? { |b| pr.title&.downcase&.include?(b) }
       end
-      GitHub::PullRequest.wrap(all_contributions)
     end
 
-    def self.query(options = {})
+    def query(options = {})
       GitHub::Searchables.new(options).to_a.concat(
         [
           'state:merged',

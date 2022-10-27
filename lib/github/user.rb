@@ -1,15 +1,11 @@
 # frozen_string_literal: true
 
 module GitHub
-  class User < SimpleDelegator
-    extend GitHub::RateLimited
-    extend GitHub::Progress
+  class User < Item
     include Comparable
 
-    def initialize(username)
-      super $github.user(username)
-    rescue Octokit::NotFound => e
-      raise "Invalid user: #{username}: #{e.message}"
+    def initialize(id_or_obj)
+      super id_or_obj, :user
     end
 
     def <=>(other)
@@ -35,19 +31,6 @@ module GitHub
         end
       end
       false
-    end
-
-    def self.wrap(collection)
-      progress(total: collection.size, title: 'Fetching users ...') do |pb|
-        result = []
-        rate_limited do
-          collection.each do |obj|
-            result.push(new(obj))
-            pb.increment
-          end
-        end
-      end
-      result
     end
   end
 end

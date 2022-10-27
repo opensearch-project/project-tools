@@ -73,6 +73,14 @@ Shows the difference between org members and member data.
 ./bin/project repos list
 ```
 
+#### Org Teams
+
+Shows org team memberships. Requires a `repo:admin` read-only PAT token.
+
+```
+./bin/project org teams
+```
+
 #### Contributor Stats
 
 Shows most frequent contributors bucketed by members, contractors, and external.

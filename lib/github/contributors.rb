@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 module GitHub
-  class Contributors < Array
+  class Contributors < Items
     extend GitHub::Data
 
     def initialize(arr)
-      super(Contributor.wrap(arr))
+      super arr, Contributor
     end
 
     def humans

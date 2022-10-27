@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module GitHub
-  class Contributor < SimpleDelegator
+  class Contributor < Item
     include Comparable
 
     def <=>(other)
@@ -18,12 +18,6 @@ module GitHub
 
     def to_s
       login
-    end
-
-    def self.wrap(collection)
-      collection.map do |obj|
-        new obj
-      end
     end
   end
 end

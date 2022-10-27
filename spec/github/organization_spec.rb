@@ -2,7 +2,7 @@
 
 describe GitHub::Organization do
   subject do
-    GitHub::Organization.new('RedHatOfficial')
+    GitHub::Organization.new(org: 'RedHatOfficial')
   end
 
   it 'info', vcr: { cassette_name: 'orgs/RedHatOfficial' } do
