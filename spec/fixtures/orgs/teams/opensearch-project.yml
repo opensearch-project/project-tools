@@ -1,0 +1,258 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/orgs/opensearch-project/teams?per_page=100
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.25.1
+      Content-Type:
+      - application/json
+      Authorization:
+      - token <GITHUB_API_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Thu, 27 Oct 2022 16:09:05 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding, Accept, X-Requested-With
+      Etag:
+      - W/"6264d2a9fea805c78a19a6a65f011f78286d4f71d65894a0f0d4d64004bd9465"
+      X-Oauth-Scopes:
+      - public_repo, read:org
+      X-Accepted-Oauth-Scopes:
+      - admin:org, read:org, repo, user, write:org
+      X-Github-Media-Type:
+      - github.v3; format=json
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4881'
+      X-Ratelimit-Reset:
+      - '1666888495'
+      X-Ratelimit-Used:
+      - '119'
+      X-Ratelimit-Resource:
+      - core
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO,
+        X-GitHub-Request-Id, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Github-Request-Id:
+      - C6DD:73EB:476C9AB:92ADD82:635AAD21
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"name":"team 1","id":4612113,"node_id":"MDQ6VGVhbTQ2MTIxMTM=","slug":"team
+        1","description":"team one","privacy":"closed","url":"https://api.github.com/organizations/80134844/team/4612113","html_url":"https://github.com/orgs/opensearch-project/teams/team
+        1","members_url":"https://api.github.com/organizations/80134844/team/4612113/members{/member}","repositories_url":"https://api.github.com/organizations/80134844/team/4612113/repos","permission":"pull","parent":null},
+        {"name":"project-website","id":4615265,"node_id":"MDQ6VGVhbTQ2MTUyNjU=","slug":"project-website","description":"","privacy":"closed","url":"https://api.github.com/organizations/80134844/team/4615265","html_url":"https://github.com/orgs/opensearch-project/teams/project-website","members_url":"https://api.github.com/organizations/80134844/team/4615265/members{/member}","repositories_url":"https://api.github.com/organizations/80134844/team/4615265/repos","permission":"pull","parent":null}]'
+  recorded_at: Thu, 27 Oct 2022 16:09:05 GMT
+- request:
+    method: get
+    uri: https://api.github.com/teams/4615265/repos?per_page=100
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.25.1
+      Content-Type:
+      - application/json
+      Authorization:
+      - token <GITHUB_API_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Thu, 27 Oct 2022 16:24:32 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding, Accept, X-Requested-With
+      Etag:
+      - W/"cb8f36562fa502f5f3311b2087b576b0d0bcc294905e654a4eba9fefc174ee00"
+      X-Oauth-Scopes:
+      - public_repo, read:org
+      X-Accepted-Oauth-Scopes:
+      - admin:org, read:org, repo, user, write:org
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Deprecation:
+      - Sat, 01 Feb 2020 00:00:00 GMT
+      Sunset:
+      - Mon, 01 Feb 2021 00:00:00 GMT
+      Link:
+      - <https://developer.github.com/changes/2020-01-21-moving-the-team-api-endpoints/>;
+        rel="deprecation"; type="text/html", <https://api.github.com/organizations/80134844/team/4615265/repos>;
+        rel="alternate"
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4796'
+      X-Ratelimit-Reset:
+      - '1666888495'
+      X-Ratelimit-Used:
+      - '204'
+      X-Ratelimit-Resource:
+      - core
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO,
+        X-GitHub-Request-Id, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Github-Request-Id:
+      - CAA7:2E08:48A2052:9515770:635AB0BF
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"id":346829005,"node_id":"MDEwOlJlcG9zaXRvcnkzNDY4MjkwMDU=","name":"project-website","full_name":"opensearch-project/project-website","private":false,"owner":{"login":"opensearch-project","id":80134844,"node_id":"MDEyOk9yZ2FuaXphdGlvbjgwMTM0ODQ0","avatar_url":"https://avatars.githubusercontent.com/u/80134844?v=4","gravatar_id":"","url":"https://api.github.com/users/opensearch-project","html_url":"https://github.com/opensearch-project","followers_url":"https://api.github.com/users/opensearch-project/followers","following_url":"https://api.github.com/users/opensearch-project/following{/other_user}","gists_url":"https://api.github.com/users/opensearch-project/gists{/gist_id}","starred_url":"https://api.github.com/users/opensearch-project/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/opensearch-project/subscriptions","organizations_url":"https://api.github.com/users/opensearch-project/orgs","repos_url":"https://api.github.com/users/opensearch-project/repos","events_url":"https://api.github.com/users/opensearch-project/events{/privacy}","received_events_url":"https://api.github.com/users/opensearch-project/received_events","type":"Organization","site_admin":false},"html_url":"https://github.com/opensearch-project/project-website","description":"The
+        source to opensearch.org","fork":false,"url":"https://api.github.com/repos/opensearch-project/project-website","forks_url":"https://api.github.com/repos/opensearch-project/project-website/forks","keys_url":"https://api.github.com/repos/opensearch-project/project-website/keys{/key_id}","collaborators_url":"https://api.github.com/repos/opensearch-project/project-website/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/opensearch-project/project-website/teams","hooks_url":"https://api.github.com/repos/opensearch-project/project-website/hooks","issue_events_url":"https://api.github.com/repos/opensearch-project/project-website/issues/events{/number}","events_url":"https://api.github.com/repos/opensearch-project/project-website/events","assignees_url":"https://api.github.com/repos/opensearch-project/project-website/assignees{/user}","branches_url":"https://api.github.com/repos/opensearch-project/project-website/branches{/branch}","tags_url":"https://api.github.com/repos/opensearch-project/project-website/tags","blobs_url":"https://api.github.com/repos/opensearch-project/project-website/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/opensearch-project/project-website/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/opensearch-project/project-website/git/refs{/sha}","trees_url":"https://api.github.com/repos/opensearch-project/project-website/git/trees{/sha}","statuses_url":"https://api.github.com/repos/opensearch-project/project-website/statuses/{sha}","languages_url":"https://api.github.com/repos/opensearch-project/project-website/languages","stargazers_url":"https://api.github.com/repos/opensearch-project/project-website/stargazers","contributors_url":"https://api.github.com/repos/opensearch-project/project-website/contributors","subscribers_url":"https://api.github.com/repos/opensearch-project/project-website/subscribers","subscription_url":"https://api.github.com/repos/opensearch-project/project-website/subscription","commits_url":"https://api.github.com/repos/opensearch-project/project-website/commits{/sha}","git_commits_url":"https://api.github.com/repos/opensearch-project/project-website/git/commits{/sha}","comments_url":"https://api.github.com/repos/opensearch-project/project-website/comments{/number}","issue_comment_url":"https://api.github.com/repos/opensearch-project/project-website/issues/comments{/number}","contents_url":"https://api.github.com/repos/opensearch-project/project-website/contents/{+path}","compare_url":"https://api.github.com/repos/opensearch-project/project-website/compare/{base}...{head}","merges_url":"https://api.github.com/repos/opensearch-project/project-website/merges","archive_url":"https://api.github.com/repos/opensearch-project/project-website/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/opensearch-project/project-website/downloads","issues_url":"https://api.github.com/repos/opensearch-project/project-website/issues{/number}","pulls_url":"https://api.github.com/repos/opensearch-project/project-website/pulls{/number}","milestones_url":"https://api.github.com/repos/opensearch-project/project-website/milestones{/number}","notifications_url":"https://api.github.com/repos/opensearch-project/project-website/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/opensearch-project/project-website/labels{/name}","releases_url":"https://api.github.com/repos/opensearch-project/project-website/releases{/id}","deployments_url":"https://api.github.com/repos/opensearch-project/project-website/deployments","created_at":"2021-03-11T20:30:42Z","updated_at":"2022-10-19T12:48:59Z","pushed_at":"2022-10-27T13:06:10Z","git_url":"git://github.com/opensearch-project/project-website.git","ssh_url":"git@github.com:opensearch-project/project-website.git","clone_url":"https://github.com/opensearch-project/project-website.git","svn_url":"https://github.com/opensearch-project/project-website","homepage":"https://opensearch.org","size":259929,"stargazers_count":24,"watchers_count":24,"language":"SCSS","has_issues":true,"has_projects":true,"has_downloads":true,"has_wiki":true,"has_pages":false,"forks_count":171,"mirror_url":null,"archived":false,"disabled":false,"open_issues_count":72,"license":{"key":"bsd-3-clause","name":"BSD
+        3-Clause \"New\" or \"Revised\" License","spdx_id":"BSD-3-Clause","url":"https://api.github.com/licenses/bsd-3-clause","node_id":"MDc6TGljZW5zZTU="},"allow_forking":true,"topics":["hacktoberfest","opensearch"],"visibility":"public","forks":171,"open_issues":72,"watchers":24,"default_branch":"main","permissions":{"admin":true,"maintain":true,"push":true,"triage":true,"pull":true},"role_name":"admin"}]'
+  recorded_at: Thu, 27 Oct 2022 16:24:31 GMT
+- request:
+    method: get
+    uri: https://api.github.com/teams/4612113/repos?per_page=100
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.25.1
+      Content-Type:
+      - application/json
+      Authorization:
+      - token <GITHUB_API_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Thu, 27 Oct 2022 16:24:32 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding, Accept, X-Requested-With
+      Etag:
+      - W/"07a1a0e5a274e68164651c907d218cae223f47693e15a433d961cbe6cd4a036a"
+      X-Oauth-Scopes:
+      - public_repo, read:org
+      X-Accepted-Oauth-Scopes:
+      - admin:org, read:org, repo, user, write:org
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Deprecation:
+      - Sat, 01 Feb 2020 00:00:00 GMT
+      Sunset:
+      - Mon, 01 Feb 2021 00:00:00 GMT
+      Link:
+      - <https://developer.github.com/changes/2020-01-21-moving-the-team-api-endpoints/>;
+        rel="deprecation"; type="text/html", <https://api.github.com/organizations/80134844/team/4612113/repos>;
+        rel="alternate"
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4795'
+      X-Ratelimit-Reset:
+      - '1666888495'
+      X-Ratelimit-Used:
+      - '205'
+      X-Ratelimit-Resource:
+      - core
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO,
+        X-GitHub-Request-Id, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Github-Request-Id:
+      - CAA8:0D36:1168F4B:24005FD:635AB0C0
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+  recorded_at: Thu, 27 Oct 2022 16:24:32 GMT
+recorded_with: VCR 6.1.0

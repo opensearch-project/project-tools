@@ -11,7 +11,7 @@ command 'contributors' do |g|
   g.desc 'List contributors.'
   g.command 'list' do |c|
     c.action do |_global_options, options, _args|
-      org = GitHub::Organization.new(options['org'])
+      org = GitHub::Organization.new(options)
       org.pull_requests(options).contributors.humans.sort.uniq.each do |pr|
         puts pr
       end
@@ -21,7 +21,7 @@ command 'contributors' do |g|
   g.desc 'Show contributor stats.'
   g.command 'stats' do |c|
     c.action do |_global_options, options, _args|
-      org = GitHub::Organization.new(options['org'])
+      org = GitHub::Organization.new(options)
       buckets = org.pull_requests(options).contributors.buckets
       puts "total = #{buckets.values.map(&:size).sum}"
       buckets.each_pair do |bucket, logins|

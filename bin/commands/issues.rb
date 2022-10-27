@@ -11,7 +11,7 @@ command 'issue', 'issues' do |g|
   g.desc 'List issue stats in the organization.'
   g.command 'labels' do |c|
     c.action do |_global_options, options, _args|
-      org = GitHub::Organization.new(options['org'] || 'opensearch-project')
+      org = GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project'))
       org.issues(options).labels.sort.each do |label, issues|
         puts "#{label}: #{issues.count}"
       end
@@ -21,7 +21,7 @@ command 'issue', 'issues' do |g|
   g.desc 'Find oldest untriaged offenders.'
   g.command 'untriaged' do |c|
     c.action do |_global_options, options, _args|
-      org = GitHub::Organization.new(options['org'] || 'opensearch-project')
+      org = GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project'))
       untriaged_issues = org.issues(options.merge(label: 'untriaged'))
       puts "There are #{untriaged_issues.count} untriaged issues created between #{Chronic.parse(options[:from]).to_date} and #{Chronic.parse(options[:to]).to_date}."
       puts "\n# By Repo\n"
