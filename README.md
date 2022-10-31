@@ -81,6 +81,14 @@ Shows org team memberships. Requires a `repo:admin` read-only PAT token.
 ./bin/project org teams
 ```
 
+#### Maintainers
+
+Shows maintainers.
+
+```
+./bin/project org teams
+```
+
 #### Contributor Stats
 
 Shows most frequent contributors bucketed by members, contractors, and external.

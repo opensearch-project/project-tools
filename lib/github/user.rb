@@ -6,6 +6,8 @@ module GitHub
 
     def initialize(id_or_obj)
       super id_or_obj, :user
+    rescue Octokit::NotFound => e
+      raise "Invalid user: #{id_or_obj}: #{e.message}"
     end
 
     def <=>(other)

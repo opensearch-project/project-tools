@@ -72,5 +72,6 @@ require_relative 'commands/pr'
 require_relative 'commands/contributors'
 require_relative 'commands/members'
 require_relative 'commands/issues'
+require_relative 'commands/maintainers'
 
 exit run(ARGV)
