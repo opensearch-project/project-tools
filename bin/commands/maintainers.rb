@@ -7,10 +7,6 @@ command 'maintainers' do |g|
     c.action do |_global_options, options, _args|
       org = GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project'))
       repos = org.repos.sort_by(&:name)
-      puts "# Missing Maintainers\n"
-      repos.select { |repo| repo.maintainers.nil? }.each do |repo|
-        puts repo.html_url
-      end
       all = Set.new
       repos.each do |repo|
         maintainers = repo.maintainers
@@ -41,6 +37,31 @@ command 'maintainers' do |g|
         next unless unknown_maintainers&.any?
 
         puts "#{repo.html_url}: #{unknown_maintainers}"
+      end
+    end
+  end
+
+  g.command 'missing' do |c|
+    c.action do |_global_options, options, _args|
+      org = GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project'))
+      repos = org.repos.sort_by(&:name)
+      repos.select { |repo| repo.maintainers.nil? }.each do |repo|
+        puts repo.html_url
+      end
+    end
+  end
+
+  g.desc 'Audit MAINTAINERS.md for users that have never contributed.'
+  g.command 'audit' do |c|
+    c.action do |_global_options, options, _args|
+      org = GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project'))
+      repos = org.repos.sort_by(&:name)
+      repos.each do |repo|
+        puts "#{repo.html_url}: #{repo.maintainers&.count}"
+        repo.maintainers&.each do |user|
+          commits = $github.commits(repo.full_name, author: user)
+          puts "  #{user}: #{commits.count}" if commits.none?
+        end
       end
     end
   end

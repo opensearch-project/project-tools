@@ -8,6 +8,8 @@
     - [Org Info](#org-info)
     - [Org Members](#org-members)
     - [Sorted List of Repos](#sorted-list-of-repos)
+    - [Org Teams](#org-teams)
+    - [Maintainers](#maintainers)
     - [Contributor Stats](#contributor-stats)
     - [Contributor Lists](#contributor-lists)
     - [Pull Requests](#pull-requests)
@@ -21,6 +23,8 @@
 - [Copyright](#copyright)
 
 ## OpenSearch Project Tools
+
+[![Tests](https://github.com/opensearch-project/project-tools/actions/workflows/test.yml/badge.svg)](https://github.com/opensearch-project/project-tools/actions/workflows/test.yml)
 
 Tools to gather stats on a GitHub organization.
 
@@ -83,10 +87,22 @@ Shows org team memberships. Requires a `repo:admin` read-only PAT token.
 
 #### Maintainers
 
-Shows maintainers.
+Shows maintainer stats.
 
 ```
-./bin/project org teams
+./bin/project maintainers stats
+```
+
+Shows missing MAINTAINERS.md.
+
+```
+./bin/project maintainers missing
+```
+
+Audits maintainer lists for maintainers that have 0 commits on a project.
+
+```
+./bin/project maintainers audit
 ```
 
 #### Contributor Stats
