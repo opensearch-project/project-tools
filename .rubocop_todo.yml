@@ -176,6 +176,7 @@ Style/ClassAndModuleChildren:
 # SupportedStyles: always, always_true, never
 Style/FrozenStringLiteralComment:
   Exclude:
+    - 'spec/support/codecov.rb'
     - 'spec/support/command_line.rb'
     - 'spec/support/github.rb'
     - 'spec/support/without_data_files.rb'
