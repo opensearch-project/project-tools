@@ -1,5 +1,3 @@
-[![codecov](https://codecov.io/gh/opensearch-project/project-tools/branch/main/graph/badge.svg)](https://codecov.io/gh/opensearch-project/project-tools)
-
 - [OpenSearch Project Tools](#opensearch-project-tools)
   - [Usage](#usage)
     - [Global Options](#global-options)
@@ -27,6 +25,7 @@
 ## OpenSearch Project Tools
 
 [![Tests](https://github.com/opensearch-project/project-tools/actions/workflows/test.yml/badge.svg)](https://github.com/opensearch-project/project-tools/actions/workflows/test.yml)
+[![codecov](https://codecov.io/gh/opensearch-project/project-tools/branch/main/graph/badge.svg)](https://codecov.io/gh/opensearch-project/project-tools)
 
 Tools to gather stats on a GitHub organization.
 
