@@ -1,0 +1,407 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/search/issues?per_page=1000&q=org:RedHatOfficial%20is:pull-request%20archived:false%20is:unmerged%20created:2022-01-01..2022-01-08
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.25.1
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Tue, 08 Nov 2022 23:51:17 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+      Vary:
+      - Accept, Accept-Encoding, Accept, X-Requested-With
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO,
+        X-GitHub-Request-Id, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Ratelimit-Limit:
+      - '10'
+      X-Ratelimit-Remaining:
+      - '9'
+      X-Ratelimit-Reset:
+      - '1667951536'
+      X-Ratelimit-Resource:
+      - search
+      X-Ratelimit-Used:
+      - '1'
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '72'
+      X-Github-Request-Id:
+      - EEAB:7B4A:86A3AD:1134148:636AEB74
+    body:
+      encoding: UTF-8
+      string: '{"total_count":0,"incomplete_results":false,"items":[]}'
+  recorded_at: Tue, 08 Nov 2022 23:51:17 GMT
+- request:
+    method: get
+    uri: https://api.github.com/search/issues?per_page=1000&q=org:RedHatOfficial%20is:pull-request%20archived:false%20is:unmerged%20created:2022-01-08..2022-01-15
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.25.1
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Tue, 08 Nov 2022 23:51:17 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+      Vary:
+      - Accept, Accept-Encoding, Accept, X-Requested-With
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO,
+        X-GitHub-Request-Id, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Ratelimit-Limit:
+      - '10'
+      X-Ratelimit-Remaining:
+      - '8'
+      X-Ratelimit-Reset:
+      - '1667951537'
+      X-Ratelimit-Resource:
+      - search
+      X-Ratelimit-Used:
+      - '2'
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '72'
+      X-Github-Request-Id:
+      - EEAC:9AA5:8828A6:11626C2:636AEB75
+    body:
+      encoding: UTF-8
+      string: '{"total_count":0,"incomplete_results":false,"items":[]}'
+  recorded_at: Tue, 08 Nov 2022 23:51:17 GMT
+- request:
+    method: get
+    uri: https://api.github.com/search/issues?per_page=1000&q=org:RedHatOfficial%20is:pull-request%20archived:false%20is:unmerged%20created:2022-01-15..2022-01-22
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.25.1
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Tue, 08 Nov 2022 23:51:17 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+      Vary:
+      - Accept, Accept-Encoding, Accept, X-Requested-With
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO,
+        X-GitHub-Request-Id, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Ratelimit-Limit:
+      - '10'
+      X-Ratelimit-Remaining:
+      - '7'
+      X-Ratelimit-Reset:
+      - '1667951537'
+      X-Ratelimit-Resource:
+      - search
+      X-Ratelimit-Used:
+      - '3'
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '1433'
+      X-Github-Request-Id:
+      - EEAD:9AA5:8828F0:116274A:636AEB75
+    body:
+      encoding: UTF-8
+      string: '{"total_count":2,"incomplete_results":false,"items":[{"url":"https://api.github.com/repos/RedHatOfficial/ansible-role-rhel7-stig/issues/24","repository_url":"https://api.github.com/repos/RedHatOfficial/ansible-role-rhel7-stig","labels_url":"https://api.github.com/repos/RedHatOfficial/ansible-role-rhel7-stig/issues/24/labels{/name}","comments_url":"https://api.github.com/repos/RedHatOfficial/ansible-role-rhel7-stig/issues/24/comments","events_url":"https://api.github.com/repos/RedHatOfficial/ansible-role-rhel7-stig/issues/24/events","html_url":"https://github.com/RedHatOfficial/ansible-role-rhel7-stig/pull/24","id":1109601537,"node_id":"PR_kwDOCBwsQs4xVwWc","number":24,"title":"The
+        0.1.59 release includes changes that require Ansible 2.9 or higher","user":{"login":"daten","id":4874074,"node_id":"MDQ6VXNlcjQ4NzQwNzQ=","avatar_url":"https://avatars.githubusercontent.com/u/4874074?v=4","gravatar_id":"","url":"https://api.github.com/users/daten","html_url":"https://github.com/daten","followers_url":"https://api.github.com/users/daten/followers","following_url":"https://api.github.com/users/daten/following{/other_user}","gists_url":"https://api.github.com/users/daten/gists{/gist_id}","starred_url":"https://api.github.com/users/daten/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/daten/subscriptions","organizations_url":"https://api.github.com/users/daten/orgs","repos_url":"https://api.github.com/users/daten/repos","events_url":"https://api.github.com/users/daten/events{/privacy}","received_events_url":"https://api.github.com/users/daten/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":{"login":"dmc5179","id":2169791,"node_id":"MDQ6VXNlcjIxNjk3OTE=","avatar_url":"https://avatars.githubusercontent.com/u/2169791?v=4","gravatar_id":"","url":"https://api.github.com/users/dmc5179","html_url":"https://github.com/dmc5179","followers_url":"https://api.github.com/users/dmc5179/followers","following_url":"https://api.github.com/users/dmc5179/following{/other_user}","gists_url":"https://api.github.com/users/dmc5179/gists{/gist_id}","starred_url":"https://api.github.com/users/dmc5179/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/dmc5179/subscriptions","organizations_url":"https://api.github.com/users/dmc5179/orgs","repos_url":"https://api.github.com/users/dmc5179/repos","events_url":"https://api.github.com/users/dmc5179/events{/privacy}","received_events_url":"https://api.github.com/users/dmc5179/received_events","type":"User","site_admin":false},"assignees":[{"login":"dmc5179","id":2169791,"node_id":"MDQ6VXNlcjIxNjk3OTE=","avatar_url":"https://avatars.githubusercontent.com/u/2169791?v=4","gravatar_id":"","url":"https://api.github.com/users/dmc5179","html_url":"https://github.com/dmc5179","followers_url":"https://api.github.com/users/dmc5179/followers","following_url":"https://api.github.com/users/dmc5179/following{/other_user}","gists_url":"https://api.github.com/users/dmc5179/gists{/gist_id}","starred_url":"https://api.github.com/users/dmc5179/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/dmc5179/subscriptions","organizations_url":"https://api.github.com/users/dmc5179/orgs","repos_url":"https://api.github.com/users/dmc5179/repos","events_url":"https://api.github.com/users/dmc5179/events{/privacy}","received_events_url":"https://api.github.com/users/dmc5179/received_events","type":"User","site_admin":false}],"milestone":null,"comments":4,"created_at":"2022-01-20T17:53:53Z","updated_at":"2022-02-15T04:25:05Z","closed_at":"2022-02-15T04:24:51Z","author_association":"NONE","active_lock_reason":null,"draft":false,"pull_request":{"url":"https://api.github.com/repos/RedHatOfficial/ansible-role-rhel7-stig/pulls/24","html_url":"https://github.com/RedHatOfficial/ansible-role-rhel7-stig/pull/24","diff_url":"https://github.com/RedHatOfficial/ansible-role-rhel7-stig/pull/24.diff","patch_url":"https://github.com/RedHatOfficial/ansible-role-rhel7-stig/pull/24.patch","merged_at":null},"body":"The
+        tasks/main.yml now includes ansible.builtin syntax that is not valid in Ansible
+        2.8 and older.\r\n\r\nUpdating the readme to reflect that new requirement.","reactions":{"url":"https://api.github.com/repos/RedHatOfficial/ansible-role-rhel7-stig/issues/24/reactions","total_count":0,"+1":0,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0},"timeline_url":"https://api.github.com/repos/RedHatOfficial/ansible-role-rhel7-stig/issues/24/timeline","performed_via_github_app":null,"state_reason":null,"score":1.0},{"url":"https://api.github.com/repos/RedHatOfficial/ansible-redhat_openshift_utils/issues/15","repository_url":"https://api.github.com/repos/RedHatOfficial/ansible-redhat_openshift_utils","labels_url":"https://api.github.com/repos/RedHatOfficial/ansible-redhat_openshift_utils/issues/15/labels{/name}","comments_url":"https://api.github.com/repos/RedHatOfficial/ansible-redhat_openshift_utils/issues/15/comments","events_url":"https://api.github.com/repos/RedHatOfficial/ansible-redhat_openshift_utils/issues/15/events","html_url":"https://github.com/RedHatOfficial/ansible-redhat_openshift_utils/pull/15","id":1108295479,"node_id":"PR_kwDOBx5O-c4xRhVv","number":15,"title":"Refactored,
+        made file a tad smaller, more room for annotations.","user":{"login":"Montana","id":20936398,"node_id":"MDQ6VXNlcjIwOTM2Mzk4","avatar_url":"https://avatars.githubusercontent.com/u/20936398?v=4","gravatar_id":"","url":"https://api.github.com/users/Montana","html_url":"https://github.com/Montana","followers_url":"https://api.github.com/users/Montana/followers","following_url":"https://api.github.com/users/Montana/following{/other_user}","gists_url":"https://api.github.com/users/Montana/gists{/gist_id}","starred_url":"https://api.github.com/users/Montana/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Montana/subscriptions","organizations_url":"https://api.github.com/users/Montana/orgs","repos_url":"https://api.github.com/users/Montana/repos","events_url":"https://api.github.com/users/Montana/events{/privacy}","received_events_url":"https://api.github.com/users/Montana/received_events","type":"User","site_admin":false},"labels":[],"state":"closed","locked":false,"assignee":null,"assignees":[],"milestone":null,"comments":1,"created_at":"2022-01-19T16:16:37Z","updated_at":"2022-01-31T14:59:19Z","closed_at":"2022-01-31T14:59:19Z","author_association":"NONE","active_lock_reason":null,"draft":false,"pull_request":{"url":"https://api.github.com/repos/RedHatOfficial/ansible-redhat_openshift_utils/pulls/15","html_url":"https://github.com/RedHatOfficial/ansible-redhat_openshift_utils/pull/15","diff_url":"https://github.com/RedHatOfficial/ansible-redhat_openshift_utils/pull/15.diff","patch_url":"https://github.com/RedHatOfficial/ansible-redhat_openshift_utils/pull/15.patch","merged_at":null},"body":null,"reactions":{"url":"https://api.github.com/repos/RedHatOfficial/ansible-redhat_openshift_utils/issues/15/reactions","total_count":0,"+1":0,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0},"timeline_url":"https://api.github.com/repos/RedHatOfficial/ansible-redhat_openshift_utils/issues/15/timeline","performed_via_github_app":null,"state_reason":null,"score":1.0}]}'
+  recorded_at: Tue, 08 Nov 2022 23:51:17 GMT
+- request:
+    method: get
+    uri: https://api.github.com/search/issues?per_page=1000&q=org:RedHatOfficial%20is:pull-request%20archived:false%20is:unmerged%20created:2022-01-22..2022-01-29
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.25.1
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Tue, 08 Nov 2022 23:51:17 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+      Vary:
+      - Accept, Accept-Encoding, Accept, X-Requested-With
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO,
+        X-GitHub-Request-Id, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Ratelimit-Limit:
+      - '10'
+      X-Ratelimit-Remaining:
+      - '6'
+      X-Ratelimit-Reset:
+      - '1667951536'
+      X-Ratelimit-Resource:
+      - search
+      X-Ratelimit-Used:
+      - '4'
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '2491'
+      X-Github-Request-Id:
+      - EEAE:2444:8F7DBD:12512A9:636AEB75
+    body:
+      encoding: UTF-8
+      string: '{"total_count":1,"incomplete_results":false,"items":[{"url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/301","repository_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io","labels_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/301/labels{/name}","comments_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/301/comments","events_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/301/events","html_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/301","id":1115036723,"node_id":"PR_kwDOB4Ykw84xngL7","number":301,"title":"Bump
+        follow-redirects from 1.13.2 to 1.14.7","user":{"login":"dependabot[bot]","id":49699333,"node_id":"MDM6Qm90NDk2OTkzMzM=","avatar_url":"https://avatars.githubusercontent.com/in/29110?v=4","gravatar_id":"","url":"https://api.github.com/users/dependabot%5Bbot%5D","html_url":"https://github.com/apps/dependabot","followers_url":"https://api.github.com/users/dependabot%5Bbot%5D/followers","following_url":"https://api.github.com/users/dependabot%5Bbot%5D/following{/other_user}","gists_url":"https://api.github.com/users/dependabot%5Bbot%5D/gists{/gist_id}","starred_url":"https://api.github.com/users/dependabot%5Bbot%5D/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/dependabot%5Bbot%5D/subscriptions","organizations_url":"https://api.github.com/users/dependabot%5Bbot%5D/orgs","repos_url":"https://api.github.com/users/dependabot%5Bbot%5D/repos","events_url":"https://api.github.com/users/dependabot%5Bbot%5D/events{/privacy}","received_events_url":"https://api.github.com/users/dependabot%5Bbot%5D/received_events","type":"Bot","site_admin":false},"labels":[{"id":1653823909,"node_id":"MDU6TGFiZWwxNjUzODIzOTA5","url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/labels/dependencies","name":"dependencies","color":"0366d6","default":false,"description":"Pull
+        requests that update a dependency file"}],"state":"closed","locked":false,"assignee":null,"assignees":[],"milestone":null,"comments":1,"created_at":"2022-01-26T13:45:55Z","updated_at":"2022-02-15T09:37:56Z","closed_at":"2022-02-15T09:37:55Z","author_association":"CONTRIBUTOR","active_lock_reason":null,"draft":false,"pull_request":{"url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/pulls/301","html_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/301","diff_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/301.diff","patch_url":"https://github.com/RedHatOfficial/RedHatOfficial.github.io/pull/301.patch","merged_at":null},"body":"Bumps
+        [follow-redirects](https://github.com/follow-redirects/follow-redirects) from
+        1.13.2 to 1.14.7.\n<details>\n<summary>Commits</summary>\n<ul>\n<li><a href=\"https://github.com/follow-redirects/follow-redirects/commit/2ede36d7c60d3acdcd324dcd99a9dbd52e4fb3a6\"><code>2ede36d</code></a>
+        Release version 1.14.7 of the npm package.</li>\n<li><a href=\"https://github.com/follow-redirects/follow-redirects/commit/8b347cbcef7c7b72a6e9be20f5710c17d6163c22\"><code>8b347cb</code></a>
+        Drop Cookie header across domains.</li>\n<li><a href=\"https://github.com/follow-redirects/follow-redirects/commit/6f5029ae1a0fdab4dc25f6379a5ee303c2319070\"><code>6f5029a</code></a>
+        Release version 1.14.6 of the npm package.</li>\n<li><a href=\"https://github.com/follow-redirects/follow-redirects/commit/af706bee57de954414c0bde0a9f33e62beea3e52\"><code>af706be</code></a>
+        Ignore null headers.</li>\n<li><a href=\"https://github.com/follow-redirects/follow-redirects/commit/d01ab7a5c5df3617c7a40a03de7af6427fdfac55\"><code>d01ab7a</code></a>
+        Release version 1.14.5 of the npm package.</li>\n<li><a href=\"https://github.com/follow-redirects/follow-redirects/commit/40052ea8aa13559becee5795715c1d45b1f0eb76\"><code>40052ea</code></a>
+        Make compatible with Node 17.</li>\n<li><a href=\"https://github.com/follow-redirects/follow-redirects/commit/86f7572f9365dadc39f85916259b58973819617f\"><code>86f7572</code></a>
+        Fix: clear internal timer on request abort to avoid leakage</li>\n<li><a href=\"https://github.com/follow-redirects/follow-redirects/commit/2e1eaf0218c5315a2ab27f53964d0535d4dafb51\"><code>2e1eaf0</code></a>
+        Keep Authorization header on subdomain redirects.</li>\n<li><a href=\"https://github.com/follow-redirects/follow-redirects/commit/2ad9e82b6277ae2104f7770e9ff1186cc6da29d4\"><code>2ad9e82</code></a>
+        Carry over Host header on relative redirects (<a href=\"https://github-redirect.dependabot.com/follow-redirects/follow-redirects/issues/172\">#172</a>)</li>\n<li><a
+        href=\"https://github.com/follow-redirects/follow-redirects/commit/77e2a581e1d1811674b7b74745a9c20a5b939488\"><code>77e2a58</code></a>
+        Release version 1.14.4 of the npm package.</li>\n<li>Additional commits viewable
+        in <a href=\"https://github.com/follow-redirects/follow-redirects/compare/v1.13.2...v1.14.7\">compare
+        view</a></li>\n</ul>\n</details>\n<br />\n\n\n[![Dependabot compatibility
+        score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=follow-redirects&package-manager=npm_and_yarn&previous-version=1.13.2&new-version=1.14.7)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)\n\nDependabot
+        will resolve any conflicts with this PR as long as you don''t alter it yourself.
+        You can also trigger a rebase manually by commenting `@dependabot rebase`.\n\n[//]:
+        # (dependabot-automerge-start)\n[//]: # (dependabot-automerge-end)\n\n---\n\n<details>\n<summary>Dependabot
+        commands and options</summary>\n<br />\n\nYou can trigger Dependabot actions
+        by commenting on this PR:\n- `@dependabot rebase` will rebase this PR\n- `@dependabot
+        recreate` will recreate this PR, overwriting any edits that have been made
+        to it\n- `@dependabot merge` will merge this PR after your CI passes on it\n-
+        `@dependabot squash and merge` will squash and merge this PR after your CI
+        passes on it\n- `@dependabot cancel merge` will cancel a previously requested
+        merge and block automerging\n- `@dependabot reopen` will reopen this PR if
+        it is closed\n- `@dependabot close` will close this PR and stop Dependabot
+        recreating it. You can achieve the same result by closing it manually\n- `@dependabot
+        ignore this major version` will close this PR and stop Dependabot creating
+        any more for this major version (unless you reopen the PR or upgrade to it
+        yourself)\n- `@dependabot ignore this minor version` will close this PR and
+        stop Dependabot creating any more for this minor version (unless you reopen
+        the PR or upgrade to it yourself)\n- `@dependabot ignore this dependency`
+        will close this PR and stop Dependabot creating any more for this dependency
+        (unless you reopen the PR or upgrade to it yourself)\n- `@dependabot use these
+        labels` will set the current labels as the default for future PRs for this
+        repo and language\n- `@dependabot use these reviewers` will set the current
+        reviewers as the default for future PRs for this repo and language\n- `@dependabot
+        use these assignees` will set the current assignees as the default for future
+        PRs for this repo and language\n- `@dependabot use this milestone` will set
+        the current milestone as the default for future PRs for this repo and language\n\nYou
+        can disable automated security fix PRs for this repo from the [Security Alerts
+        page](https://github.com/RedHatOfficial/RedHatOfficial.github.io/network/alerts).\n\n</details>","reactions":{"url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/301/reactions","total_count":0,"+1":0,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0},"timeline_url":"https://api.github.com/repos/RedHatOfficial/RedHatOfficial.github.io/issues/301/timeline","performed_via_github_app":null,"state_reason":null,"score":1.0}]}'
+  recorded_at: Tue, 08 Nov 2022 23:51:17 GMT
+- request:
+    method: get
+    uri: https://api.github.com/search/issues?per_page=1000&q=org:RedHatOfficial%20is:pull-request%20archived:false%20is:unmerged%20created:2022-01-29..2022-01-31
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.25.1
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Tue, 08 Nov 2022 23:51:17 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+      Vary:
+      - Accept, Accept-Encoding, Accept, X-Requested-With
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO,
+        X-GitHub-Request-Id, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Ratelimit-Limit:
+      - '10'
+      X-Ratelimit-Remaining:
+      - '5'
+      X-Ratelimit-Reset:
+      - '1667951536'
+      X-Ratelimit-Resource:
+      - search
+      X-Ratelimit-Used:
+      - '5'
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '72'
+      X-Github-Request-Id:
+      - EEAF:776B:8952E5:118D183:636AEB75
+    body:
+      encoding: UTF-8
+      string: '{"total_count":0,"incomplete_results":false,"items":[]}'
+  recorded_at: Tue, 08 Nov 2022 23:51:17 GMT
+recorded_with: VCR 6.1.0

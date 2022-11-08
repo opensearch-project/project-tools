@@ -8,6 +8,7 @@ command 'pr', 'prs' do |g|
   g.flag %i[o org], desc: 'Name of the GitHub organization.'
   g.flag %i[repo], multiple: true, desc: 'Search a specific repo within the org.'
   g.switch %i[ignore-unknown], desc: 'Ignore unknown users.', default_value: false
+  g.flag %i[status], desc: 'Query for opened or merged pull requests.', default_value: :merged, must_match: %i[merged unmerged]
 
   g.desc 'List pull requests in the organization.'
   g.command 'list' do |c|

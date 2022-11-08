@@ -38,12 +38,12 @@ module GitHub
     def query(options = {})
       GitHub::Searchables.new(options).to_a.concat(
         [
-          'state:merged',
+          options[:status] == :merged ? 'state:merged' : nil,
           'is:pull-request',
           'archived:false',
-          'is:closed',
-          "merged:#{options[:from]}..#{options[:to]}"
-        ]
+          options[:status] == :merged ? 'is:closed' : 'is:unmerged',
+          options[:status] == :merged ? "merged:#{options[:from]}..#{options[:to]}" : "created:#{options[:from]}..#{options[:to]}"
+        ].compact
       ).compact.join(' ')
     end
   end
