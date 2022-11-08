@@ -32,6 +32,10 @@ command 'pr', 'prs' do |g|
       else
         puts "Between #{Chronic.parse(options[:from]).to_date} and #{Chronic.parse(options[:to]).to_date}, #{prs.all_external_percent}% of contributions (#{prs.all_external.size}/#{prs.size}) were made by #{prs.contributors.all_external.size} external contributors (#{prs.contributors.all_external.size}/#{prs.contributors.humans.uniq.size})."
         puts ''
+        prs.percent.each_pair do |k, v|
+          puts "#{k}: #{v}%"
+        end
+        puts ''
         prs[:external]&.each do |pr|
           puts pr
         end

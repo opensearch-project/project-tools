@@ -36,6 +36,13 @@ module GitHub
       ((all_external.size.to_f / all.size) * 100).to_i
     end
 
+    def percent
+      buckets.map do |k, v|
+        pc = ((v.size.to_f / all.size) * 100).to_i
+        [k, pc]
+      end.to_h
+    end
+
     def self.bucket(username)
       if GitHub::Data.members.include?(username.to_s)
         :members
