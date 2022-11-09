@@ -17,7 +17,7 @@ describe 'project pr' do
 
     it 'returns contributors for the default org' do
       output = `"#{project}" --no-cache --vcr-cassette-name=search/opensearch-project/prs_2022-01-01_2022-01-06 prs stats --from=2022-01-01 --to=2022-01-06 --ignore-unknown`.strip
-      expect(output).to include 'Between 2022-01-01 and 2022-01-06, 0% of contributions (0/108) were made by 0 external contributors (0/45).'
+      expect(output).to include 'Between 2022-01-01 and 2022-01-06, 0% of contributions (0/104) were made by 0 external contributors (0/45).'
     end
 
     it 'returns contributors for a single repo' do

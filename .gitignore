@@ -1,5 +1,9 @@
 .cache
 data
 .DS_Store
+coverage
+.env
+
+
 
 

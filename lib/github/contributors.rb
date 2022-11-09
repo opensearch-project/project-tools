@@ -3,6 +3,7 @@
 module GitHub
   class Contributors < Items
     extend GitHub::Data
+    include GitHub::Buckets
 
     def initialize(arr)
       super arr, Contributor
@@ -12,38 +13,8 @@ module GitHub
       reject { |item| item.type == 'Bot' || GitHub::Data.bots.include?(item.to_s) }
     end
 
-    def members
-      buckets[:members] || []
-    end
-
-    def contractors
-      buckets[:contractors] || []
-    end
-
-    def external
-      buckets[:external] || []
-    end
-
-    def unknown
-      buckets[:unknown] || []
-    end
-
     def all
       humans
-    end
-
-    def all_members
-      members.concat(contractors)
-    end
-
-    def all_external
-      external
-    end
-
-    def all_external_percent
-      return 0 unless all.any?
-
-      ((all_external.size.to_f / all.size) * 100).to_i
     end
 
     def self.bucket(username)

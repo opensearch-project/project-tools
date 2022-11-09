@@ -180,6 +180,10 @@ Shows bucketed contributions.
 
 Between 2022-10-03 and 2022-10-09, 5% of contributions (18/346) were made by 9 external contributors (9/102).
 
+members: 69%
+external: 5%
+contractors: 8%
+
 https://github.com/opensearch-project/project-website/pull/1024: add tracetest as a partner - [@mathnogueira]
 https://github.com/opensearch-project/project-website/pull/1023: Add Hyland as partner - [@aborroy]
 https://github.com/opensearch-project/opensearch-php/pull/85: Unset port for SigV4Handler, fixes #84 - [@shyim]
@@ -212,6 +216,12 @@ Get the stats for an entire org and several repos.
 
 ```
 ./bin/project prs stats --org=opensearch-project --repo=aws/aws-cli --repo=aws/deep-learning-containers
+```
+
+Get the stats for unmerged (open and closed without being merged) PRs.
+
+```
+./bin/project prs stats --status=unmerged
 ```
 
 #### Issues

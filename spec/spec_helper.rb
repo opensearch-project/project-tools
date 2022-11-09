@@ -6,7 +6,7 @@ require 'rubygems'
 require 'rspec'
 
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start if ENV['CI']
 
 require 'lib/tools'
 
