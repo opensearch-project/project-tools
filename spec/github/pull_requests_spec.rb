@@ -10,7 +10,7 @@ describe GitHub::PullRequests do
           end
 
           it 'fetches contributors between two dates' do
-            expect(subject.count).to eq 3
+            expect(subject.count).to eq 2
             expect(subject.unknown.count).to eq 2
             expect(subject.unknown.map(&:user).map(&:login)).to eq(%w[KushalBeniwal jiekang])
           end
@@ -22,7 +22,7 @@ describe GitHub::PullRequests do
           end
 
           it 'fetches contributors between two dates' do
-            expect(subject.count).to eq 3
+            expect(subject.count).to eq 2
             expect(subject.unknown.count).to eq 2
             expect(subject.unknown.map(&:user).map(&:login)).to eq(%w[daten Montana])
           end
@@ -37,7 +37,7 @@ describe GitHub::PullRequests do
         end
 
         it 'fetches contributors across an org and an additional repo between two dates' do
-          expect(subject.count).to eq 17
+          expect(subject.count).to eq 16
         end
       end
     end
@@ -70,8 +70,8 @@ describe GitHub::PullRequests do
 
         it 'fetches contributors' do
           expect(first.count).to eq 1
-          expect(second.count).to eq 2
-          expect(subject.count).to eq 3
+          expect(second.count).to eq 1
+          expect(subject.count).to eq 2
           expect(subject.count).to eq first.count + second.count
         end
       end

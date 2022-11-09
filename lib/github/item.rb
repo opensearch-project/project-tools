@@ -19,7 +19,7 @@ module GitHub
     def self.wrap(collection)
       result = []
       rate_limited do
-        collection.each do |obj|
+        collection&.each do |obj|
           result.push(new(obj))
         end
       end

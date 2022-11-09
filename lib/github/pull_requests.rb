@@ -16,8 +16,6 @@ module GitHub
       @buckets ||= begin
         buckets = {}
         each do |pr|
-          next if pr.user.type == 'Bot'
-
           bucket = GitHub::Contributors.bucket(pr.user.login)
           buckets[bucket] ||= []
           buckets[bucket] << pr
@@ -31,7 +29,7 @@ module GitHub
       raise 'There are 1000+ PRs returned from a single query, reduce --page.' if data.size >= 1000
 
       data.reject do |pr|
-        GitHub::Data.backports.any? { |b| pr.title&.downcase&.include?(b) }
+        pr.user.type == 'Bot' || GitHub::Data.backports.any? { |b| pr.title&.downcase&.include?(b) }
       end
     end
 

@@ -38,7 +38,7 @@ module GitHub
 
     def percent
       buckets.map do |k, v|
-        pc = ((v.size.to_f / all.size) * 100).to_i
+        pc = ((v.size.to_f / all.size) * 100).round(1)
         [k, pc]
       end.to_h
     end

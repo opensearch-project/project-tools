@@ -24,6 +24,7 @@ command 'pr', 'prs' do |g|
   g.command 'stats' do |c|
     c.action do |_global_options, options, _args|
       prs = GitHub::PullRequests.new(options)
+
       if !options['ignore-unknown'] && prs.contributors[:unknown]&.any?
         puts 'Add the following users to either data/users/members.txt, external.txt or contractors.txt and re-run.'
         prs.contributors[:unknown].keys.take(10).each do |user|
@@ -34,11 +35,13 @@ command 'pr', 'prs' do |g|
         puts "Between #{Chronic.parse(options[:from]).to_date} and #{Chronic.parse(options[:to]).to_date}, #{prs.all_external_percent}% of contributions (#{prs.all_external.size}/#{prs.size}) were made by #{prs.contributors.all_external.size} external contributors (#{prs.contributors.all_external.size}/#{prs.contributors.humans.uniq.size})."
         puts ''
         prs.percent.each_pair do |k, v|
-          puts "#{k}: #{v}%"
+          puts "#{k}: #{v}% (#{prs.buckets[k].size})"
         end
-        puts ''
-        prs[:external]&.each do |pr|
-          puts pr
+        if prs[:external]&.size&.< 25
+          puts ''
+          prs[:external]&.each do |pr|
+            puts pr
+          end
         end
       end
     end
