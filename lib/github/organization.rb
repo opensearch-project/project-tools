@@ -28,6 +28,10 @@ module GitHub
       @pull_requests ||= GitHub::PullRequests.new({ org: name, status: :merged }.merge(options))
     end
 
+    def commits(options = {})
+      @commits ||= GitHub::Commits.new({ org: name }.merge(options))
+    end
+
     def issues(options = {})
       @issues ||= GitHub::Issues.new({ org: name }.merge(options))
     end

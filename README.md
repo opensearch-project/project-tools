@@ -16,6 +16,7 @@
     - [Pull Request Stats](#pull-request-stats)
     - [Issues](#issues)
     - [Member Bios](#member-bios)
+    - [DCO Signers](#dco-signers)
 - [Contributing](#contributing)
 - [Code of Conduct](#code-of-conduct)
 - [Security](#security)
@@ -286,6 +287,14 @@ Shows users in [data/users/members.txt](data/users/members.txt) that do not have
 
 ```
 ./bin/project members check
+```
+
+#### DCO Signers
+
+Shows name and email address from all contributors that have signed a developer certificate of origin on any commit.
+
+```
+./bin/project contributors dco-signers --from=2022-01-01 --to=2022-01-31 --org=opensearch-project --repo=OpenSearch
 ```
 
 ## Contributing

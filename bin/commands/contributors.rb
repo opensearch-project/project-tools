@@ -32,4 +32,15 @@ command 'contributors' do |g|
       end
     end
   end
+
+  g.desc 'Create a list of all DCO signers'
+  g.command 'dco-signers' do |c|
+    c.action do |_global_options, options, _args|
+      org = GitHub::Organization.new(options)
+      signers = org.commits(options).dco_signers
+      signers.sort_for_display.each do |signer|
+        puts signer.to_s
+      end
+    end
+  end
 end
