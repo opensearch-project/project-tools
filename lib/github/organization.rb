@@ -13,7 +13,7 @@ module GitHub
     end
 
     def repos
-      @repos ||= GitHub::Repos.new({ org: name })
+      @repos ||= GitHub::Repos.new({ org: name }).reject { |repo| repo.archived }
     end
 
     def members
