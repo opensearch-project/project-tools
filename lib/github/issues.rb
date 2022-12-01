@@ -27,6 +27,10 @@ module GitHub
       end
     end
 
+    def created_before(created_at)
+      select { |issue| issue.created_at < created_at }
+    end
+
     def labels
       @labels ||= begin
         all = {}
