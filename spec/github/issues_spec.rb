@@ -26,6 +26,12 @@ describe GitHub::Issues do
           expect(subject.repos_version_labels[repo]['v3.4.5'].map(&:number)).to eq [171, 174]
           expect(subject.repos_version_labels[repo]['v3.4.5'].first.repository_url).to eq repo
         end
+
+        it 'returns issues older than a date' do
+          expect(subject.created_before(Date.new(2018, 1, 1)).count).to eq 0
+          expect(subject.created_before(Date.new(2018, 4, 20)).count).to eq 1
+          expect(subject.created_before(Date.new(2019, 1, 1)).count).to eq 3
+        end
       end
     end
 

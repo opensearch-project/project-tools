@@ -23,7 +23,7 @@ command 'issue', 'issues' do |g|
     c.action do |_global_options, options, _args|
       org = GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project'))
       untriaged_issues = org.issues(options.merge(label: 'untriaged'))
-      puts "There are #{untriaged_issues.count} untriaged issues created between #{Chronic.parse(options[:from]).to_date} and #{Chronic.parse(options[:to]).to_date}."
+      puts "There are #{untriaged_issues.count} untriaged issues created between #{Chronic.parse(options[:from]).to_date} and #{Chronic.parse(options[:to]).to_date}, and #{untriaged_issues.created_before(Time.now - 3.months).count} issues older than 3 months."
       puts "\n# By Repo\n"
       untriaged_issues.repos.each_pair do |repo, issues|
         puts "#{repo}: #{issues.count}"
