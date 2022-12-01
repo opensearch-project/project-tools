@@ -9,7 +9,7 @@ describe 'project org' do
       'name: Red Hat',
       'description: The official GitHub account for Red Hat (VCR).',
       'url: https://api.github.com/orgs/RedHatOfficial',
-      'repos: 83'
+      'repos: 82'
     ].join("\n")
   end
 
