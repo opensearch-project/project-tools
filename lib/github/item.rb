@@ -20,7 +20,7 @@ module GitHub
       result = []
       rate_limited do
         collection&.each do |obj|
-          result.push(new(obj))
+          result.push(obj.is_a?(Item) ? obj : new(obj))
         end
       end
       result

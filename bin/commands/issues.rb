@@ -28,8 +28,12 @@ command 'issue', 'issues' do |g|
       untriaged_issues.repos.each_pair do |repo, issues|
         puts "#{repo}: #{issues.count}"
       end
+      puts "\n# Older than 3 Months\n"
+      untriaged_issues.created_before(Time.now - 3.months).repos.each_pair do |repo, issues|
+        puts "#{repo.split('/').last}: #{issues.count}"
+      end
       puts "\n# Oldest Issues\n"
-      untriaged_issues.sort_by { |i| i.created_at }.take(25).each do |issue|
+      untriaged_issues.sort_by { |i| i.created_at }.take(10).each do |issue|
         puts "#{issue}, created #{DOTIW::Methods.distance_of_time_in_words(issue.created_at, Time.now, highest_measures: 1)} ago"
       end
     end
