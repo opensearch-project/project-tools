@@ -30,8 +30,12 @@ module Bin
           untriaged_issues.repos.each_pair do |repo, issues|
             puts "#{repo}: #{issues.count}"
           end
-          puts "\n# Older than 3 Months\n"
-          untriaged_issues.created_before(Time.now - 3.months).repos.each_pair do |repo, issues|
+          older_issues_3mo = untriaged_issues.created_before(Time.now - 3.months)
+          older_issues_3mo_size = older_issues_3mo.repos.map do |_repo, issues|
+            issues.size
+          end.sum
+          puts "\n# Older than 3 Months (#{older_issues_3mo_size})\n"
+          older_issues_3mo.repos.each_pair do |repo, issues|
             puts "#{repo.split('/').last}: #{issues.count}"
           end
           puts "\n# Oldest Issues\n"
