@@ -4,63 +4,67 @@
 require 'gli'
 require 'faraday-http-cache'
 
-include GLI::App
+module Bin
+  class Commands
+    extend GLI::App
 
-program_desc 'GitHub project info tool.'
+    program_desc 'GitHub project info tool.'
 
-default_command :help
+    default_command :help
 
-switch %i[d debug], desc: 'Enable debug-level logging.', default_value: false
-switch %i[no-cache], desc: 'Disable local cache (.cache).', default_value: false
-switch %i[q quiet], desc: "Don't show progress bars.", default_value: false
+    switch %i[d debug], desc: 'Enable debug-level logging.', default_value: false
+    switch %i[no-cache], desc: 'Disable local cache (.cache).', default_value: false
+    switch %i[q quiet], desc: "Don't show progress bars.", default_value: false
 
-flag %i[t token], desc: 'Optional GitHub token.', default_value: ENV.fetch('GITHUB_API_TOKEN', nil)
-flag %i[vcr-cassette-name], desc: 'Offline VCR cassette.'
+    flag %i[t token], desc: 'Optional GitHub token.', default_value: ENV.fetch('GITHUB_API_TOKEN', nil)
+    flag %i[vcr-cassette-name], desc: 'Offline VCR cassette.'
 
-pre do |global_options, _command, _options, _args|
-  GitHub::Progress.enabled = global_options['quiet'] ? false : true
+    pre do |global_options, _command, _options, _args|
+      GitHub::Progress.enabled = global_options['quiet'] ? false : true
 
-  if global_options['vcr-cassette-name']
-    require 'webmock'
-    WebMock.enable!
-    require 'vcr'
-    VCR.configure do |config|
-      config.cassette_library_dir = File.expand_path(File.join(__FILE__, '../../spec/fixtures'))
-      config.hook_into :webmock
-      config.default_cassette_options = { record: :new_episodes }
-      if global_options['token']
-        config.filter_sensitive_data('<GITHUB_API_TOKEN>') do
-          global_options['token']
+      if global_options['vcr-cassette-name']
+        require 'webmock'
+        WebMock.enable!
+        require 'vcr'
+        VCR.configure do |config|
+          config.cassette_library_dir = File.expand_path(File.join(__FILE__, '../../spec/fixtures'))
+          config.hook_into :webmock
+          config.default_cassette_options = { record: :new_episodes }
+          if global_options['token']
+            config.filter_sensitive_data('<GITHUB_API_TOKEN>') do
+              global_options['token']
+            end
+          end
         end
+        VCR.insert_cassette global_options['vcr-cassette-name']
       end
+
+      Octokit.auto_paginate = true
+      client_options = {}
+      client_options = { access_token: global_options[:token] } if global_options.key?(:token)
+      unless global_options['no-cache']
+        stack = Faraday::RackBuilder.new do |builder|
+          cache_store = ActiveSupport::Cache.lookup_store(:file_store, File.expand_path(File.join(__dir__, '..', '.cache')))
+          logger = global_options['debug'] ? Logger.new($stdout) : nil
+          builder.use Faraday::HttpCache, serializer: Marshal, shared_cache: false, store: cache_store, logger: logger
+          builder.use Octokit::Response::RaiseError
+          builder.use Faraday::CacheControl
+          builder.adapter Faraday.default_adapter
+        end
+        Octokit.middleware = stack
+      end
+
+      post do |global_options, _command, _options, _args|
+        VCR.eject_cassette if global_options['vcr-cassette-name']
+      end
+
+      $github = Octokit::Client.new(client_options)
+
+      ENV['GLI_DEBUG'] = 'true' if global_options['debug']
+
+      true
     end
-    VCR.insert_cassette global_options['vcr-cassette-name']
   end
-
-  Octokit.auto_paginate = true
-  client_options = {}
-  client_options = { access_token: global_options[:token] } if global_options.key?(:token)
-  unless global_options['no-cache']
-    stack = Faraday::RackBuilder.new do |builder|
-      cache_store = ActiveSupport::Cache.lookup_store(:file_store, File.expand_path(File.join(__dir__, '..', '.cache')))
-      logger = global_options['debug'] ? Logger.new($stdout) : nil
-      builder.use Faraday::HttpCache, serializer: Marshal, shared_cache: false, store: cache_store, logger: logger
-      builder.use Octokit::Response::RaiseError
-      builder.use Faraday::CacheControl
-      builder.adapter Faraday.default_adapter
-    end
-    Octokit.middleware = stack
-  end
-
-  post do |global_options, _command, _options, _args|
-    VCR.eject_cassette if global_options['vcr-cassette-name']
-  end
-
-  $github = Octokit::Client.new(client_options)
-
-  ENV['GLI_DEBUG'] = 'true' if global_options['debug']
-
-  true
 end
 
 $LOAD_PATH.push File.expand_path(__dir__)
@@ -74,4 +78,4 @@ require_relative 'commands/members'
 require_relative 'commands/issues'
 require_relative 'commands/maintainers'
 
-exit run(ARGV)
+exit Bin::Commands.run(ARGV)
