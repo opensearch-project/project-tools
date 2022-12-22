@@ -4,6 +4,8 @@
 require 'gli'
 require 'faraday-http-cache'
 
+require_relative '../lib/tools'
+
 module Bin
   class Commands
     extend GLI::App
@@ -18,6 +20,8 @@ module Bin
 
     flag %i[t token], desc: 'Optional GitHub token.', default_value: ENV.fetch('GITHUB_API_TOKEN', nil)
     flag %i[vcr-cassette-name], desc: 'Offline VCR cassette.'
+
+    commands_from File.expand_path('commands', __dir__)
 
     pre do |global_options, _command, _options, _args|
       GitHub::Progress.enabled = global_options['quiet'] ? false : true
@@ -68,14 +72,4 @@ module Bin
 end
 
 $LOAD_PATH.push File.expand_path(__dir__)
-
-require_relative '../lib/tools'
-require_relative 'commands/org'
-require_relative 'commands/repos'
-require_relative 'commands/pr'
-require_relative 'commands/contributors'
-require_relative 'commands/members'
-require_relative 'commands/issues'
-require_relative 'commands/maintainers'
-
 exit Bin::Commands.run(ARGV)
