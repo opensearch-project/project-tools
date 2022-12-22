@@ -109,6 +109,7 @@ DEPENDENCIES
   chronic
   codecov
   dotiw
+  faraday
   faraday-http-cache
   faraday-retry
   gli
