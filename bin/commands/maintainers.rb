@@ -67,6 +67,24 @@ module Bin
           end
         end
       end
+
+      g.desc 'Compare MAINTAINERS.md and CODEOWNERS with repo permissions.'
+      g.command 'permissions' do |c|
+        c.action do |_global_options, options, _args|
+          org = GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project'))
+          repos = org.repos.sort_by(&:name)
+          repos.each do |repo|
+            if repo.oss_problems.any?
+              puts "#{repo.html_url}"
+              repo.oss_problems.each_pair do |problem, desc|
+                puts "  #{problem}: #{desc}"
+              end
+            else
+              puts "#{repo.html_url}: OK"
+            end
+          end
+        end
+      end
     end
   end
 end

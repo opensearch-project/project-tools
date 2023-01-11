@@ -12,15 +12,64 @@ module GitHub
       raise "Invalid repo: #{id_or_obj}: #{e.message}"
     end
 
-    def maintainers
-      @maintainers ||= begin
+    def maintainers_md
+      @maintainers_md ||= begin
         data = $github.contents(full_name, path: 'MAINTAINERS.md')
         md = Base64.decode64(data.content)
-        data = {}
-        parsed = Redcarpet::Markdown.new(MaintainersExtractor, tables: true, target: data).render(md)
-        data[:maintainers]
       rescue Octokit::NotFound
         nil
+      end
+    end
+
+    def maintainers
+      @maintainers ||= begin
+        data = {}
+        content = maintainers_md
+        parsed = Redcarpet::Markdown.new(MaintainersExtractor, tables: true, target: data).render(content) if content
+        data[:maintainers] if data
+      rescue Octokit::NotFound
+        nil
+      end
+    end
+
+    def codeowners
+      @codeowners ||= begin
+        data = $github.contents(full_name, path: '.github/CODEOWNERS')
+        codeowners = Base64.decode64(data.content).split(' ').map { |co| co[1..] }
+      rescue Octokit::NotFound
+        nil
+      end
+    end
+
+    def collaborators
+      @collaborators ||= GitHub::User.wrap($github.collaborators(full_name))
+    end
+
+    def maintainers_not_collaborators
+      maintainers&.select do |user|
+        !collaborators.map(&:login).include?(user)
+      end
+    end
+
+    def oss_problems
+      oss_problems ||= begin
+        problems = {}
+
+        if maintainers.nil?
+          problems['MAINTAINERS.md'] = 'missing'
+        elsif !maintainers_md&.include?('https://github.com/opensearch-project/.github/blob/main/RESPONSIBILITIES.md')
+          problems['MAINTAINERS.md'] = 'missing link to RESPONSIBILITIES.md'
+        end
+
+        problems['CODEOWNERS'] = 'missing' if codeowners.nil?
+
+        begin
+          problems['COLLABORATORS'] = "out of sync (#{maintainers_not_collaborators})" if maintainers_not_collaborators&.any?
+        rescue Octokit::Forbidden
+          problems['COLLABORATORS'] = 'access denied'
+        end
+
+        problems
       end
     end
 

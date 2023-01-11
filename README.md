@@ -107,6 +107,12 @@ Audits maintainer lists for maintainers that have 0 commits on a project.
 ./bin/project maintainers audit
 ```
 
+Review maintainer contents, permissions, and CODEOWNERS.
+
+```
+./bin/project maintainers permissions
+```
+
 #### Contributor Stats
 
 Shows most frequent contributors bucketed by members, contractors, and external.
