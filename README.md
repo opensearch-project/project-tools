@@ -30,6 +30,31 @@
 
 Tools to gather stats on a GitHub organization.
 
+### Installation
+1. Ruby version >=2.7 is required
+1. Install bundler if you don't already have it: https://bundler.io/guides/getting_started.html
+
+```
+jeff - project-tools % sudo gem install bundler
+Fetching bundler-2.4.4.gem
+Successfully installed bundler-2.4.4
+Parsing documentation for bundler-2.4.4
+Installing ri documentation for bundler-2.4.4
+Done installing documentation for bundler after 0 seconds
+1 gem installed
+jeff - project-tools % sudo bundle install
+Using rake 13.0.6
+Using concurrent-ruby 1.1.10
+Using i18n 1.12.0
+...
+Using rubocop-rake 0.6.0
+Using rubocop-rspec 2.13.2
+Using vcr 6.1.0
+Using webmock 3.14.0
+Bundle complete! 21 Gemfile dependencies, 50 gems now installed.
+Bundled gems are installed into `./vendor/bundle`
+```
+
 ### Usage
 
 #### Global Options
