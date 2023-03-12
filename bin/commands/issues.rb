@@ -25,17 +25,18 @@ module Bin
         c.action do |_global_options, options, _args|
           org = GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project'))
           untriaged_issues = org.issues(options.merge(label: 'untriaged'))
-          puts "There are #{untriaged_issues.count} untriaged issues created between #{Chronic.parse(options[:from]).to_date} and #{Chronic.parse(options[:to]).to_date}, and #{untriaged_issues.created_before(Time.now - 3.months).count} issues older than 3 months."
+          dt = Time.now - 2.weeks
+          puts "There are #{untriaged_issues.count} untriaged issues created between #{Chronic.parse(options[:from]).to_date} and #{Chronic.parse(options[:to]).to_date}, and #{untriaged_issues.created_before(dt).count} issues older than two weeks."
           puts "\n# By Repo\n"
           untriaged_issues.repos.each_pair do |repo, issues|
             puts "#{repo}: #{issues.count}"
           end
-          older_issues_3mo = untriaged_issues.created_before(Time.now - 3.months)
-          older_issues_3mo_size = older_issues_3mo.repos.map do |_repo, issues|
+          older_issues = untriaged_issues.created_before(dt)
+          older_issues_size = older_issues.repos.map do |_repo, issues|
             issues.size
           end.sum
-          puts "\n# Older than 3 Months (#{older_issues_3mo_size})\n"
-          older_issues_3mo.repos.each_pair do |repo, issues|
+          puts "\n# Older than two weeks (#{older_issues_size})\n"
+          older_issues.repos.each_pair do |repo, issues|
             puts "#{repo.split('/').last}: #{issues.count}"
           end
           puts "\n# Oldest Issues\n"
