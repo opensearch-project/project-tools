@@ -42,6 +42,9 @@ Parsing documentation for bundler-2.4.4
 Installing ri documentation for bundler-2.4.4
 Done installing documentation for bundler after 0 seconds
 1 gem installed
+```
+3. Run bundler to install project-tools ruby gem
+```
 % bundle install
 Using rake 13.0.6
 Using concurrent-ruby 1.1.10
