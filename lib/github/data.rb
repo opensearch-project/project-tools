@@ -8,6 +8,7 @@ module GitHub
       MEMBERS = File.expand_path('members.txt', USERS_DATA)
       CONTRACTORS = File.expand_path('contractors.txt', USERS_DATA)
       EXTERNAL = File.expand_path('external.txt', USERS_DATA)
+      CCI = File.expand_path('cci.txt', USERS_DATA)
       BOTS = File.expand_path('bots.txt', USERS_DATA)
       COMPANIES = File.expand_path('companies.txt', USERS_DATA)
       BACKPORTS = File.expand_path('prs/backports.txt', DATA)
@@ -41,6 +42,10 @@ module GitHub
         @external_users ||= load_list(EXTERNAL)
       end
 
+      def college_contributors
+        @college_contributors ||= load_list(CCI)
+      end
+
       def bots
         @bots ||= load_list(BOTS)
       end
@@ -50,11 +55,11 @@ module GitHub
       end
 
       def all_members
-        members.concat(contractors)
+        members + contractors
       end
 
       def all_external
-        external
+        external_users + college_contributors
       end
     end
   end

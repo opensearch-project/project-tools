@@ -22,6 +22,8 @@ module GitHub
         :members
       elsif GitHub::Data.contractors.include?(username.to_s)
         :contractors
+      elsif GitHub::Data.college_contributors.include?(username.to_s)
+        :cci
       elsif GitHub::Data.external_users.include?(username.to_s)
         :external
       else

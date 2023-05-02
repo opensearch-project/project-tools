@@ -28,7 +28,7 @@ module Bin
           prs = GitHub::PullRequests.new(options)
 
           if !options['ignore-unknown'] && prs.contributors[:unknown]&.any?
-            puts 'Add the following users to either data/users/members.txt, external.txt or contractors.txt and re-run.'
+            puts 'Add the following users to either data/users/members.txt, external.txt, cci.txt or contractors.txt and re-run.'
             prs.contributors[:unknown].keys.take(10).each do |user|
               puts user
               system "open https://github.com/#{user}"
