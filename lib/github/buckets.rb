@@ -14,8 +14,8 @@ module GitHub
       buckets[:external] || []
     end
 
-    def college_contributors
-      buckets[:cci] || []
+    def students
+      buckets[:students] || []
     end
 
     def unknown
@@ -31,7 +31,7 @@ module GitHub
     end
 
     def all_external
-      external.to_a + college_contributors.to_a
+      external.to_a + students.to_a
     end
 
     def all_external_percent
@@ -42,7 +42,6 @@ module GitHub
 
     def percent
       buckets.map do |k, v|
-        puts k
         pc = ((v.size.to_f / all.size) * 100).round(1)
         [k, pc]
       end.to_h
@@ -54,7 +53,7 @@ module GitHub
       elsif GitHub::Data.contractors.include?(username.to_s)
         :contractors
       elsif GitHub::Data.college_contributors.include?(username.to_s)
-        :cci
+        :students
       elsif GitHub::Data.external_users.include?(username.to_s)
         :external
       else
