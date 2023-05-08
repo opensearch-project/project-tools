@@ -14,6 +14,10 @@ module GitHub
       buckets[:external] || []
     end
 
+    def students
+      buckets[:students] || []
+    end
+
     def unknown
       buckets[:unknown] || []
     end
@@ -23,11 +27,11 @@ module GitHub
     end
 
     def all_members
-      members.concat(contractors)
+      members.to_a + contractors.to_a
     end
 
     def all_external
-      external
+      external.to_a + students.to_a
     end
 
     def all_external_percent
@@ -48,6 +52,8 @@ module GitHub
         :members
       elsif GitHub::Data.contractors.include?(username.to_s)
         :contractors
+      elsif GitHub::Data.college_contributors.include?(username.to_s)
+        :students
       elsif GitHub::Data.external_users.include?(username.to_s)
         :external
       else
