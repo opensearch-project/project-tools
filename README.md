@@ -1,5 +1,6 @@
 - [OpenSearch Project Tools](#opensearch-project-tools)
   - [Usage](#usage)
+    - [Installation](#installation)
     - [Global Options](#global-options)
       - [Tokens](#tokens)
       - [Quiet](#quiet)
@@ -31,6 +32,13 @@
 Tools to gather stats on a GitHub organization.
 
 ### Usage
+
+#### Installation
+
+1. Clone the repository locally on your desktop.
+1. Install Ruby 2.7 or newer. We recommend using [RVM](https://rvm.io/).
+1. Install bundler with `gem install bundler`.
+1. Run `bundle install`.
 
 #### Global Options
 
@@ -115,7 +123,7 @@ Review maintainer contents, permissions, and CODEOWNERS.
 
 #### Contributor Stats
 
-Shows most frequent contributors bucketed by members, contractors, and external.
+Shows most frequent contributors bucketed by members, contractors, students, and external.
 
 ```
 ./bin/project contributors stats
@@ -185,11 +193,13 @@ Shows bucketed contributions.
 ```
 ./bin/project prs stats
 
-Between 2022-10-03 and 2022-10-09, 5% of contributions (18/346) were made by 9 external contributors (9/102).
+Between 2023-05-01 and 2023-05-07, 11% of contributions (34/284) were made by 21 external contributors (21/105).
 
-members: 69%
-external: 5%
-contractors: 8%
+students: 2.5% (7)
+members: 81.0% (230)
+external: 9.5% (27)
+contractors: 6.7% (19)
+unknown: 0.4% (1)
 
 https://github.com/opensearch-project/project-website/pull/1024: add tracetest as a partner - [@mathnogueira]
 https://github.com/opensearch-project/project-website/pull/1023: Add Hyland as partner - [@aborroy]
@@ -199,7 +209,7 @@ https://github.com/opensearch-project/opensearch-php/pull/85: Unset port for Sig
 
 By default returns stats for the last full week. Specify `from` and `to` for different dates.
 
-If the tool sees a new contributor, it will direct you to add aliases into [data/members.txt](data/members.txt), [data/contractors.txt](data/contractors.txt), or [data/external.txt](data/external.txt) and open a browser page for each user so you can examine their account (specify `--ignore-unknown` to disable this behavior). Otherwise, it will output PRs and stats made by external contributors. The easiest way to lookup whether an account belongs to the org is with `./bin/project org members`. Commit and PR your changes to the data lists.
+If the tool sees a new contributor, it will direct you to add aliases into [data/members.txt](data/members.txt), [data/contractors.txt](data/contractors.txt), [data/students.txt](data/students.txt), or [data/external.txt](data/external.txt) and open a browser page for each user so you can examine their account (specify `--ignore-unknown` to disable this behavior). Otherwise, it will output PRs and stats made by external contributors. The easiest way to lookup whether an account belongs to the org is with `./bin/project org members`. Commit and PR your changes to the data lists.
 
 Get the stats since the beginning of year till today.
 
