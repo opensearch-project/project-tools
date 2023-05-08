@@ -26,6 +26,8 @@ module GitHub
         :students
       elsif GitHub::Data.external_users.include?(username.to_s)
         :external
+      elsif GitHub::Data.bots.include?(username.to_s)
+        :bots
       else
         :unknown
       end

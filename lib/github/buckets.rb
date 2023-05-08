@@ -22,8 +22,16 @@ module GitHub
       buckets[:unknown] || []
     end
 
+    def bots
+      buckets[:bots] || []
+    end
+
     def all
       to_a
+    end
+
+    def all_humans
+      all.to_a - bots.to_a
     end
 
     def all_members
@@ -37,12 +45,12 @@ module GitHub
     def all_external_percent
       return 0 unless all.any?
 
-      ((all_external.size.to_f / all.size) * 100).to_i
+      ((all_external.size.to_f / all_humans.size) * 100).to_i
     end
 
     def percent
       buckets.map do |k, v|
-        pc = ((v.size.to_f / all.size) * 100).round(1)
+        pc = ((v.size.to_f / all_humans.size) * 100).round(1)
         [k, pc]
       end.to_h
     end
@@ -56,6 +64,8 @@ module GitHub
         :students
       elsif GitHub::Data.external_users.include?(username.to_s)
         :external
+      elsif GitHub::Data.bots.include?(username.to_s)
+        :bots
       else
         :unknown
       end
