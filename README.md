@@ -1,5 +1,6 @@
 - [OpenSearch Project Tools](#opensearch-project-tools)
   - [Usage](#usage)
+    - [Installation](#installation)
     - [Global Options](#global-options)
       - [Tokens](#tokens)
       - [Quiet](#quiet)
@@ -31,6 +32,13 @@
 Tools to gather stats on a GitHub organization.
 
 ### Usage
+
+#### Installation
+
+1. Clone the repository locally on your desktop.
+1. Install Ruby 2.7 or newer. We recommend using [RVM](https://rvm.io/).
+1. Install bundler with `gem install bundler`.
+1. Run `bundle install`.
 
 #### Global Options
 
