@@ -53,17 +53,48 @@ module Bin
         end
       end
 
-      g.desc 'Audit MAINTAINERS.md for users that have never contributed.'
+      g.desc 'Audit MAINTAINERS.md and CODEOWNERS.'
       g.command 'audit' do |c|
         c.action do |_global_options, options, _args|
           org = GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project'))
           repos = org.repos.sort_by(&:name)
           repos.each do |repo|
-            puts "#{repo.html_url}: #{repo.maintainers&.count}"
+            problems = {}
             repo.maintainers&.each do |user|
-              commits = $github.commits(repo.full_name, author: user)
-              puts "  #{user}: #{commits.count}" if commits.none?
+              next if repo.codeowners&.include?(user)
+
+              problems[:missing_in_codeowners] ||= []
+              problems[:missing_in_codeowners] << user
             end
+            repo.codeowners&.each do |user|
+              next if repo.maintainers&.include?(user)
+
+              problems[:missing_in_maintainers] ||= []
+              problems[:missing_in_maintainers] << user
+            end
+            next unless problems.any?
+
+            puts "#{repo.html_url}: #{repo.maintainers&.count}"
+            problems.each_pair do |k, v|
+              puts " #{k}: #{v}" if v.any?
+            end
+          end
+        end
+      end
+
+      g.desc 'Audit MAINTAINERS.md that have never contributed.'
+      g.command 'contributors' do |c|
+        c.action do |_global_options, options, _args|
+          org = GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project'))
+          repos = org.repos.sort_by(&:name)
+          repos.each do |repo|
+            users = repo.maintainers&.map do |user|
+              commits = $github.commits(repo.full_name, author: user)
+              next if commits.any?
+
+              user
+            end&.compact
+            puts "#{repo.html_url}: #{users}" if users&.any?
           end
         end
       end
