@@ -10,6 +10,7 @@
     - [Org Members](#org-members)
     - [Sorted List of Repos](#sorted-list-of-repos)
     - [Org Teams](#org-teams)
+    - [Code Owners](#code-owners)
     - [Maintainers](#maintainers)
     - [Contributor Stats](#contributor-stats)
     - [Contributor Lists](#contributor-lists)
@@ -93,6 +94,14 @@ Shows org team memberships. Requires a `repo:admin` read-only PAT token.
 
 ```
 ./bin/project org teams
+```
+
+#### Code Owners
+
+Audits repo CODEOWNERS files.
+
+```
+./bin/project codeowners audit
 ```
 
 #### Maintainers

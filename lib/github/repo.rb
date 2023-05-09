@@ -32,10 +32,24 @@ module GitHub
       end
     end
 
+    def codeowners_files
+      @codeowners_files ||= ['.github/CODEOWNERS', 'CODEOWNERS'].map do |filename|
+        $github.contents(full_name, path: filename)
+        filename
+      rescue Octokit::NotFound
+        nil
+      end.compact
+    end
+
     def codeowners
       @codeowners ||= begin
         data = $github.contents(full_name, path: '.github/CODEOWNERS')
-        codeowners = Base64.decode64(data.content).split(' ').map { |co| co[1..] }
+        content = Base64.decode64(data.content)
+        lines = content.split("\n").reject { |part| part[0] == '#' }
+        lines.map do |line|
+          users = line.split(' ')[1..]
+          users.map { |user| user[1..] }
+        end.flatten
       rescue Octokit::NotFound
         nil
       end
