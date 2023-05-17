@@ -26,7 +26,7 @@ module GitHub
         data = {}
         content = maintainers_md
         parsed = Redcarpet::Markdown.new(MaintainersExtractor, tables: true, target: data).render(content) if content
-        data[:maintainers] if data
+        GitHub::Maintainers.new(data[:maintainers]) if data
       rescue Octokit::NotFound
         nil
       end

@@ -110,6 +110,8 @@ Shows maintainer stats.
 
 ```
 ./bin/project maintainers stats
+
+As of 2023-05-17, 98 repos have 198 maintainers, including 17% (17/98) of repos with at least one of 15 external maintainers.
 ```
 
 Shows missing MAINTAINERS.md.

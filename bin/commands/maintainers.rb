@@ -8,37 +8,26 @@ module Bin
       g.command 'stats' do |c|
         c.action do |_global_options, options, _args|
           org = GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project'))
-          repos = org.repos.sort_by(&:name)
-          all = Set.new
-          repos.each do |repo|
-            maintainers = repo.maintainers
-            maintainers&.each do |user|
-              all.add(user)
-            end
-          end
-          buckets = GitHub::Maintainers.new(all.to_a).buckets
+          maintainers = org.repos.maintainers
+          puts "As of #{Date.today}, #{org.repos.count} repos have #{maintainers.unique_count} maintainers, including #{org.repos.external_maintainers_percent}% (#{org.repos.maintained[:external].size + org.repos.maintained[:students].size}/#{org.repos.count}) of repos with at least one of #{maintainers.external_unique_count} external maintainers."
           puts "\n# Maintainers\n"
-          puts "unique: #{buckets.values.map(&:size).sum}"
-          buckets.each_pair do |bucket, logins|
+          puts "unique: #{maintainers.unique_count}"
+          maintainers.each_pair do |bucket, logins|
             puts "#{bucket}: #{logins.size} (#{logins.map(&:to_s).join(', ')})"
           end
           puts "\n# External Maintainers\n"
-          repos.each do |repo|
-            next unless repo.maintainers
-
-            external_maintainers = repo.maintainers & buckets[:external]
-            next unless external_maintainers&.any?
-
-            puts "#{repo.html_url}: #{external_maintainers}"
+          org.repos.maintained[:external].sort_by(&:name).each do |repo|
+            puts "#{repo.html_url}: #{repo.maintainers[:external]}"
           end
+
+          puts "\n# Student Maintainers\n"
+          org.repos.maintained[:students].sort_by(&:name).each do |repo|
+            puts "#{repo.html_url}: #{repo.maintainers[:students]}"
+          end
+
           puts "\n# Unknown Maintainers\n"
-          repos.each do |repo|
-            next unless repo.maintainers
-
-            unknown_maintainers = repo.maintainers & buckets[:unknown]
-            next unless unknown_maintainers&.any?
-
-            puts "#{repo.html_url}: #{unknown_maintainers}"
+          org.repos.maintained[:unknown].sort_by(&:name).each do |repo|
+            puts "#{repo.html_url}: #{repo.maintainers[:unknown]}"
           end
         end
       end

@@ -15,5 +15,21 @@ module GitHub
         buckets
       end
     end
+
+    def unique_count
+      buckets.values.map(&:size).sum
+    end
+
+    def external_unique_count
+      buckets[:external].size + buckets[:students].size
+    end
+
+    def each_pair(&_block)
+      buckets.each_pair(&_block)
+    end
+
+    def [](bucket)
+      buckets[bucket]
+    end
   end
 end
