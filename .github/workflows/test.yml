@@ -16,4 +16,4 @@ jobs:
           bundle install
           bundle exec rake spec
       - name: Upload Coverage Report
-        uses: codecov/codecov-action@v3.1.0
+        uses: codecov/codecov-action@v3
