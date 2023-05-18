@@ -32,6 +32,7 @@ module Bin
         end
       end
 
+      g.desc 'Audit repos for missing MAINTAINERS.md.'
       g.command 'missing' do |c|
         c.action do |_global_options, options, _args|
           org = GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project'))
@@ -76,6 +77,9 @@ module Bin
         c.action do |_global_options, options, _args|
           org = GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project'))
           repos = org.repos.sort_by(&:name)
+          total_users = 0
+          total_repos = 0
+          unique_users = Set.new
           repos.each do |repo|
             users = repo.maintainers&.map do |user|
               commits = $github.commits(repo.full_name, author: user)
@@ -83,8 +87,14 @@ module Bin
 
               user
             end&.compact
+            next unless users&.any?
+
+            total_users += users.count
+            total_repos += 1
+            unique_users.add(users)
             puts "#{repo.html_url}: #{users}" if users&.any?
           end
+          puts "\nThere are #{unique_users.count} unique names in #{total_users} instances of users listed in MAINTAINERS.md that have never contributed across #{total_repos}/#{repos.count} repos."
         end
       end
 
