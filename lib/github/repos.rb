@@ -36,7 +36,7 @@ module GitHub
         maintainers.buckets.keys.each do |bucket|
           each do |repo|
             all[bucket] ||= []
-            all[bucket] << repo if (repo.maintainers & maintainers[bucket]).any?
+            all[bucket] << repo if ((repo.maintainers & maintainers[bucket]) || []).any?
           end
         end
         all

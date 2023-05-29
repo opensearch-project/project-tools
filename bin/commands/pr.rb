@@ -41,12 +41,12 @@ module Bin
 
               puts "#{k}: #{v}% (#{prs.buckets[k].size})"
             end
-            if prs[:external]&.size&.< 100
-              puts ''
-              prs[:external]&.each do |pr|
-                puts pr
-              end
+            # if prs[:external]&.size&.< 100
+            puts ''
+            prs[:students]&.each do |pr|
+              puts pr
             end
+            # end
           end
         end
       end
