@@ -17,11 +17,11 @@ module GitHub
       GitHub::Repos.new(reject { |repo| repo.archived })
     end
 
-    def maintainers
+    def maintainers(dt = nil)
       @maintainers ||= begin
         all = Set.new
         each do |repo|
-          maintainers = repo.maintainers
+          maintainers = repo.maintainers(dt)
           maintainers&.each do |user|
             all.add(user)
           end
@@ -43,10 +43,14 @@ module GitHub
       end
     end
 
+    def external_maintained_size
+      (maintained[:external]&.size || 0) + (maintained[:students]&.size || 0)
+    end
+
     def external_maintainers_percent
       return 0 unless any?
 
-      (((maintained[:external].size.to_f + maintained[:students].size.to_f) / size) * 100).to_i
+      (((maintained[:external]&.size.to_f + maintained[:students]&.size.to_f) / size) * 100).to_i
     end
   end
 end
