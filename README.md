@@ -132,6 +132,12 @@ Review maintainer contents, permissions, and CODEOWNERS.
 ./bin/project maintainers permissions
 ```
 
+Find maintainer e-mails from their commits.
+
+```
+./bin/project/maintainers emails
+```
+
 #### Contributor Stats
 
 Shows most frequent contributors bucketed by members, contractors, students, and external.
