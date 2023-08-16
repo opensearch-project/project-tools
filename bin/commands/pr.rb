@@ -39,14 +39,8 @@ module Bin
             prs.percent.each_pair do |k, v|
               next if k == :bots
 
-              puts "#{k}: #{v}% (#{prs.buckets[k].size})"
+              puts "#{k}: #{v}% (prs=#{prs.buckets[k].size}, people=#{prs.contributors.buckets[k].size})"
             end
-            # if prs[:external]&.size&.< 100
-            puts ''
-            prs[:students]&.each do |pr|
-              puts pr
-            end
-            # end
           end
         end
       end
