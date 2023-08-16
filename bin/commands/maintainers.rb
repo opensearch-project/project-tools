@@ -6,27 +6,29 @@ module Bin
     command 'maintainers' do |g|
       g.desc 'Show MAINTAINERS.md stats.'
       g.command 'stats' do |c|
+        c.flag %i[date], desc: 'Date at.', default_value: nil
         c.action do |_global_options, options, _args|
           org = GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project'))
-          maintainers = org.repos.maintainers
-          puts "As of #{Date.today}, #{org.repos.count} repos have #{maintainers.unique_count} maintainers, including #{org.repos.external_maintainers_percent}% (#{org.repos.maintained[:external].size + org.repos.maintained[:students].size}/#{org.repos.count}) of repos with at least one of #{maintainers.external_unique_count} external maintainers."
+          dt = options[:date] ? Chronic.parse(options[:date]).to_date : nil
+          maintainers = org.repos.maintainers(dt)
+          puts "As of #{dt || Date.today}, #{org.repos.count} repos have #{maintainers.unique_count} maintainers, including #{org.repos.external_maintainers_percent}% (#{org.repos.external_maintained_size}/#{org.repos.count}) of repos with at least one of #{maintainers.external_unique_count} external maintainers."
           puts "\n# Maintainers\n"
           puts "unique: #{maintainers.unique_count}"
           maintainers.each_pair do |bucket, logins|
             puts "#{bucket}: #{logins.size} (#{logins.map(&:to_s).join(', ')})"
           end
           puts "\n# External Maintainers\n"
-          org.repos.maintained[:external].sort_by(&:name).each do |repo|
+          org.repos.maintained[:external]&.sort_by(&:name)&.each do |repo|
             puts "#{repo.html_url}: #{repo.maintainers[:external]}"
           end
 
           puts "\n# Student Maintainers\n"
-          org.repos.maintained[:students].sort_by(&:name).each do |repo|
+          org.repos.maintained[:students]&.sort_by(&:name)&.each do |repo|
             puts "#{repo.html_url}: #{repo.maintainers[:students]}"
           end
 
           puts "\n# Unknown Maintainers\n"
-          org.repos.maintained[:unknown].sort_by(&:name).each do |repo|
+          org.repos.maintained[:unknown]&.sort_by(&:name)&.each do |repo|
             puts "#{repo.html_url}: #{repo.maintainers[:unknown]}"
           end
         end
@@ -80,7 +82,7 @@ module Bin
           total_users = 0
           total_repos = 0
           unique_users = Set.new
-          all = repos.map do |repo|
+          repos.each do |repo|
             users = repo.maintainers&.map do |user|
               commits = $github.commits(repo.full_name, author: user)
               next if commits.any?
@@ -92,13 +94,9 @@ module Bin
             total_users += users.count
             total_repos += 1
             unique_users.add(users)
-            STDOUT.print('.')
-            [repo, users]
-          end.compact.to_h
-          puts "\nThere are #{unique_users.count} unique names in #{total_users} instances of users listed in MAINTAINERS.md that have never contributed across #{total_repos}/#{repos.count} repos.\n\n"
-          all.sort_by { |_k, v| -v.size }.each do |repo, users|
             puts "#{repo.html_url}: #{users}" if users&.any?
           end
+          puts "\nThere are #{unique_users.count} unique names in #{total_users} instances of users listed in MAINTAINERS.md that have never contributed across #{total_repos}/#{repos.count} repos."
         end
       end
 
@@ -117,24 +115,6 @@ module Bin
               puts "#{repo.html_url}: OK"
             end
           end
-        end
-      end
-
-      g.desc 'Find MAINTAINERS.md emails.'
-      g.command 'emails' do |c|
-        c.action do |_global_options, options, _args|
-          org = GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project'))
-          repos = org.repos.sort_by(&:name)
-          all = repos.map do |repo|
-            users_and_emails = repo.maintainers&.map do |user|
-              [user, $github.commits(repo.full_name, author: user).map do |commit|
-                commit.commit.author.email
-              end.uniq.compact.reject { |e| e.ends_with?('@users.noreply.github.com') }.take(1)]
-            end&.compact.to_h
-            STDOUT.print '.'
-            [repo, users_and_emails]
-          end.to_h.values.inject(:merge)
-          puts all.values
         end
       end
     end

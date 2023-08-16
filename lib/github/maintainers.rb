@@ -21,7 +21,7 @@ module GitHub
     end
 
     def external_unique_count
-      buckets[:external].size + buckets[:students].size
+      (buckets[:external]&.size || 0) + (buckets[:students]&.size || 0)
     end
 
     def each_pair(&_block)

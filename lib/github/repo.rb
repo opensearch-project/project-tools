@@ -12,19 +12,30 @@ module GitHub
       raise "Invalid repo: #{id_or_obj}: #{e.message}"
     end
 
-    def maintainers_md
+    def maintainers_md(dt = nil)
       @maintainers_md ||= begin
-        data = $github.contents(full_name, path: 'MAINTAINERS.md')
-        md = Base64.decode64(data.content)
+        if dt
+          $github.commits(full_name, path: 'MAINTAINERS.md').each do |commit|
+            next unless commit.commit.author[:date] < dt
+
+            # puts "Fetched #{full_name}, path=MAINTAINERS.md, ref=#{commit.sha}"
+            data = $github.contents(full_name, path: 'MAINTAINERS.md', query: { ref: commit.sha })
+            return Base64.decode64(data.content)
+          end
+          nil
+        else
+          data = $github.contents(full_name, path: 'MAINTAINERS.md')
+          Base64.decode64(data.content)
+        end
       rescue Octokit::NotFound
         nil
       end
     end
 
-    def maintainers
+    def maintainers(dt = nil)
       @maintainers ||= begin
         data = {}
-        content = maintainers_md
+        content = maintainers_md(dt)
         parsed = Redcarpet::Markdown.new(MaintainersExtractor, tables: true, target: data).render(content) if content
         GitHub::Maintainers.new(data[:maintainers]) if data && data.key?(:maintainers)
       rescue Octokit::NotFound
