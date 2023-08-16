@@ -80,7 +80,7 @@ module Bin
           total_users = 0
           total_repos = 0
           unique_users = Set.new
-          repos.each do |repo|
+          all = repos.map do |repo|
             users = repo.maintainers&.map do |user|
               commits = $github.commits(repo.full_name, author: user)
               next if commits.any?
@@ -92,9 +92,13 @@ module Bin
             total_users += users.count
             total_repos += 1
             unique_users.add(users)
+            STDOUT.print('.')
+            [repo, users]
+          end.compact.to_h
+          puts "\nThere are #{unique_users.count} unique names in #{total_users} instances of users listed in MAINTAINERS.md that have never contributed across #{total_repos}/#{repos.count} repos.\n\n"
+          all.sort_by { |_k, v| -v.size }.each do |repo, users|
             puts "#{repo.html_url}: #{users}" if users&.any?
           end
-          puts "\nThere are #{unique_users.count} unique names in #{total_users} instances of users listed in MAINTAINERS.md that have never contributed across #{total_repos}/#{repos.count} repos."
         end
       end
 
@@ -113,6 +117,24 @@ module Bin
               puts "#{repo.html_url}: OK"
             end
           end
+        end
+      end
+
+      g.desc 'Find MAINTAINERS.md emails.'
+      g.command 'emails' do |c|
+        c.action do |_global_options, options, _args|
+          org = GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project'))
+          repos = org.repos.sort_by(&:name)
+          all = repos.map do |repo|
+            users_and_emails = repo.maintainers&.map do |user|
+              [user, $github.commits(repo.full_name, author: user).map do |commit|
+                commit.commit.author.email
+              end.uniq.compact.reject { |e| e.ends_with?('@users.noreply.github.com') }.take(1)]
+            end&.compact.to_h
+            STDOUT.print '.'
+            [repo, users_and_emails]
+          end.to_h.values.inject(:merge)
+          puts all.values
         end
       end
     end

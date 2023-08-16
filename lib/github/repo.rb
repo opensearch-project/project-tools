@@ -48,7 +48,7 @@ module GitHub
         lines = content.split("\n").reject { |part| part[0] == '#' }
         lines.map do |line|
           users = line.split(' ')[1..]
-          users.map { |user| user[1..] }
+          users&.map { |user| user[1..] }
         end.flatten
       rescue Octokit::NotFound
         nil
