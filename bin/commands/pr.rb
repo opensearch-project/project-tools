@@ -29,7 +29,7 @@ module Bin
 
           if !options['ignore-unknown'] && prs.contributors[:unknown]&.any?
             puts 'Add the following users to either data/users/members.txt, external.txt, students.txt or contractors.txt and re-run.'
-            prs.contributors[:unknown].keys.take(10).each do |user|
+            prs.contributors[:unknown].keys.each do |user|
               puts user
               system "open https://github.com/#{user}"
             end
