@@ -26,6 +26,8 @@ module Bin
     pre do |global_options, _command, _options, _args|
       GitHub::Progress.enabled = global_options['quiet'] ? false : true
 
+      GitHub::Data.check_dups!
+
       if global_options['vcr-cassette-name']
         require 'webmock'
         WebMock.enable!

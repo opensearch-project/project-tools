@@ -46,6 +46,14 @@ module GitHub
         @students ||= load_list(STUDENTS)
       end
 
+      def check_dups!
+        %i[members contractors students external_users].combination(2).each do |l, r|
+          send(l).intersection(send(r)).each do |user|
+            warn "WARNING: #{user} is found in both #{l} and #{r}"
+          end
+        end
+      end
+
       def bots
         @bots ||= load_list(BOTS)
       end
