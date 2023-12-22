@@ -5,7 +5,7 @@ module GitHub
     include GitHub::Buckets
 
     def initialize(arr_or_options)
-      super arr_or_options, GitHub::PullRequest
+      super(arr_or_options, GitHub::PullRequest)
     end
 
     def contributors

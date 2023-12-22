@@ -41,7 +41,7 @@ module Bin
           org = GitHub::Organization.new(options)
           signers = org.commits(options).dco_signers
           signers.sort_for_display.each do |signer|
-            puts signer.to_s
+            puts signer
           end
         end
       end

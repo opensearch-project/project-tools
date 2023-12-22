@@ -3,7 +3,7 @@
 module GitHub
   class Commits < Items
     def initialize(arr_or_options)
-      super arr_or_options, GitHub::Commit
+      super(arr_or_options, GitHub::Commit)
     end
 
     # Gets all unique DCO signers (by email address) from all commits

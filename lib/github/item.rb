@@ -6,9 +6,9 @@ module GitHub
 
     def initialize(id_or_obj, m = nil)
       if id_or_obj.is_a?(Sawyer::Resource)
-        super id_or_obj
+        super(id_or_obj)
       elsif m
-        super $github.send(m, id_or_obj)
+        super($github.send(m, id_or_obj))
       else
         raise "Missing Octokit method for #{id_or_obj}"
       end

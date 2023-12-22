@@ -7,9 +7,9 @@ module GitHub
     def initialize(obj_or_options = {})
       if obj_or_options.is_a?(Hash)
         @org = obj_or_options[:org]
-        super $github.org_repos(org), GitHub::Repo
+        super($github.org_repos(org), GitHub::Repo)
       else
-        super obj_or_options, GitHub::Repo
+        super(obj_or_options, GitHub::Repo)
       end
     end
 
