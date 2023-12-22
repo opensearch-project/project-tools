@@ -50,6 +50,7 @@ module Bin
       client_options = { access_token: global_options[:token] } if global_options.key?(:token)
       unless global_options['no-cache']
         stack = Faraday::RackBuilder.new do |builder|
+          ActiveSupport.cache_format_version = 7.0
           cache_store = ActiveSupport::Cache.lookup_store(:file_store, File.expand_path(File.join(__dir__, '..', '.cache')))
           logger = global_options['debug'] ? Logger.new($stdout) : nil
           builder.use Faraday::HttpCache, serializer: Marshal, shared_cache: false, store: cache_store, logger: logger
