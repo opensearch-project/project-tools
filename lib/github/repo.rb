@@ -57,7 +57,7 @@ module GitHub
         data = $github.contents(full_name, path: '.github/CODEOWNERS')
         content = Base64.decode64(data.content)
         lines = content.split("\n").reject { |part| part[0] == '#' }
-        lines.map do |line|
+        lines.reject(&:blank?).map do |line|
           users = line.split(' ')[1..]
           users&.map { |user| user[1..] }
         end.flatten
