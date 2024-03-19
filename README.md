@@ -111,7 +111,8 @@ Shows maintainer stats.
 ```
 ./bin/project maintainers stats
 
-As of 2023-05-17, 98 repos have 198 maintainers, including 17% (17/98) of repos with at least one of 15 external maintainers.
+As of 2024-03-19, 113 repos have 231 maintainers, where 12% (29/231) are external.
+A total of 22% (25/113) of repos have at least one of 29 external maintainers.
 ```
 
 You can pass a date to find out stats for a given point in time.

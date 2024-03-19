@@ -23,7 +23,7 @@ module GitHub
       elsif GitHub::Data.contractors.include?(username.to_s)
         :contractors
       elsif GitHub::Data.students.include?(username.to_s)
-        :students
+        :external # :students
       elsif GitHub::Data.external_users.include?(username.to_s)
         :external
       elsif GitHub::Data.bots.include?(username.to_s)
