@@ -16,6 +16,12 @@ module GitHub
       end
     end
 
+    def external_unique_percent
+      return 0 unless unique_count
+
+      ((external_unique_count.to_f / unique_count) * 100).to_i
+    end
+
     def unique_count
       buckets.values.map(&:size).sum
     end

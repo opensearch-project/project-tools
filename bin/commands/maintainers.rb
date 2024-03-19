@@ -4,10 +4,11 @@ module Bin
   class Commands
     desc 'Data about repo maintainers.'
     command 'maintainers' do |g|
+      g.flag %i[repo], multiple: true, desc: 'Search a specific repo within the org.'
+
       g.desc 'Show MAINTAINERS.md stats.'
       g.command 'stats' do |c|
         c.flag %i[date], desc: 'Date at.', default_value: nil
-        g.flag %i[repo], multiple: true, desc: 'Search a specific repo within the org.'
         c.action do |_global_options, options, _args|
           dt = options[:date] ? Chronic.parse(options[:date]).to_date : nil
           repos = if options[:repo]&.any?
@@ -16,7 +17,8 @@ module Bin
                     GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project')).repos
                   end
           maintainers = repos.maintainers(dt)
-          puts "As of #{dt || Date.today}, #{repos.count} repos have #{maintainers.unique_count} maintainers, including #{repos.external_maintainers_percent}% (#{repos.external_maintained_size}/#{repos.count}) of repos with at least one of #{maintainers.external_unique_count} external maintainers."
+          puts "As of #{dt || Date.today}, #{repos.count} repos have #{maintainers.unique_count} maintainers, where #{maintainers.external_unique_percent}% (#{maintainers.external_unique_count}/#{maintainers.unique_count}) are external."
+          puts "A total of #{repos.external_maintainers_percent}% (#{repos.external_maintained_size}/#{repos.count}) of repos have at least one of #{maintainers.external_unique_count} external maintainers."
           puts "\n# Maintainers\n"
           puts "unique: #{maintainers.unique_count}"
           maintainers.each_pair do |bucket, logins|
@@ -24,12 +26,17 @@ module Bin
           end
           puts "\n# External Maintainers\n"
           repos.maintained[:external]&.sort_by(&:name)&.each do |repo|
-            puts "#{repo.html_url}: #{repo.maintainers[:external]}"
+            puts "#{repo.html_url}: #{repo.maintainers[:external]} (#{repo.maintainers.external_unique_percent}%, #{repo.maintainers.external_unique_count}/#{repo.maintainers.unique_count})"
           end
 
           puts "\n# Student Maintainers\n"
           repos.maintained[:students]&.sort_by(&:name)&.each do |repo|
             puts "#{repo.html_url}: #{repo.maintainers[:students]}"
+          end
+
+          puts "\n# Contractor Maintainers\n"
+          repos.maintained[:contractors]&.sort_by(&:name)&.each do |repo|
+            puts "#{repo.html_url}: #{repo.maintainers[:contractors]}"
           end
 
           puts "\n# Unknown Maintainers\n"
