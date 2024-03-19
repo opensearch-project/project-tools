@@ -5,7 +5,7 @@ module GitHub
     include Comparable
 
     def initialize(id_or_obj)
-      super id_or_obj, :user
+      super(id_or_obj, :user)
     rescue Octokit::NotFound => e
       raise "Invalid user: #{id_or_obj}: #{e.message}"
     end

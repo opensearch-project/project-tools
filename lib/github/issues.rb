@@ -3,7 +3,7 @@
 module GitHub
   class Issues < Items
     def initialize(id_or_options)
-      super id_or_options, GitHub::Issue
+      super(id_or_options, GitHub::Issue)
     end
 
     def version_labels

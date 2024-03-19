@@ -122,6 +122,12 @@ You can pass a date to find out stats for a given point in time.
 As of 2023-06-01, 103 repos have 202 maintainers, including 18% (19/103) of repos with at least one of 17 external maintainers.
 ```
 
+You can limit to a list of repos using `--repo`.
+
+```
+./bin/project maintainers stats --repo=opensearch-project/OpenSearch --repo=opensearch-project/opensearch-py
+```
+
 Shows missing MAINTAINERS.md.
 
 ```

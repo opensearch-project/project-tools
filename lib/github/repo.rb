@@ -4,9 +4,9 @@ module GitHub
   class Repo < Item
     def initialize(id_or_obj)
       if id_or_obj.is_a?(Sawyer::Resource)
-        super id_or_obj
+        super(id_or_obj)
       else
-        super $github.repo(id_or_obj)
+        super($github.repo(id_or_obj))
       end
     rescue Octokit::NotFound => e
       raise "Invalid repo: #{id_or_obj}: #{e.message}"
@@ -57,7 +57,7 @@ module GitHub
         data = $github.contents(full_name, path: '.github/CODEOWNERS')
         content = Base64.decode64(data.content)
         lines = content.split("\n").reject { |part| part[0] == '#' }
-        lines.map do |line|
+        lines.reject(&:blank?).map do |line|
           users = line.split(' ')[1..]
           users&.map { |user| user[1..] }
         end.flatten

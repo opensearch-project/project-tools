@@ -7,9 +7,9 @@ module GitHub
 
     def initialize(arr_or_options, klass)
       if arr_or_options.is_a?(Array)
-        super klass.wrap(arr_or_options)
+        super(klass.wrap(arr_or_options))
       elsif arr_or_options.is_a?(Hash)
-        super fetch(arr_or_options, klass)
+        super(fetch(arr_or_options, klass))
       else
         raise ArgumentError, "Unexpected #{arr_or_options.class}"
       end

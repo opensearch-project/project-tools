@@ -5,7 +5,7 @@ module GitHub
     include Comparable
 
     def initialize(id_or_obj)
-      super id_or_obj, :team
+      super(id_or_obj, :team)
     end
 
     def repos

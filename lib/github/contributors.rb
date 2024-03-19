@@ -6,7 +6,7 @@ module GitHub
     include GitHub::Buckets
 
     def initialize(arr)
-      super arr, Contributor
+      super(arr, Contributor)
     end
 
     def humans

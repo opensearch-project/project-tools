@@ -19,19 +19,19 @@ module GitHub
 
   class SearchableRepo < Searchable
     def initialize(name, org = nil)
-      super 'repo', [org, name].compact.join('/')
+      super('repo', [org, name].compact.join('/'))
     end
   end
 
   class SearchableOrg < Searchable
     def initialize(name)
-      super 'org', name
+      super('org', name)
     end
   end
 
   class Searchables < Array
     def initialize(options = {})
-      super []
+      super([])
       orgs = Array(options[:org])
       repos = Array(options[:repo])
       repo_in_org = false

@@ -7,28 +7,33 @@ module Bin
       g.desc 'Show MAINTAINERS.md stats.'
       g.command 'stats' do |c|
         c.flag %i[date], desc: 'Date at.', default_value: nil
+        g.flag %i[repo], multiple: true, desc: 'Search a specific repo within the org.'
         c.action do |_global_options, options, _args|
-          org = GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project'))
           dt = options[:date] ? Chronic.parse(options[:date]).to_date : nil
-          maintainers = org.repos.maintainers(dt)
-          puts "As of #{dt || Date.today}, #{org.repos.count} repos have #{maintainers.unique_count} maintainers, including #{org.repos.external_maintainers_percent}% (#{org.repos.external_maintained_size}/#{org.repos.count}) of repos with at least one of #{maintainers.external_unique_count} external maintainers."
+          repos = if options[:repo]&.any?
+                    GitHub::Repos.new(options[:repo])
+                  else
+                    GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project')).repos
+                  end
+          maintainers = repos.maintainers(dt)
+          puts "As of #{dt || Date.today}, #{repos.count} repos have #{maintainers.unique_count} maintainers, including #{repos.external_maintainers_percent}% (#{repos.external_maintained_size}/#{repos.count}) of repos with at least one of #{maintainers.external_unique_count} external maintainers."
           puts "\n# Maintainers\n"
           puts "unique: #{maintainers.unique_count}"
           maintainers.each_pair do |bucket, logins|
             puts "#{bucket}: #{logins.size} (#{logins.map(&:to_s).join(', ')})"
           end
           puts "\n# External Maintainers\n"
-          org.repos.maintained[:external]&.sort_by(&:name)&.each do |repo|
+          repos.maintained[:external]&.sort_by(&:name)&.each do |repo|
             puts "#{repo.html_url}: #{repo.maintainers[:external]}"
           end
 
           puts "\n# Student Maintainers\n"
-          org.repos.maintained[:students]&.sort_by(&:name)&.each do |repo|
+          repos.maintained[:students]&.sort_by(&:name)&.each do |repo|
             puts "#{repo.html_url}: #{repo.maintainers[:students]}"
           end
 
           puts "\n# Unknown Maintainers\n"
-          org.repos.maintained[:unknown]&.sort_by(&:name)&.each do |repo|
+          repos.maintained[:unknown]&.sort_by(&:name)&.each do |repo|
             puts "#{repo.html_url}: #{repo.maintainers[:unknown]}"
           end
         end
@@ -37,9 +42,12 @@ module Bin
       g.desc 'Audit repos for missing MAINTAINERS.md.'
       g.command 'missing' do |c|
         c.action do |_global_options, options, _args|
-          org = GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project'))
-          repos = org.repos.sort_by(&:name)
-          repos.select { |repo| repo.maintainers.nil? }.each do |repo|
+          repos = if options[:repo]&.any?
+                    GitHub::Repos.new(options[:repo])
+                  else
+                    GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project')).repos
+                  end
+          repos.sort_by(&:name).select { |repo| repo.maintainers.nil? }.each do |repo|
             puts repo.html_url
           end
         end
@@ -48,9 +56,12 @@ module Bin
       g.desc 'Audit MAINTAINERS.md and CODEOWNERS.'
       g.command 'audit' do |c|
         c.action do |_global_options, options, _args|
-          org = GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project'))
-          repos = org.repos.sort_by(&:name)
-          repos.each do |repo|
+          repos = if options[:repo]&.any?
+                    GitHub::Repos.new(options[:repo])
+                  else
+                    GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project')).repos
+                  end
+          repos.sort_by(&:name).each do |repo|
             problems = {}
             repo.maintainers&.each do |user|
               next if repo.codeowners&.include?(user)
@@ -77,12 +88,15 @@ module Bin
       g.desc 'Audit MAINTAINERS.md that have never contributed.'
       g.command 'contributors' do |c|
         c.action do |_global_options, options, _args|
-          org = GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project'))
-          repos = org.repos.sort_by(&:name)
+          repos = if options[:repo]&.any?
+                    GitHub::Repos.new(options[:repo])
+                  else
+                    GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project')).repos
+                  end
           total_users = 0
           total_repos = 0
           unique_users = Set.new
-          repos.each do |repo|
+          repos.sort_by(&:name).each do |repo|
             users = repo.maintainers&.map do |user|
               commits = $github.commits(repo.full_name, author: user)
               next if commits.any?
@@ -103,9 +117,12 @@ module Bin
       g.desc 'Compare MAINTAINERS.md and CODEOWNERS with repo permissions.'
       g.command 'permissions' do |c|
         c.action do |_global_options, options, _args|
-          org = GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project'))
-          repos = org.repos.sort_by(&:name)
-          repos.each do |repo|
+          repos = if options[:repo]&.any?
+                    GitHub::Repos.new(options[:repo])
+                  else
+                    GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project')).repos
+                  end
+          repos.sort_by(&:name).each do |repo|
             if repo.oss_problems.any?
               puts "#{repo.html_url}"
               repo.oss_problems.each_pair do |problem, desc|

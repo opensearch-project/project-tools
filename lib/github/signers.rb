@@ -8,7 +8,7 @@ module GitHub
       arr.each do |signer|
         by_email[signer.email] = best_signer(by_email[signer.email], signer)
       end
-      super by_email.values
+      super(by_email.values)
     end
 
     # Sort all "noreply" email addresses to the bottom (for manual curation), then sort by name
