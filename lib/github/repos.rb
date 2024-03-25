@@ -43,14 +43,30 @@ module GitHub
       end
     end
 
-    def external_maintained_size
-      (maintained[:external]&.size || 0) + (maintained[:students]&.size || 0)
+    def externally_maintained
+      @externally_maintained ||= begin
+        all = Set.new
+        Maintainers::ALL_EXTERNAL.each do |bucket|
+          each do |repo|
+            next unless ((repo.maintainers & maintainers[bucket]) || []).any?
+
+            all.add(repo)
+          end
+        end
+        all
+      end
     end
 
-    def external_maintainers_percent
+    def all_external_maintained_size
+      Maintainers::ALL_EXTERNAL.map do |bucket|
+        maintained[bucket]&.size || 0
+      end.sum
+    end
+
+    def all_external_maintainers_percent
       return 0 unless any?
 
-      (((maintained[:external]&.size.to_f + maintained[:students]&.size.to_f) / size) * 100).to_i
+      (all_external_maintained_size.to_f * 100 / size).to_i
     end
   end
 end
