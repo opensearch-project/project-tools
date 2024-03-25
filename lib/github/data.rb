@@ -26,48 +26,52 @@ module GitHub
         DATA
       end
 
-      def backports
-        @backports ||= load_list(BACKPORTS)
+      def backports_data
+        @backports_data ||= load_list(BACKPORTS)
       end
 
-      def members
-        @members ||= load_list(MEMBERS)
+      def members_data
+        @members_data ||= load_list(MEMBERS)
       end
 
-      def contractors
-        @contractors ||= load_list(CONTRACTORS)
+      def contractors_data
+        @contractors_data ||= load_list(CONTRACTORS)
       end
 
-      def external_users
-        @external_users ||= load_list(EXTERNAL)
+      def external_data
+        @external_data ||= load_list(EXTERNAL)
       end
 
-      def students
-        @students ||= load_list(STUDENTS)
+      def students_data
+        @students_data ||= load_list(STUDENTS)
+      end
+
+      def bots_data
+        @bots_data ||= load_list(BOTS)
+      end
+
+      def companies_data
+        @companies_data ||= load_list(COMPANIES)
+      end
+
+      def all_members_data
+        members_data
       end
 
       def check_dups!
-        %i[members contractors students external_users].combination(2).each do |l, r|
+        %i[members_data contractors_data students_data external_data].combination(2).each do |l, r|
           send(l).intersection(send(r)).each do |user|
             warn "WARNING: #{user} is found in both #{l} and #{r}"
           end
         end
       end
 
-      def bots
-        @bots ||= load_list(BOTS)
-      end
-
-      def companies
-        @companies ||= load_list(COMPANIES)
-      end
-
-      def all_members
-        members + contractors
-      end
-
-      def all_external
-        external_users + students
+      def all_external_data
+        all = []
+        Maintainers::ALL_EXTERNAL.each do |bucket|
+          all.concat(send("#{bucket}_data"))
+        end
+        all
       end
     end
   end

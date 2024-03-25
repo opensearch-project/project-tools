@@ -35,11 +35,17 @@ module GitHub
     end
 
     def all_members
-      members.to_a + contractors.to_a
+      members.to_a
     end
 
     def all_external
-      external.to_a + students.to_a
+      all = []
+      Maintainers::ALL_EXTERNAL.each do |bucket|
+        next unless buckets[bucket]
+
+        all.concat(buckets[bucket].to_a)
+      end
+      all
     end
 
     def all_external_percent
@@ -56,15 +62,15 @@ module GitHub
     end
 
     def self.bucket(username)
-      if GitHub::Data.members.include?(username.to_s)
+      if GitHub::Data.members_data.include?(username.to_s)
         :members
-      elsif GitHub::Data.contractors.include?(username.to_s)
+      elsif GitHub::Data.contractors_data.include?(username.to_s)
         :contractors
-      elsif GitHub::Data.college_contributors.include?(username.to_s)
+      elsif GitHub::Data.students_data.include?(username.to_s)
         :students
-      elsif GitHub::Data.external_users.include?(username.to_s)
+      elsif GitHub::Data.external_data.include?(username.to_s)
         :external
-      elsif GitHub::Data.bots.include?(username.to_s)
+      elsif GitHub::Data.bots_data.include?(username.to_s)
         :bots
       else
         :unknown

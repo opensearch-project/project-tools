@@ -20,8 +20,8 @@ module Bin
           org = GitHub::Organization.new(options)
           puts "org: #{org.name}"
           puts "members: #{org.members.count}"
-          puts "missing in data/users/members.txt: #{(org.members.logins - GitHub::Data.members).join(' ')}"
-          puts "no longer members: #{(GitHub::Data.members - org.members.logins).join(' ')}"
+          puts "missing in data/users/members.txt: #{(org.members.logins - GitHub::Data.members_data).join(' ')}"
+          puts "no longer members: #{(GitHub::Data.members_data - org.members.logins).join(' ')}"
         end
       end
 

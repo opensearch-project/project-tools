@@ -7,7 +7,7 @@ module Bin
       g.desc 'Check GitHub affiliation information for contributors.'
       g.command 'check' do |c|
         c.action do |_global_options, _options, _args|
-          GitHub::User.wrap(GitHub::Data.members).each do |contributor|
+          GitHub::User.wrap(GitHub::Data.members_data).each do |contributor|
             unless contributor.member?
               puts "#{contributor.login}: #{[contributor.company,
                                              contributor.bio].compact.join(' ')}"

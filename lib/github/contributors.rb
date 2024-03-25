@@ -10,7 +10,7 @@ module GitHub
     end
 
     def humans
-      reject { |item| item.type == 'Bot' || GitHub::Data.bots.include?(item.to_s) }
+      reject { |item| item.type == 'Bot' || GitHub::Data.bots_data.include?(item.to_s) }
     end
 
     def all
@@ -18,15 +18,15 @@ module GitHub
     end
 
     def self.bucket(username)
-      if GitHub::Data.members.include?(username.to_s)
+      if GitHub::Data.members_data.include?(username.to_s)
         :members
-      elsif GitHub::Data.contractors.include?(username.to_s)
+      elsif GitHub::Data.contractors_data.include?(username.to_s)
         :contractors
-      elsif GitHub::Data.students.include?(username.to_s)
-        :external # :students
-      elsif GitHub::Data.external_users.include?(username.to_s)
+      elsif GitHub::Data.students_data.include?(username.to_s)
+        :students
+      elsif GitHub::Data.external_data.include?(username.to_s)
         :external
-      elsif GitHub::Data.bots.include?(username.to_s)
+      elsif GitHub::Data.bots_data.include?(username.to_s)
         :bots
       else
         :unknown

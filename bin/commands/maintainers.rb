@@ -17,32 +17,34 @@ module Bin
                     GitHub::Organization.new(options.merge(org: options['org'] || 'opensearch-project')).repos
                   end
           maintainers = repos.maintainers(dt)
-          puts "As of #{dt || Date.today}, #{repos.count} repos have #{maintainers.unique_count} maintainers, where #{maintainers.external_unique_percent}% (#{maintainers.external_unique_count}/#{maintainers.unique_count}) are external."
-          puts "A total of #{repos.external_maintainers_percent}% (#{repos.external_maintained_size}/#{repos.count}) of repos have at least one of #{maintainers.external_unique_count} external maintainers."
-          puts "\n# Maintainers\n"
-          puts "unique: #{maintainers.unique_count}"
-          maintainers.each_pair do |bucket, logins|
-            puts "#{bucket}: #{logins.size} (#{logins.map(&:to_s).join(', ')})"
-          end
+          puts "As of #{dt || Date.today}, #{repos.count} repos have #{maintainers.unique_count} maintainers, where #{maintainers.all_external_unique_percent}% (#{maintainers.all_external_unique_count}/#{maintainers.unique_count}) are external."
+          puts "A total of #{repos.all_external_maintainers_percent}% (#{repos.all_external_maintained_size}/#{repos.count}) of repos have at least one of #{maintainers.all_external_unique_count} external maintainers."
+
           puts "\n# External Maintainers\n"
-          repos.maintained[:external]&.sort_by(&:name)&.each do |repo|
-            puts "#{repo.html_url}: #{repo.maintainers[:external]} (#{repo.maintainers.external_unique_percent}%, #{repo.maintainers.external_unique_count}/#{repo.maintainers.unique_count})"
+          repos.externally_maintained.each do |repo|
+            puts "#{repo.html_url}: #{repo.maintainers.all_external} (#{repo.maintainers.all_external_unique_percent}%, #{repo.maintainers.all_external_unique_count}/#{repo.maintainers.unique_count})"
           end
 
-          puts "\n# Student Maintainers\n"
-          repos.maintained[:students]&.sort_by(&:name)&.each do |repo|
-            puts "#{repo.html_url}: #{repo.maintainers[:students]}"
-          end
+          # GitHub::Maintainers::ALL_EXTERNAL.each do |bucket|
+          #   repos.maintained[bucket]&.sort_by(&:name)&.each do |repo|
+          #     puts "#{repo.html_url}: #{repo.maintainers.all_external} (#{repo.maintainers.all_external_unique_percent}%, #{repo.maintainers.all_external_unique_count}/#{repo.maintainers.unique_count})"
+          #   end
+          # end
 
-          puts "\n# Contractor Maintainers\n"
-          repos.maintained[:contractors]&.sort_by(&:name)&.each do |repo|
-            puts "#{repo.html_url}: #{repo.maintainers[:contractors]}"
-          end
+          # puts "\n# All Maintainers\n"
+          # puts "unique: #{maintainers.unique_count}"
+          # maintainers.each_pair do |bucket, logins|
+          #   puts "#{bucket}: #{logins.size} (#{logins.map(&:to_s).join(', ')})"
+          # end
 
-          puts "\n# Unknown Maintainers\n"
-          repos.maintained[:unknown]&.sort_by(&:name)&.each do |repo|
-            puts "#{repo.html_url}: #{repo.maintainers[:unknown]}"
-          end
+          # %i[external students contractors unknown].each do |bucket|
+          #   next unless repos.maintained[bucket]&.any?
+
+          #   puts "\n# #{bucket.capitalize} Maintainers\n"
+          #   repos.maintained[bucket]&.sort_by(&:name)&.each do |repo|
+          #     puts "#{repo.html_url}: #{repo.maintainers[bucket]}"
+          #   end
+          # end
         end
       end
 
