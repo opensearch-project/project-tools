@@ -21,13 +21,13 @@ module GitHub
     def all_external
       ALL_EXTERNAL.map do |bucket|
         buckets[bucket]
-      end.flatten.compact.uniq
+      end.flatten.compact
     end
 
     def all_external_unique_percent
       return 0 unless unique_count
 
-      ((all_external_unique_count.to_f / unique_count) * 100).to_i
+      ((all_external_unique_count.to_f / unique_count) * 100).round(1)
     end
 
     def unique_count
