@@ -19,11 +19,11 @@ module GitHub
 
     def maintainers(dt = nil)
       @maintainers ||= begin
-        all = Set.new
+        all = []
         each do |repo|
           maintainers = repo.maintainers(dt)
           maintainers&.each do |user|
-            all.add(user)
+            all << user
           end
         end
         GitHub::Maintainers.new(all.to_a)
@@ -66,7 +66,7 @@ module GitHub
     def all_external_maintainers_percent
       return 0 unless any?
 
-      (all_external_maintained_size.to_f * 100 / size).to_i
+      (all_external_maintained_size.to_f * 100 / size).round(1)
     end
   end
 end

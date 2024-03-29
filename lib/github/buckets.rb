@@ -51,7 +51,7 @@ module GitHub
     def all_external_percent
       return 0 unless all.any?
 
-      ((all_external.size.to_f / all_humans.size) * 100).to_i
+      ((all_external.size.to_f / all_humans.size) * 100).round(1)
     end
 
     def percent
