@@ -57,6 +57,19 @@ module GitHub
       end
     end
 
+    def external_maintainers
+      @external_maintainers ||= begin
+        all = {}
+        externally_maintained.each do |repo|
+          repo.maintainers.all_external.each do |maintainer|
+            all[maintainer] ||= []
+            all[maintainer] << repo
+          end
+        end
+        all
+      end
+    end
+
     def all_external_maintained_size
       Maintainers::ALL_EXTERNAL.map do |bucket|
         maintained[bucket]&.size || 0
