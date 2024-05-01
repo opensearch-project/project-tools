@@ -21,7 +21,7 @@ module GitHub
     def all_external
       ALL_EXTERNAL.map do |bucket|
         buckets[bucket]
-      end.flatten.compact
+      end.flatten.uniq.compact
     end
 
     def all_external_unique_percent
@@ -31,13 +31,13 @@ module GitHub
     end
 
     def unique_count
-      buckets.values.map(&:size).sum
+      buckets.values.flatten.uniq.size
     end
 
     def all_external_unique_count
       ALL_EXTERNAL.map do |bucket|
-        buckets[bucket]&.size || 0
-      end.sum
+        buckets[bucket]
+      end.compact.flatten.uniq.size
     end
 
     def each_pair(&_block)
