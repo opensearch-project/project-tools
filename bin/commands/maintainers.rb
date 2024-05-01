@@ -25,6 +25,11 @@ module Bin
             puts "#{repo.html_url}: #{repo.maintainers.all_external} (#{repo.maintainers.all_external_unique_percent}%, #{repo.maintainers.all_external_unique_count}/#{repo.maintainers.unique_count})"
           end
 
+          puts "\n# External Maintainers (Repos)\n"
+          repos.external_maintainers.each_pair do |maintainer, repos_maintained|
+            puts "#{maintainer}: #{repos_maintained.map(&:html_url).join(', ')}"
+          end
+
           # GitHub::Maintainers::ALL_EXTERNAL.each do |bucket|
           #   repos.maintained[bucket]&.sort_by(&:name)&.each do |repo|
           #     puts "#{repo.html_url}: #{repo.maintainers.all_external} (#{repo.maintainers.all_external_unique_percent}%, #{repo.maintainers.all_external_unique_count}/#{repo.maintainers.unique_count})"
