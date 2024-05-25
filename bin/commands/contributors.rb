@@ -35,13 +35,32 @@ module Bin
         end
       end
 
-      g.desc 'Create a list of all DCO signers'
+      g.desc 'Create a list of all DCO signers.'
       g.command 'dco-signers' do |c|
         c.action do |_global_options, options, _args|
           org = GitHub::Organization.new(options)
           signers = org.commits(options).dco_signers
           signers.sort_for_display.each do |signer|
             puts signer
+          end
+        end
+      end
+
+      g.desc 'Display pull requests for external contributors.'
+      g.command 'prs' do |c|
+        c.action do |_global_options, options, _args|
+          org = GitHub::Organization.new(options)
+          GitHub::User.wrap(GitHub::Data.external_data) do |contributor|
+            puts "https://github.com/#{contributor.login}"
+            company = contributor.company&.strip&.gsub("\n\r  ", ' ')
+            puts "  #{company}" unless company.blank?
+            bio = contributor.bio&.strip&.gsub("\n\r  ", ' ')
+            puts "  #{bio}" unless bio.blank?
+            prs = GitHub::PullRequests.new({ org: org.name, status: :merged, author: contributor }.merge(options))
+            prs.each do |pr|
+              puts "  #{pr}"
+            end
+            puts
           end
         end
       end

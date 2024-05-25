@@ -210,6 +210,12 @@ Specify multiple repos.
 ./bin/project contributors list --org=aws --repo=aws-cli --repo=deep-learning-containers
 ```
 
+Display pull requests for external contributors.
+
+```
+./bin/project --quiet contributors prs --from=2021-03-14 --page=365
+```
+
 #### Pull Requests
 
 Show a list of pull requests.

@@ -40,7 +40,8 @@ module GitHub
           'is:pull-request',
           'archived:false',
           options[:status] == :merged ? 'is:closed' : 'is:unmerged',
-          options[:status] == :merged ? "merged:#{options[:from]}..#{options[:to]}" : "created:#{options[:from]}..#{options[:to]}"
+          options[:status] == :merged ? "merged:#{options[:from]}..#{options[:to]}" : "created:#{options[:from]}..#{options[:to]}",
+          options[:author] ? "author:#{options[:author]}" : nil
         ].compact
       ).compact.join(' ')
     end
