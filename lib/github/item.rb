@@ -21,7 +21,9 @@ module GitHub
       rate_limited do
         collection&.each do |obj|
           rate_limited do
-            result.push(obj.is_a?(Item) ? obj : new(obj))
+            item = obj.is_a?(Item) ? obj : new(obj)
+            yield item if block_given?
+            result.push(item)
           end
         end
       end
