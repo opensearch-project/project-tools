@@ -4,7 +4,6 @@ source 'http://rubygems.org'
 
 gem 'activesupport'
 gem 'chronic'
-gem 'codecov'
 gem 'dotiw'
 gem 'faraday'
 gem 'faraday-http-cache'
@@ -19,6 +18,7 @@ gem 'rubocop-rake'
 gem 'rubocop-rspec'
 gem 'ruby-progressbar'
 gem 'simplecov'
+gem 'simplecov-cobertura'
 
 group :test do
   gem 'rake', '~> 13'
