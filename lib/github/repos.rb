@@ -57,6 +57,28 @@ module GitHub
       end
     end
 
+    def member_maintained
+      @member_maintained ||= begin
+        all = Set.new
+        each do |repo|
+          next unless ((repo.maintainers & maintainers[:members]) || []).any?
+
+          all.add(repo)
+        end
+        all
+      end
+    end
+
+    def all_member_maintained_size
+      maintained[:members]&.size || 0
+    end
+
+    def all_member_maintainers_percent
+      return 0 unless any?
+
+      (all_member_maintained_size.to_f * 100 / size).round(1)
+    end
+
     def external_maintainers
       @external_maintainers ||= begin
         all = {}

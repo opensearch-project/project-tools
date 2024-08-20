@@ -28,9 +28,9 @@ module Bin
           puts "total = #{buckets.values.map(&:size).sum}"
           buckets.each_pair do |bucket, logins|
             puts "#{bucket} (#{logins.size}):"
-            logins.sort_by { |_k, v| -v }.each do |login, count|
-              puts " https://github.com/#{login}: #{count}"
-            end
+            # logins.sort_by { |_k, v| -v }.each do |login, count|
+            #   puts " https://github.com/#{login}: #{count}"
+            # end
           end
         end
       end

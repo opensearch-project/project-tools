@@ -41,11 +41,11 @@ module Bin
 
               puts "#{k}: #{v}% (prs=#{prs.buckets[k].size}, people=#{prs.contributors.buckets[k].size})"
             end
-            prs.buckets.each_pair do |key, prs|
+            prs.buckets.each_pair do |key, _prs|
               puts "\n# #{key}"
-              prs.each do |pr|
-                puts pr
-              end
+              # prs.each do |pr|
+              #   puts pr
+              # end
             end
           end
         end

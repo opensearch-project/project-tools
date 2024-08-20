@@ -20,6 +20,11 @@ module Bin
           puts "As of #{dt || Date.today}, #{repos.count} repos have #{maintainers.unique_count} maintainers, where #{maintainers.all_external_unique_percent}% (#{maintainers.all_external_unique_count}/#{maintainers.unique_count}) are external."
           puts "A total of #{repos.all_external_maintainers_percent}% (#{repos.all_external_maintained_size}/#{repos.count}) of repos have at least one of #{maintainers.all_external_unique_count} external maintainers."
 
+          puts "\n# Member Maintainers\n"
+          repos.member_maintained.each do |repo|
+            puts "#{repo.html_url}: #{repo.maintainers.all_members} (#{repo.maintainers.all_members_unique_percent}%, #{repo.maintainers.all_members_unique_count}/#{repo.maintainers.unique_count})"
+          end
+
           puts "\n# External Maintainers\n"
           repos.externally_maintained.each do |repo|
             puts "#{repo.html_url}: #{repo.maintainers.all_external} (#{repo.maintainers.all_external_unique_percent}%, #{repo.maintainers.all_external_unique_count}/#{repo.maintainers.unique_count})"
