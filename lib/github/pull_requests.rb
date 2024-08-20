@@ -29,7 +29,10 @@ module GitHub
       raise 'There are 1000+ PRs returned from a single query, reduce --page.' if data.size >= 1000
 
       data.reject do |pr|
-        pr.user.type == 'Bot' || GitHub::Data.backports_data.any? { |b| pr.title&.downcase&.include?(b) } || project_website_authors?(pr)
+        pr.user.type == 'Bot' ||
+          GitHub::Data.bots_data.include?(pr.user.login) ||
+          GitHub::Data.backports_data.any? { |b| pr.title&.downcase&.include?(b) } ||
+          project_website_authors?(pr)
       end
     end
 
