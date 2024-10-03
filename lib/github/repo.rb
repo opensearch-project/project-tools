@@ -132,5 +132,15 @@ module GitHub
         nil
       end
     end
+
+    def releases
+      @releases ||= GitHub::Release.wrap($github.releases(full_name))
+    end
+
+    def latest_release
+      @latest_release ||= GitHub::Release.new($github.latest_release(full_name))
+    rescue Octokit::NotFound
+      nil
+    end
   end
 end

@@ -19,6 +19,8 @@
     - [Issues](#issues)
     - [Member Bios](#member-bios)
     - [DCO Signers](#dco-signers)
+  - [Releases](#releases)
+    - [Latest Releases](#latest-releases)
 - [Contributing](#contributing)
 - [Code of Conduct](#code-of-conduct)
 - [Security](#security)
@@ -349,6 +351,22 @@ Shows name and email address from all contributors that have signed a developer 
 
 ```
 ./bin/project contributors dco-signers --from=2022-01-01 --to=2022-01-31 --org=opensearch-project --repo=OpenSearch
+```
+
+### Releases
+
+#### Latest Releases
+
+Get if the latest release was last week.
+
+```
+./bin/project releases latest
+```
+
+Show if the latest release was in 2024.
+
+```
+./bin/project releases latest --from=2024-01-01 --to=2024-12-31
 ```
 
 ## Contributing
