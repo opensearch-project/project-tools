@@ -58,8 +58,7 @@ GEM
     rake (13.1.0)
     redcarpet (3.6.0)
     regexp_parser (2.8.3)
-    rexml (3.3.6)
-      strscan
+    rexml (3.3.9)
     rspec (3.12.0)
       rspec-core (~> 3.12.0)
       rspec-expectations (~> 3.12.0)
@@ -113,7 +112,6 @@ GEM
       simplecov (~> 0.19)
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.4)
-    strscan (3.1.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
