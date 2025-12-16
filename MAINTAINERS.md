@@ -4,6 +4,11 @@ This document contains a list of maintainers in this repo. See [opensearch-proje
 
 ## Current Maintainers
 
+| Maintainer | GitHub ID | Affiliation |
+| ---------- | --------- | ----------- |
+
+## Emeritus
+
 | Maintainer         | GitHub ID                           | Affiliation |
 | ------------------ | ----------------------------------- | ----------- |
 | Daniel Doubrovkine | [dblock](https://github.com/dblock) | Independent |
